@@ -1,0 +1,55 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+@import url('./reset.css');
+@import url('./header.css');
+@import url('./footer.css');
+@import url('./categories.css');
+@import url('./popular-recipes.css');
+@import url('./recipes.css');
+@import url('./Favorites.css');
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Light'), local('Epilogue-Light'),
+        url(../fonts/Epilogue-Light.woff2) format('woff2'),
+        url(../fonts/Epilogue-Light.woff) format('woff'),
+        url(../fonts/Epilogue-Light.ttf) format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Regular'), local('Epilogue-Regular'),
+        url(../fonts/Epilogue-Regular.woff2) format('woff2'),
+        url(../fonts/Epilogue-Regular.woff) format('woff'),
+        url(../fonts/Epilogue-Regular.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue SemiBold'), local('Epilogue-SemiBold'),
+        url(../fonts/Epilogue-SemiBold.woff2) format('woff2'),
+        url(../fonts/Epilogue-SemiBold.woff) format('woff'),
+        url(../fonts/Epilogue-SemiBold.ttf) format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+:root {
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
