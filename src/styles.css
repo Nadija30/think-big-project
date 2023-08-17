@@ -1,0 +1,44 @@
+.is-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+.loader {
+    display: flex;
+    justify-content: center;
+}
+.error {
+display: flex;
+justify-content: center;
+}
+.breed-select {
+    display: none;
+    max-width: 400px;
+    margin: auto;
+}
+.cat-info {
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.box-img {
+    display: flex;
+    align-items: center;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+.box {
+    width: 500px;
+}
