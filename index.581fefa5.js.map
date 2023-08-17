@@ -1,0 +1,1 @@
+{"mappings":"AAAAA,QAAQC,IAAI","sources":["src/index.js"],"sourcesContent":["console.log('hello team')\n\nimport './js/swiper';\nimport './js/burger-menu';\nimport './js/categories';\nimport './js/filters';\nimport './js/pop-up-modal';\nimport './js/popular-recipes';\nimport './js/recipes';\n"],"names":["console","log"],"version":3,"file":"index.581fefa5.js.map"}
