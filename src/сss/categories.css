@@ -29,3 +29,6 @@ line-height: 20px; /* 125% */
     appearance: none;
     position: absolute;
 }
+.radio {
+    display: none;
+}
