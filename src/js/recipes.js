@@ -1,6 +1,6 @@
-import axios from 'axios';
+// import axios from 'axios';
 import debounce from 'lodash.debounce';
-
+const cat = 'Beef';
 import { getAreas } from './search-api';
 import { getIngredients } from './search-api';
 
@@ -10,6 +10,8 @@ const elems = {
     selectArea: document.querySelector('[name="area"]'),
     selectIngredients: document.querySelector('[name="ingredients"]'),
 };
+const widthOfViewport = window.innerWidth;
+const params = {};
 
 getAreas()
     .then(data => {
@@ -26,15 +28,21 @@ getIngredients()
 createOptionsTime();
 
 function createOptionsAreas(arrAreas) {
-    elems.selectArea.innerHTML = arrAreas
-        .map(({ name }) => `<option value=${name}>${name}</option>`)
-        .join('');
+    elems.selectArea.insertAdjacentHTML(
+        'beforeend',
+        arrAreas
+            .map(({ name }) => `<option value=${name}>${name}</option>`)
+            .join('')
+    );
 }
 
 function createOptionsIngredients(arrIngredients) {
-    elems.selectIngredients.innerHTML = arrIngredients
-        .map(({ _id, name }) => `<option value=${_id}>${name}</option>`)
-        .join('');
+    elems.selectIngredients.insertAdjacentHTML(
+        'beforeend',
+        arrIngredients
+            .map(({ _id, name }) => `<option value=${_id}>${name}</option>`)
+            .join('')
+    );
 }
 
 function createOptionsTime() {
@@ -44,7 +52,7 @@ function createOptionsTime() {
         markup.push(`<option value=${i}>${i}</option>`);
     }
 
-    elems.selectTime.innerHTML = markup.join('');
+    elems.selectTime.insertAdjacentHTML('beforeend', markup.join(''));
 }
 
 elems.inputSearch.addEventListener('input', debounce(handlerSearch, 300));
