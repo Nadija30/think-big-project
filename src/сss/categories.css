@@ -1,9 +1,4 @@
-.categories {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 24px;
-}
+
 .block{
 display: flex;
 flex-direction: column;
