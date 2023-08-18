@@ -1,0 +1,31 @@
+.categories {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 326px;
+    max-height: 198px;
+    gap: 24px;
+    }
+
+ .block{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+max-width: 64px;
+max-height: 198px;
+gap: 24px;
+}
+
+.radio-btn {
+color: rgba(5, 5, 5, 0.30);
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px; /* 125% */
+}
+.radio_input{
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+}
