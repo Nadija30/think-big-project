@@ -1,5 +1,8 @@
-.categories {
+.wrapper {
     display: flex;
+}
+
+.categories {
     flex-direction: column;
     align-items: flex-start;
     max-width: 326px;
