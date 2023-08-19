@@ -3,7 +3,7 @@ import axios from 'axios';
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
 
 const refs = {
-    btnOpen: document.querySelector('[data-pop-up-btn-open]'),
+    btnOpen: document.querySelector('.js-see-recipe'),
     btnClose: document.querySelector('[data-pop-up-btn-close]'),
     backdrop: document.querySelector('[data-pop-up-backdrop]'),
     scrollOnModal: document.querySelector('body'),
@@ -15,11 +15,9 @@ refs.btnClose.addEventListener('click', onBtnCloseClick);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
 function onBtnOpenClick(event) {
-    const recipeID = event.target.id;
+    const recipeID = event.target.dataset.id;
 
     fetchRecipeByID(recipeID).then(data => {
-        console.log(data);
-
         refs.recipe.insertAdjacentHTML('beforeend', createMarkup(data, 1, 2));
     });
 
