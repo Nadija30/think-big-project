@@ -9,3 +9,4 @@ import './js/popular-recipes';
 import './js/recipes';
 import './js/rating-modal';
 import './js/order.modal';
+import './js/footer';
