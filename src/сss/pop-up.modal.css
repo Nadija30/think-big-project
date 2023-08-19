@@ -1,0 +1,92 @@
+.scroll-blocked {
+    overflow: hidden;
+}
+
+.pop-up-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-black-40, rgba(20, 20, 20, 0.5));
+
+    overflow-y: auto;
+}
+
+/* ORDER NOW */
+
+/* body.pop-up-modal {
+  height: 100vh;
+  overflow-y: hidden;
+} */
+
+.pop-up-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 335px;
+    height: calc(100% - 20px);
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px 40px;
+    overflow-y: scroll;
+}
+
+.pop-up-modal::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.pop-up-modal::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.pop-up-modal-close-btn {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    background-color: transparent;
+
+    padding: 0;
+
+    cursor: pointer;
+    /* transition: background var(--transition-hover-focus); */
+}
+
+.pop-up-modal-close-btn:hover,
+.pop-up-modal-close-btn:focus {
+    /* background: var(--ocean); */
+    border: none;
+}
+
+.pop-up-modal-close-icon {
+    width: 20px;
+    height: 20px;
+
+    /* fill: var(--navy- blue-modal); */
+
+    /* transition: fill var(--transition-hover-focus); */
+}
+
+.pop-up-modal-close-btn:hover .pop-up-modal-close-icon,
+.pop-up-modal-close-btn:focus .pop-up-modal-close-icon {
+    /* fill: var(--white); */
+}
+
+@media screen and (min-width: 768px) {
+    .pop-up-modal {
+        width: 530px;
+
+        padding: 32px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+}
