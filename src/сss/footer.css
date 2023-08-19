@@ -1,4 +1,4 @@
-/** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER */
+/** =============================================== FOOTER */
 /** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @media PHONE */
 
 /* footer {
@@ -126,5 +126,74 @@
 @media screen and (min-width: 1280px) {
     .footer-wrap {
         gap: 24px 80px;
+    }
+}
+
+/** =============================================== BTN-UP */
+/** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @media PHONE */
+
+.btn-up {
+    visibility: hidden;
+    position: fixed;
+    z-index: 3;
+    bottom: 60px;
+    right: 26px;
+    transform: translateX(100px);
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #9bb537;
+    background-color: transparent;
+    border-radius: 50%;
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.btn-up.hidden:is(:hover, :focus) {
+    color: #f8f8f8;
+    background-color: #9bb537;
+}
+
+.btn-up-icon {
+    fill: #050505;
+    width: 16px;
+    height: 18px;
+    display: inline-block;
+}
+/** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @media TABLET */
+
+@media screen and (min-width: 768px) {
+    .btn-up {
+        bottom: 116px;
+
+        width: 44px;
+        height: 44px;
+        /* font-size: 36px; */
+    }
+    .btn-up-icon {
+        width: 18px;
+        height: 20px;
+    }
+}
+
+/** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @media DESKTOP */
+
+@media screen and (min-width: 1280px) {
+    .btn-up {
+        bottom: 130px;
     }
 }
