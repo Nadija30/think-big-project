@@ -1,9 +1,26 @@
-<div class="backdrop">
+<div class="backdrop__rating">
     <div class="rating__modal">
         <form class="rating__form">
-            <p class="rating-text">Rating</p>
-            <div class="rating__wrap rating">
-                <p class="rating__value">2</p>
+            <label class="rating-text">Rating</label>
+            <div class="rating__wrap rating set__rating">
+                <p class="rating__value">0.0</p>
+                <div class="star__wrap">
+                    <svg class="rating__icon" width="24" height="24">
+                        <use href="./img/icons.svg#icon-star"></use>
+                    </svg>
+                    <svg class="rating__icon" width="24" height="24">
+                        <use href="./img/icons.svg#icon-star"></use>
+                    </svg>
+                    <svg class="rating__icon" width="24" height="24">
+                        <use href="./img/icons.svg#icon-star"></use>
+                    </svg>
+                    <svg class="rating__icon" width="24" height="24">
+                        <use href="./img/icons.svg#icon-star"></use>
+                    </svg>
+                    <svg class="rating__icon" width="24" height="24">
+                        <use href="./img/icons.svg#icon-star"></use>
+                    </svg>
+                </div>
                 <div class="radio__wrap">
                     <input
                         type="radio"
@@ -36,27 +53,11 @@
                         name="rating"
                     />
                 </div>
-                <div class="star__wrap">
-                    <svg class="rating__icon" width="24" height="24">
-                        <use href="./img/icons.svg#icon-star"></use>
-                    </svg>
-                    <svg class="rating__icon" width="24" height="24">
-                        <use href="./img/icons.svg#icon-star"></use>
-                    </svg>
-                    <svg class="rating__icon" width="24" height="24">
-                        <use href="./img/icons.svg#icon-star"></use>
-                    </svg>
-                    <svg class="rating__icon" width="24" height="24">
-                        <use href="./img/icons.svg#icon-star"></use>
-                    </svg>
-                    <svg class="rating__icon" width="24" height="24">
-                        <use href="./img/icons.svg#icon-star"></use>
-                    </svg>
-                </div>
             </div>
             <input
                 class="rating__input"
                 type="email"
+                name="email"
                 placeholder="Enter email"
             />
             <button class="rating__submit" type="submit">Send</button>

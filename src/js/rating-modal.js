@@ -1,7 +1,6 @@
 const refs = {
-    modal: document.querySelector(`.backdrop`),
+    modal: document.querySelector(`.backdrop__rating`),
     closeBtn: document.querySelector(`.close__btn`),
-    ratings: document.querySelectorAll(`.rating`),
 };
 
 refs.closeBtn.addEventListener(`click`, closeModal);
@@ -13,38 +12,44 @@ function closeModal() {
 initRatings();
 
 function initRatings() {
-    let ratingStars, ratingValue;
-    for (let i = 0; i < refs.ratings.lenght; i++) {
-        const rating = refs.ratings[index];
+    const ratings = document.querySelectorAll(`.rating`);
+    console.log(ratings);
+    let ratingValue, ratingStars;
+
+    ratings.forEach(rating => {
+        console.log(rating);
         initRating(rating);
-    }
+    });
 
     function initRating(rating) {
-        initRatingVars(rating);
+        initRatingValues(rating);
+        setActiveStars();
         console.log(rating);
-        setRatingStars();
-    }
-
-    function initRatingVars(rating) {
-        ratingStars = rating.querySelectorAll(`.rating__icon`);
-        ratingValue = rating.querySelector(`.rating__value`);
-    }
-
-    function setRatingStars(i = ratingValue.innerHTML) {
-        for (i = 0; i < ratingStars.lenght; i++) {
-            const star = ratingStars[i];
-            if (i < ratingValue) {
-                star.style.stroke = 'rgba(238, 161, 12, 1)';
-            }
+        if (rating.classList.contains(`set__rating`)) {
+            rating.addEventListener(`change`, setNewValue);
         }
     }
 
-    // function setRating(rating) {
-    //     for (let i = 0; i < ratingRadios.lenght; i++) {
-    //         const ratingRadio = ratingRadios[i];
-    //         ratitngRadio.addEventListener(`mouseenter`, function (e) {
-    //             initRatingVars(rating);
-    //         });
-    //     }
-    // }
+    function initRatingValues(rating) {
+        ratingValue = rating.querySelector(`.rating__value`);
+        console.log(ratingValue);
+        ratingStars = rating.querySelectorAll(`.rating__icon`);
+        console.log(ratingStars);
+    }
+
+    function setActiveStars(count = ratingValue.innerHTML) {
+        console.log(count);
+        ratingStars.forEach(star => {
+            star.classList.remove(`active__star`);
+        });
+        for (i = 0; i < count; i++) {
+            const star = ratingStars[i];
+            star.classList.add(`active__star`);
+        }
+    }
+
+    function setNewValue(e) {
+        ratingValue.innerHTML = `${e.target.value}.0`;
+        setActiveStars();
+    }
 }

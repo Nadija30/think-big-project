@@ -4,7 +4,7 @@
     pointer-events: none;
 }
 
-.backdrop {
+.backdrop__rating {
     position: fixed;
     top: 0;
     width: 100%;
@@ -60,6 +60,12 @@
 .star__wrap {
     position: absolute;
     left: 32px;
+}
+.rating__star {
+    display: inline-block;
+}
+.active__star {
+    fill: rgba(238, 161, 12, 1);
 }
 
 .rating__form {
