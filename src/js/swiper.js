@@ -29,6 +29,8 @@ function createMarkupSwiper(arrSliders) {
 
 // SWIPER
 const swiper = new Swiper('.swiper', {
+    // loop: true,
+
     observer: true,
     observeParents: true,
     observeSlideChildren: true,
@@ -36,6 +38,10 @@ const swiper = new Swiper('.swiper', {
     parallax: true,
     speed: 2000,
 
+    autoplay: {
+        delay: 1500, 
+        disableOnInteraction: false, 
+    },
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -47,3 +53,5 @@ const swiper = new Swiper('.swiper', {
     },
     spaceBetween: 16,
 });
+
+swiper.autoplay.start();
