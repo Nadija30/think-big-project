@@ -1,10 +1,14 @@
-// import axios from 'axios';
 import debounce from 'lodash.debounce';
-const cat = 'Beef';
+import Pagination from 'tui-pagination';
+
 import { getAreas } from './search-api';
 import { getIngredients } from './search-api';
 import { getRecipes } from './search-api';
 import { getCategories } from './search-api';
+
+let widthOfViewport = window.innerWidth;
+let pagination = null;
+let params = {};
 
 const elems = {
     inputSearch: document.querySelector('[name="search"]'),
@@ -16,13 +20,68 @@ const elems = {
     btnAllCategories: document.querySelector('.js-btn-all-cat'),
     btnResetFilters: document.querySelector('.js-btn-reset-filters'),
     formFilters: document.querySelector('.js-form-filter'),
+    containerPagination: document.querySelector('.js-pages'),
 };
-const widthOfViewport = window.innerWidth;
-let params = {};
+const options = {
+    totalItems: 80,
+    itemsPerPage: 8,
+    visiblePages: widthOfViewport < 768 ? 2 : 3,
+    page: 1,
+    centerAlign: false,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+    template: {
+        page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+        currentPage:
+            '<span class="tui-page-btn tui-is-selected">{{page}}</span>',
+        moveButton:
+            '<a href="#" class="tui-page-btn tui-{{type}}">' +
+            '<span class="tui-ico-{{type}}"></span>' +
+            '</a>',
+        disabledMoveButton:
+            '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+            '<span class="tui-ico-{{type}}"></span>' +
+            '</span>',
+        moreButton:
+            '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+            '<span class="tui-ico-ellip">...</span>' +
+            '</a>',
+    },
+};
+
+if (widthOfViewport >= 768 && widthOfViewport < 1280) {
+    params.limit = 8;
+}
+
+if (widthOfViewport >= 1280) {
+    params.limit = 9;
+}
 
 elems.formFilters.addEventListener('submit', event => {
     event.preventDefault();
 });
+
+// window.addEventListener('resize', debounce(onResize, 600));
+
+// function onResize() {
+//     widthOfViewport = window.innerWidth;
+
+//     // const pagination = new Pagination(elems.containerPagination, options);
+
+//     if (widthOfViewport >= 768 && widthOfViewport < 1280) {
+//         params.limit = 8;
+//     }
+
+//     if (widthOfViewport >= 1280) {
+//         params.limit = 9;
+//     }
+
+//     getRecipes(params)
+//         .then(data => {
+//             createCards(data.results);
+//         })
+//         .catch(error => console.log(error));
+// }
 
 getCategories()
     .then(data => {
@@ -44,9 +103,10 @@ getIngredients()
 
 createOptionsTime();
 
-getRecipes()
+getRecipes(params)
     .then(data => {
         createCards(data.results);
+        createPagination(data);
     })
     .catch(error => console.log(error));
 
@@ -91,9 +151,12 @@ elems.inputSearch.addEventListener('input', debounce(handlerSearch, 600));
 function handlerSearch(e) {
     params.title = `${e.target.value}`;
 
+    pagination.reset();
+
     getRecipes(params)
         .then(data => {
             createCards(data.results);
+            createPagination(data);
         })
         .catch(error => console.log(error));
 }
@@ -106,6 +169,7 @@ function handlerSearchByTime(e) {
     getRecipes(params)
         .then(data => {
             createCards(data.results);
+            createPagination(data);
         })
         .catch(error => console.log(error));
 }
@@ -118,6 +182,8 @@ function handlerSearchByArea(e) {
     getRecipes(params)
         .then(data => {
             createCards(data.results);
+
+            createPagination(data);
         })
         .catch(error => console.log(error));
 }
@@ -130,6 +196,8 @@ function handlerSearchByIngredients(e) {
     getRecipes(params)
         .then(data => {
             createCards(data.results);
+
+            createPagination(data);
         })
         .catch(error => console.log(error));
 }
@@ -194,4 +262,30 @@ function hanlerClearFilters() {
             createCards(data.results);
         })
         .catch(error => console.log(error));
+}
+
+function createPagination(data) {
+    options.page = data.page;
+
+    options.totalItems = Number(data.perPage) * Number(data.totalPages);
+
+    options.itemsPerPage = Number(data.perPage);
+
+    pagination = new Pagination(elems.containerPagination, options);
+
+    pagination.on('afterMove', event => {
+        options.page = event.page;
+        params.page = options.page;
+
+        getRecipes(params)
+            .then(data => {
+                createCards(data.results);
+                options.totalItems =
+                    Number(data.perPage) * Number(data.totalPages);
+                options.itemsPerPage = Number(data.perPage);
+                console.log(options);
+                console.log(data);
+            })
+            .catch(error => console.log(error));
+    });
 }
