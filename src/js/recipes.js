@@ -4,6 +4,7 @@ const cat = 'Beef';
 import { getAreas } from './search-api';
 import { getIngredients } from './search-api';
 import { getRecipes } from './search-api';
+import { getCategories } from './search-api';
 
 const elems = {
     inputSearch: document.querySelector('[name="search"]'),
@@ -11,9 +12,17 @@ const elems = {
     selectArea: document.querySelector('[name="area"]'),
     selectIngredients: document.querySelector('[name="ingredients"]'),
     containerCards: document.querySelector('.js-cards'),
+    containerCategories: document.querySelector('.js-btn-categories'),
+    btnAllCategories: document.querySelector('.js-btn-all-cat'),
 };
 const widthOfViewport = window.innerWidth;
 const params = {};
+
+getCategories()
+    .then(data => {
+        createCategories(data);
+    })
+    .catch(error => console.log(error));
 
 getAreas()
     .then(data => {
@@ -28,6 +37,24 @@ getIngredients()
     .catch(error => console.log(error));
 
 createOptionsTime();
+
+getRecipes()
+    .then(data => {
+        createCards(data.results);
+    })
+    .catch(error => console.log(error));
+
+function createCategories(arrCategories) {
+    elems.containerCategories.innerHTML = arrCategories
+        .map(
+            ({ name }) => `<li><button class="js-btn-cat">${name}</button></li>`
+        )
+        .join('');
+    // elems.containerCategories.insertAdjacentHTML(
+    //     'beforeend',
+    //     arrCategories.map(({ name }) => `<button>${name}</button>`).join('')
+    // );
+}
 
 function createOptionsAreas(arrAreas) {
     elems.selectArea.insertAdjacentHTML(
@@ -57,26 +84,24 @@ function createOptionsTime() {
     elems.selectTime.insertAdjacentHTML('beforeend', markup.join(''));
 }
 
-elems.inputSearch.addEventListener('input', debounce(handlerSearch, 300));
+// elems.inputSearch.addEventListener('input', debounce(handlerSearch, 300));
 
-function handlerSearch(e) {
-    params.title = `${e.target.value}`;
-    console.log(params);
+// function handlerSearch(e) {
+//     params.title = `${e.target.value}`;
+//     console.log(params);
 
-    getRecipes(params)
-        .then(data => {
-            console.log(data);
-            // createCards(data);
-        })
-        .catch(error => console.log(error));
-}
+//     getRecipes(params)
+//         .then(data => {
+//             console.log(data);
+//             // createCards(data);
+//         })
+//         .catch(error => console.log(error));
+// }
 
 function createCards(cards) {
-    elems.containerCards.insertAdjacentHTML(
-        'beforeend',
-        cards
-            .map(
-                ({ preview, title, description, rating, _id }) => `<img
+    elems.containerCards.innerHTML = cards
+        .map(
+            ({ preview, title, description, rating, _id }) => `<img
         src="${preview}"
         alt="${title}"
     />
@@ -84,15 +109,34 @@ function createCards(cards) {
     <p>${description}</p>
     <p>${rating}</p>
     <button class="js-see-recipe" data-id="${_id}">See recipe</button>
-    <button class="heart">&#10084;</button>`
-            )
-            .join('')
-    );
+    <button class="heart js-favorites">&#10084;</button>`
+        )
+        .join('');
 }
 
-getRecipes()
-    .then(data => {
-        console.log(data.results);
-        createCards(data.results);
-    })
-    .catch(error => console.log(error));
+elems.containerCategories.addEventListener('click', handlerChooseCat);
+
+function handlerChooseCat(e) {
+    if (e.target.nodeName !== 'BUTTON') {
+        return;
+    }
+
+    params.category = e.target.textContent;
+
+    getRecipes(params)
+        .then(data => {
+            createCards(data.results);
+        })
+        .catch(error => console.log(error));
+}
+
+elems.btnAllCategories.addEventListener('click', handlerClearCategory);
+
+function handlerClearCategory(e) {
+    params.category = null;
+    getRecipes(params)
+        .then(data => {
+            createCards(data.results);
+        })
+        .catch(error => console.log(error));
+}
