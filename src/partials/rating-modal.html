@@ -1,26 +1,70 @@
-<div class="rating__modal">
-  <p class="rating-text">Rating</p>
-  <div class="rating__wrap">
-    <p class="rating__value">0.0</p>
-    <svg class="rating__icon" width="18" height="18">
-      <use href=""></use>
-    </svg>
-    <svg class="rating__icon" width="18" height="18">
-      <use href=""></use>
-    </svg>
-    <svg class="rating__icon" width="18" height="18">
-      <use href=""></use>
-    </svg>
-    <svg class="rating__icon" width="18" height="18">
-      <use href=""></use>
-    </svg>
-    <svg class="rating__icon" width="18" height="18">
-      <use href=""></use>
-    </svg>
-  </div>
-  <form class="rating__form">
-    <input clsss="rating__input" type="email" placeholder="Enter email" />
-    <button class="rating__submit" type="submit">Send</button>
-  </form>
-  <button class="close-modal" type="button">X</button>
+<div class="backdrop">
+    <div class="rating__modal">
+        <form class="rating__form">
+            <p class="rating-text">Rating</p>
+            <div class="rating__wrap rating">
+                <p class="rating__value">2</p>
+                <div class="radio__wrap">
+                    <input
+                        type="radio"
+                        class="rating__radio"
+                        value="1"
+                        name="rating"
+                    />
+                    <input
+                        type="radio"
+                        class="rating__radio"
+                        value="2"
+                        name="rating"
+                    />
+                    <input
+                        type="radio"
+                        class="rating__radio"
+                        value="3"
+                        name="rating"
+                    />
+                    <input
+                        type="radio"
+                        class="rating__radio"
+                        value="4"
+                        name="rating"
+                    />
+                    <input
+                        type="radio"
+                        class="rating__radio"
+                        value="5"
+                        name="rating"
+                    />
+                </div>
+                <div class="star__wrap">
+                    <svg class="rating__icon" width="24" height="24">
+                        <use href="./img/icons.svg#icon-star"></use>
+                    </svg>
+                    <svg class="rating__icon" width="24" height="24">
+                        <use href="./img/icons.svg#icon-star"></use>
+                    </svg>
+                    <svg class="rating__icon" width="24" height="24">
+                        <use href="./img/icons.svg#icon-star"></use>
+                    </svg>
+                    <svg class="rating__icon" width="24" height="24">
+                        <use href="./img/icons.svg#icon-star"></use>
+                    </svg>
+                    <svg class="rating__icon" width="24" height="24">
+                        <use href="./img/icons.svg#icon-star"></use>
+                    </svg>
+                </div>
+            </div>
+            <input
+                class="rating__input"
+                type="email"
+                placeholder="Enter email"
+            />
+            <button class="rating__submit" type="submit">Send</button>
+            <button class="close__btn" type="button">
+                <svg class="close__icon" width="20" height="20">
+                    <use href="./img/icons.svg#icon-close_btn"></use>
+                </svg>
+            </button>
+        </form>
+    </div>
 </div>
