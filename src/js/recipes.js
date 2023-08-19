@@ -3,12 +3,14 @@ import debounce from 'lodash.debounce';
 const cat = 'Beef';
 import { getAreas } from './search-api';
 import { getIngredients } from './search-api';
+import { getRecipes } from './search-api';
 
 const elems = {
     inputSearch: document.querySelector('[name="search"]'),
     selectTime: document.querySelector('[name="time"]'),
     selectArea: document.querySelector('[name="area"]'),
     selectIngredients: document.querySelector('[name="ingredients"]'),
+    containerCards: document.querySelector('.js-cards'),
 };
 const widthOfViewport = window.innerWidth;
 const params = {};
@@ -58,6 +60,39 @@ function createOptionsTime() {
 elems.inputSearch.addEventListener('input', debounce(handlerSearch, 300));
 
 function handlerSearch(e) {
-    const a = e.target.value;
-    console.log(a);
+    params.title = `${e.target.value}`;
+    console.log(params);
+
+    getRecipes(params)
+        .then(data => {
+            console.log(data);
+            // createCards(data);
+        })
+        .catch(error => console.log(error));
 }
+
+function createCards(cards) {
+    elems.containerCards.insertAdjacentHTML(
+        'beforeend',
+        cards
+            .map(
+                ({ preview, title, description, rating, _id }) => `<img
+        src="${preview}"
+        alt="${title}"
+    />
+    <h3>${title}</h3>
+    <p>${description}</p>
+    <p>${rating}</p>
+    <button class="js-see-recipe" data-id="${_id}">See recipe</button>
+    <button class="heart">&#10084;</button>`
+            )
+            .join('')
+    );
+}
+
+getRecipes()
+    .then(data => {
+        console.log(data.results);
+        createCards(data.results);
+    })
+    .catch(error => console.log(error));
