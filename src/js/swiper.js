@@ -16,11 +16,11 @@ function createMarkupSwiper(arrSliders) {
                 <div class="slider-images">
                     <div class="image-container-1"><img class="image-1" src=${cook.imgUrl} alt=${cook.name}></div>
                     <div class="image-container-2">
-                        <img class="image-2" src=${topic.previewUrl} alt=${cook.name}>
-                        <h2 class="image-title">${topic.name}</h2>
-                        <p class="image-descraption">${topic.area}</p>
+                        <img class="image-2" data-swiper-parallax-scale="0.2" src=${topic.previewUrl} alt=${cook.name}>
+                        <h2 class="image-title" data-swiper-parallax="10" data-swiper-parallax-duration="600">${topic.name}</h2>
+                        <p class="image-descraption" data-swiper-parallax="30" data-swiper-parallax-duration="500">${topic.area}</p>
                     </div>
-                    <div class="image-container-3"><img class="image-3" src=${topic.imgUrl} alt=${cook.name}></div>
+                    <div class="image-container-3"><img class="image-3" data-swiper-parallax="-15" data-swiper-parallax-scale="1.1" src=${topic.imgUrl} alt=${cook.name}></div>
                 </div>   
             </div>`)
         .join('')
@@ -29,15 +29,21 @@ function createMarkupSwiper(arrSliders) {
 
 // SWIPER
 const swiper = new Swiper('.swiper', {
-  pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-  },
-    keyboard: {
-    enabled: true,
-    onlyInViewport: true,
-    pageUpDown: true,
-  },
-  spaceBetween: 16,
-  watchOverflow: true,
+    observer: true,
+    observeParents: true,
+    observeSlideChildren: true,
+
+    parallax: true,
+    speed: 2000,
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+        keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+        pageUpDown: true,
+    },
+    spaceBetween: 16,
 });
