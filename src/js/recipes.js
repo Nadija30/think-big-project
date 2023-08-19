@@ -222,8 +222,6 @@ function createCards(cards) {
     <button class="heart js-favorites">&#10084;</button>`
         )
         .join('');
-
-    // const pagination = new Pagination(elems.containerPagination, options);
 }
 
 elems.containerCategories.addEventListener('click', handlerChooseCategory);
