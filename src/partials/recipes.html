@@ -1,8 +1,8 @@
-<form action="">
+<form class="js-form-filter">
     <label for="search">Search</label>
-    <input type="text" name="search" id="search" />
+    <input type="text" name="search" id="search" placeholder="Enter Text" />
     <label for="time">Time</label>
-    <select name="time" id="time">
+    <select name="time" id="time" class="js-select-time">
         <option disabled="disabled" selected="selected">Choose time</option>
     </select>
     <label for="area">Area</label>
@@ -15,7 +15,7 @@
             Choose ingredient
         </option>
     </select>
-    <button><span>X</span>Reset the filter</button>
+    <button class="js-btn-reset-filters"><span>X</span>Reset the filter</button>
 </form>
 <div class="cards js-cards"></div>
 <div class="pages js-pages">

@@ -14,9 +14,15 @@ const elems = {
     containerCards: document.querySelector('.js-cards'),
     containerCategories: document.querySelector('.js-btn-categories'),
     btnAllCategories: document.querySelector('.js-btn-all-cat'),
+    btnResetFilters: document.querySelector('.js-btn-reset-filters'),
+    formFilters: document.querySelector('.js-form-filter'),
 };
 const widthOfViewport = window.innerWidth;
-const params = {};
+let params = {};
+
+elems.formFilters.addEventListener('submit', event => {
+    event.preventDefault();
+});
 
 getCategories()
     .then(data => {
@@ -50,10 +56,6 @@ function createCategories(arrCategories) {
             ({ name }) => `<li><button class="js-btn-cat">${name}</button></li>`
         )
         .join('');
-    // elems.containerCategories.insertAdjacentHTML(
-    //     'beforeend',
-    //     arrCategories.map(({ name }) => `<button>${name}</button>`).join('')
-    // );
 }
 
 function createOptionsAreas(arrAreas) {
@@ -84,21 +86,61 @@ function createOptionsTime() {
     elems.selectTime.insertAdjacentHTML('beforeend', markup.join(''));
 }
 
-// elems.inputSearch.addEventListener('input', debounce(handlerSearch, 300));
+elems.inputSearch.addEventListener('input', debounce(handlerSearch, 600));
 
-// function handlerSearch(e) {
-//     params.title = `${e.target.value}`;
-//     console.log(params);
+function handlerSearch(e) {
+    params.title = `${e.target.value}`;
 
-//     getRecipes(params)
-//         .then(data => {
-//             console.log(data);
-//             // createCards(data);
-//         })
-//         .catch(error => console.log(error));
-// }
+    getRecipes(params)
+        .then(data => {
+            createCards(data.results);
+        })
+        .catch(error => console.log(error));
+}
+
+elems.selectTime.addEventListener('change', handlerSearchByTime);
+
+function handlerSearchByTime(e) {
+    params.time = `${e.target.value}`;
+
+    getRecipes(params)
+        .then(data => {
+            createCards(data.results);
+        })
+        .catch(error => console.log(error));
+}
+
+elems.selectArea.addEventListener('change', handlerSearchByArea);
+
+function handlerSearchByArea(e) {
+    params.area = `${e.target.value}`;
+
+    getRecipes(params)
+        .then(data => {
+            createCards(data.results);
+        })
+        .catch(error => console.log(error));
+}
+
+elems.selectIngredients.addEventListener('change', handlerSearchByIngredients);
+
+function handlerSearchByIngredients(e) {
+    params.ingredient = `${e.target.value}`;
+
+    getRecipes(params)
+        .then(data => {
+            createCards(data.results);
+        })
+        .catch(error => console.log(error));
+}
 
 function createCards(cards) {
+    if (!cards.length) {
+        elems.containerCards.innerHTML =
+            '<p>Nothing was found for your request. Try changing your search parameters...</p>';
+        return;
+    }
+
     elems.containerCards.innerHTML = cards
         .map(
             ({ preview, title, description, rating, _id }) => `<img
@@ -114,9 +156,9 @@ function createCards(cards) {
         .join('');
 }
 
-elems.containerCategories.addEventListener('click', handlerChooseCat);
+elems.containerCategories.addEventListener('click', handlerChooseCategory);
 
-function handlerChooseCat(e) {
+function handlerChooseCategory(e) {
     if (e.target.nodeName !== 'BUTTON') {
         return;
     }
@@ -132,9 +174,22 @@ function handlerChooseCat(e) {
 
 elems.btnAllCategories.addEventListener('click', handlerClearCategory);
 
-function handlerClearCategory(e) {
-    params.category = null;
+function handlerClearCategory() {
+    params.category = '';
     getRecipes(params)
+        .then(data => {
+            createCards(data.results);
+        })
+        .catch(error => console.log(error));
+}
+elems.btnResetFilters.addEventListener('click', hanlerClearFilters);
+
+function hanlerClearFilters() {
+    document.querySelector('.js-form-filter').reset();
+
+    params = {};
+
+    getRecipes()
         .then(data => {
             createCards(data.results);
         })
