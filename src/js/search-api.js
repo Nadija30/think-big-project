@@ -17,11 +17,6 @@ export const getEvents = async () => {
     return response.data;
 };
 
-// export const getCardByID = async id => {
-//     const response = await axios(`${END_POINTS.recipes}/${id}`);
-//     return response.data;
-// };
-
 export const getAreas = async () => {
     const response = await axios(`${END_POINTS.areas}`);
     return response.data;
@@ -48,3 +43,8 @@ export const getRecipes = async parametrsOfSearch => {
     });
     return response.data;
 };
+
+// export const getCardByID = async id => {
+//     const response = await axios(`${END_POINTS.recipes}/${id}`);
+//     return response.data;
+// };
