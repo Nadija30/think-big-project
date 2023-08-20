@@ -159,7 +159,9 @@
 .image-container-1 {
     width: 80px;
 }
-
+.image-container-1.empty {
+    background: #050505;
+}
 .image-container-2,
 .image-container-3 {
     width: 200px;
@@ -173,9 +175,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: end;
-
 }
-
+.image-container-2.empty {
+    justify-content: center;
+}
 .image-title {
     color: rgba(248, 248, 248, 0.60);
     text-align: center;
