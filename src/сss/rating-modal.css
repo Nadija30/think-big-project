@@ -61,9 +61,11 @@
     position: absolute;
     left: 32px;
 }
-.rating__star {
-    display: inline-block;
+
+.rating__icon {
+    fill: rgb(217, 217, 217);
 }
+
 .active__star {
     fill: rgba(238, 161, 12, 1);
 }
