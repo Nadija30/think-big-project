@@ -6,7 +6,9 @@
                 <span class="footer-logo-text">tasty</span>treats.</a
             >
         </div>
-        <button class="feedback-btn" type="submit">Leave Feedback</button>
+        <button class="feedback-btn" type="submit" data-feedback-modal-open>
+            Leave Feedback
+        </button>
         <div class="footer-social">
             <ul class="footer-social-list">
                 <li class="footer-social-item">
@@ -91,13 +93,15 @@
     </button>
 
     <!-- ----------------------------- FEEDBACK MODAL -->
-    <div class="feedback-backdrop is-hidden" data-feedback-backdrop>
+    <!-- data-feedback-backdrop -->
+    <!-- data-feedback-btn-close -->
+    <div class="feedback-backdrop is-hidden" data-feedback-modal>
         <!--is-hidden-->
         <div class="feedback-modal">
             <button
                 type="button"
                 class="feedback-modal-close-btn"
-                data-feedback-btn-close
+                data-feedback-modal-close
             >
                 <svg class="feedback-close-btn-icon">
                     <use href="./img/icons.svg#icon-close_btn"></use>
