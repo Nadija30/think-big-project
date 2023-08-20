@@ -3,9 +3,16 @@ const swiperWrapperElement = document.querySelector('.swiper-wrapper');
 
 getEvents()
     .then(data => {
-        createMarkupSwiper(data);
+        if (data.length > 0) {
+            createMarkupSwiper(data);
+        } else {
+            createEmptySwiper();
+        }
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+        console.log(error);
+        createEmptySwiper();
+    });
 
 function createMarkupSwiper(arrSliders) {
     swiperWrapperElement.insertAdjacentHTML(
@@ -27,6 +34,22 @@ function createMarkupSwiper(arrSliders) {
     );
 }
 
+function createEmptySwiper() {
+    swiperWrapperElement.insertAdjacentHTML(
+        'beforeend',
+        `<div class="swiper-slide">
+            <div class="slider-images">
+                <div class="image-container-1 empty"></div>
+                <div class="image-container-2 empty">
+                    <h2 class="image-title">Master Сlasses</h2>
+                    <p class="image-descraption">Cooming Soon</p>
+                </div>
+                <div class="image-container-3"></div>
+            </div>
+        </div>`
+    );
+}
+
 // SWIPER
 const swiper = new Swiper('.swiper', {
     // loop: true,
@@ -39,7 +62,7 @@ const swiper = new Swiper('.swiper', {
     speed: 2000,
 
     autoplay: {
-        delay: 1500, 
+        delay: 3000, 
         disableOnInteraction: false, 
     },
     pagination: {
