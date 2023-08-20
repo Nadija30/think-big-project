@@ -15,13 +15,20 @@ const refs = {
 refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
 refs.ratingForm.addEventListener(`submit`, submitRating);
 refs.openRatingModal.addEventListener(`click`, openRatingModal);
+refs.ratingModal.addEventListener('click', onBackdropClick);
+
+function onBackdropClick(event) {
+    if (event.target === event.currentTarget) {
+        closeRatingModal();
+    }
+}
 
 function closeRatingModal() {
     refs.ratingModal.classList.add(`is-hidden`);
 }
 
 function openRatingModal() {
-    const value = document.querySelector(`.rating__value`);
+    const value = document.querySelector(`.set__rating > .rating__value`);
     refs.ratingRadio.forEach(radio => {
         radio.checked = false;
     });
@@ -40,7 +47,10 @@ export function initRatings() {
     });
 
     function initRating(rating) {
-        if (rating.classList.contains(`card__rating`)) {
+        if (
+            rating.classList.contains(`card__rating`) &&
+            rating.lastElementChild.classList.contains(`rating__value`)
+        ) {
             renderIcons(rating);
         }
         initRatingValues(rating);
