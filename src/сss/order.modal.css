@@ -128,6 +128,7 @@
 @media screen and (min-width: 768px) {
     .order-modal {
         width: 440px;
+        max-width: 440px;
         height: auto;
     }
 
