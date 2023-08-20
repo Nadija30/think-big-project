@@ -1,0 +1,21 @@
+.favorites__image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.favorites__not-atendent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.favorites__svg {
+    width: 68px;
+    height: 58px;
+    margin-bottom: 24px;
+}
+
+.favorites__not-attendent-text {
+    text-align: center;
+}

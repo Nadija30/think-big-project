@@ -7,8 +7,8 @@ const favorCatBox = document.querySelector('.favorites__categories-list');
 const favorGallBox = document.querySelector('.favorites__gallery-list');
 const cardsFromMainBox = document.querySelector('.js-cards')
 
-// cardsFromMainBox.addEventListener('click', addToLocalStorage);
-// console.log(cardsFromMainBox)
+cardsFromMainBox.addEventListener('click', addToLocalStorage);
+console.log(cardsFromMainBox)
 
 
 function addToLocalStorage(event) {
