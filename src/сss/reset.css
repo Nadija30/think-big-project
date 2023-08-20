@@ -81,6 +81,7 @@ video {
     max-width: 375px;
     padding: 0 20px;
     margin: 0 auto;
+    /*outline: 2px solid blue;*/
 }
 @media screen and (min-width: 768px) {
     .container {
