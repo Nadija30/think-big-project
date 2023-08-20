@@ -1,4 +1,5 @@
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
   // const notifyInit = Notify.init({
   // width: '280px',
@@ -11,8 +12,37 @@ import Notiflix from 'notiflix';
   // notiflixIconColor: 'rgba(0,0,0,0.6)',
   // pauseOnHover: true,
   // });
-  // Notify.info("Please, tell us what you are looking for.", notifyInit); 
+  // Notiflix.Notify.info('Thank you for your feedback!');
+  // Notiflix.Notify.info("Please, tell us what you are looking for.", notifyInit);
+  
+// .catch(error => {
+//         Notiflix.Notify.Failure('An error occurred: ' + error.message);
+//     });
 
+// const paramsForNotify = {
+//             position: 'center-center',
+//             timeout: 3000,
+//             width: '400px',
+//             fontSize: '24px'
+//         };
+
+// const paramsForNotify = {
+//             position: 'center-center',
+//             timeout: 3000,
+//             width: '400px',
+//             fontSize: '24px',
+//             // opacity: 0.8,
+//             fontSize: '20px',
+//             borderRadius: '15px',
+//   //           background: 'rgba(155, 181, 55, 0.6)',
+//   // notiflixIconColor: '#f8f8f8',
+//                 backOverlayColor: '#9bb537',
+
+//             pauseOnHover: true,
+//         };
+//   Notify.Success('Thank you for your feedback!', paramsForNotify);
+
+//  Notify.info('Введіть свій запит, будь ласка!', paramsForNotify);
 //* =============================================== BTN-UP */
 
 const btnUp = document.querySelector(".btn-up");
@@ -90,6 +120,7 @@ function scrollToTop() {
     evt.currentTarget.reset();
     toggleModal();
     formData = {};
+    Notiflix.Notify.info('Thank you for your feedback!', paramsForNotify);
      }
 })();
 
