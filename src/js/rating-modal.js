@@ -40,7 +40,9 @@ export function initRatings() {
     });
 
     function initRating(rating) {
-        renderIcons(rating);
+        if (rating.classList.contains(`card__rating`)) {
+            renderIcons(rating);
+        }
         initRatingValues(rating);
         setActiveStars();
         if (rating.classList.contains(`set__rating`)) {
