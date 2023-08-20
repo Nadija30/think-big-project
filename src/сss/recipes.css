@@ -1,0 +1,295 @@
+/* ---------- Pagination -------------- */
+
+.pages {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.tui-page-btn {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(5, 5, 5, 0.3);
+
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.tui-ico-next {
+    width: 100%;
+    height: 100%;
+}
+
+.tui-is-selected {
+    background-color: #9bb537;
+}
+
+.tui-first {
+    display: inline-block;
+
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.tui-ico-first {
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+
+    background-image: url(../img/icon-start.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+
+.tui-ico-prev {
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+
+    background-image: url(../img/icon-prev.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+
+.tui-ico-next {
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+
+    background-image: url(../img/icon-next.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+
+.tui-ico-last {
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+
+    background-image: url(../img/icon-last.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+
+.tui-first-child {
+    margin-left: 10px;
+    margin-right: 4px;
+}
+
+.tui-last-child {
+    margin-right: 10px;
+    margin-left: 4px;
+}
+
+/* ------------- Select -------------------- */
+
+.js-form-filter {
+    margin-bottom: 20px;
+}
+
+.form-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.field-search {
+    max-width: 335px;
+}
+
+.field-time {
+    width: 160px;
+}
+
+.field-area {
+    width: 161px;
+}
+
+.field-ingredients {
+    width: 188px;
+}
+.input-search::placeholder {
+    color: rgba(5, 5, 5, 0.5);
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.28;
+}
+.form-label {
+    display: block;
+    color: rgba(5, 5, 5, 0.5);
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.16;
+
+    padding-bottom: 8px;
+}
+
+.select-time,
+.select-area,
+.select-ingredients {
+    padding: 14px 18px;
+}
+
+.input-search,
+.select-time,
+.select-area,
+.select-ingredients {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid rgba(5, 5, 5, 0.2);
+    height: 46px;
+}
+
+/* .input-search:hover {
+    border-color: black;
+} */
+
+.input-search {
+    padding: 14px 122px 14px 48px;
+}
+
+.select-ingredients {
+    width: 188px;
+}
+
+.input-thumb {
+    position: relative;
+}
+
+.input-thumb svg {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    transform: translateY(-50%);
+    fill: rgba(5, 5, 5, 0.5);
+}
+
+.btn-reset-form {
+    margin-left: auto;
+    display: flex;
+    gap: 4px;
+}
+
+.span-reset-form {
+    color: rgba(5, 5, 5, 0.5);
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.33;
+}
+/* stroke="#F8F8F8" */
+
+/* --------------- cards ------------------- */
+
+.icon-heart {
+    stroke: #f8f8f8;
+    fill: transparent;
+    opacity: 0.5;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-heart:is(:hover, :focus) {
+    opacity: 1;
+    fill: rgba(248, 248, 248, 1);
+}
+
+.icon-heart-active {
+    opacity: 1;
+    fill: rgba(248, 248, 248, 1);
+}
+
+/* ------------- @amedia ------------------- */
+@media screen and (min-width: 768px) {
+    .input-search,
+    .select-time,
+    .select-area,
+    .select-ingredients {
+        height: 48px;
+    }
+    .field-search {
+        max-width: 278px;
+    }
+    .form-label {
+        font-size: 14px;
+        line-height: 1.28;
+    }
+    .form-filter {
+        gap: 16px;
+        margin-bottom: 14px;
+    }
+    .js-form-filter {
+        margin-bottom: 14px;
+    }
+    .pages {
+        max-width: 446px;
+        gap: 8px;
+    }
+    .tui-page-btn {
+        width: 44px;
+        height: 44px;
+    }
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+    .tui-prev {
+        margin-left: 8px;
+    }
+    .tui-next {
+        margin-right: 8px;
+    }
+    .tui-first-child {
+        margin-left: 16px;
+        margin-right: 2px;
+    }
+    .tui-last-child {
+        margin-right: 16px;
+        margin-left: 2px;
+    }
+    .field-search {
+        max-width: 278px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+}
+
+/* color: rgba(5, 5, 5, 0.50);
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25; */
+
+/* color: rgba(5, 5, 5, 0.50);
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 1.28; */

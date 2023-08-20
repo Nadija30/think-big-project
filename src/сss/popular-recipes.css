@@ -1,0 +1,135 @@
+.popular {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .popular-title {
+    color: #050505;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  
+  .popular-img {
+    border-radius: 8px;
+  }
+  
+  .popular-list {
+    height: 158px;
+    overflow: hidden;
+  }
+  
+  .popular-list-item {
+    display: flex;
+    gap: 16px;
+    height: 67px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .popular-list-item:not(:last-child) {
+    margin-bottom: 24px;
+  }
+  
+  .popular-text-title {
+    color: #050505;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    text-transform: uppercase;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .popular-description {
+    color: rgba(5, 5, 5, 0.80);
+    font-size: 12px;
+    line-height: 16px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Mobile */
+  @media screen and (max-width: 767px) {
+    .popular {
+      width: 335px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .popular-img {
+      width: 64px;
+      height: 64px;
+    }
+  
+    .popular-description {
+      -webkit-line-clamp: 2;
+    }
+  }
+  
+  /* Tablet */
+  
+  @media screen and (min-width: 768px) {
+    .popular {
+      padding-top: 64px;
+      width: 176px;
+      margin-left: 0;
+    }
+
+    .popular-title {
+        margin-bottom: 32px;
+      }
+  
+    .popular-list {
+      height: 320px;
+    }
+
+    .popular-img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .popular-list {
+        gap: 16px;
+      }
+  
+    .popular-description {
+      width: 120px;
+      font-size: 10px;
+      line-height: 14px;
+      -webkit-line-clamp: 3;
+    }
+  
+    .popular-list-item:not(:last-child) {
+        margin-bottom: 16px;
+      }
+  }
+  
+  @media screen and (min-width: 1280px) {
+    .popular {
+      width: 235px;
+    }
+  
+    .popular-list {
+      height: 364px;
+    }
+
+    .popular-img {
+        width: 64px;
+        height: 64px;
+      }
+  
+    .popular-list-item:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  
+    .popular-description {
+      width: 155px;
+    }
+
+  }

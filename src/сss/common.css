@@ -1,0 +1,28 @@
+:root {
+    /* Constant colors */
+    --light-color: #fff;
+    --dark-color: #050505;
+    --accent-color: #9bb537;
+    --stars-color: #eea10c;
+    --stars-uncolored: #d9d9d9;
+    --btn-text-color: #f8f8f8;
+
+    /* Colors that will change for Dark Theme */
+    --light-theme-text-color: #050505;
+    /* transparent 50% */
+    --light-theme-semi-transparent-color: #05050580;
+    /* transparent 30% */
+    --light-theme-almost-transparent-color: #0505054d;
+    /* transparent 20% */
+    --light-theme-transparent-color: #05050533;
+    --light-theme-slider-semi-transparent-color: #f8f8f880;
+
+    --dark-theme-background-color: #1e1e1e;
+
+    --cards-background-color-for-stars: #00000042;
+    
+    --animation: 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77);
+
+    --ss-content-height: 176px !important;
+    --ss-border-radius: 15px !important;
+}

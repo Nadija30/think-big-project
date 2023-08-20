@@ -1,0 +1,139 @@
+<footer class="footer">
+    <!-- ----------------------------- FOOTER -->
+    <div class="footer-wrap container">
+        <div class="footer-logo">
+            <a class="" href="./index.html">
+                <span class="footer-logo-text">tasty</span>treats.</a
+            >
+        </div>
+        <button class="feedback-btn" type="submit" data-feedback-modal-open>
+            Leave Feedback
+        </button>
+        <div class="footer-social">
+            <ul class="footer-social-list">
+                <li class="footer-social-item">
+                    <a
+                        class="footer-social-link"
+                        href="https://www.instagram.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <svg class="footer-social-icon">
+                            <use href="./img/icons.svg#icon-instagram"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer-social-item">
+                    <a
+                        class="footer-social-link"
+                        href="https://www.facebook.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <svg class="footer-social-icon">
+                            <use href="./img/icons.svg#icon-facebook"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer-social-item">
+                    <a
+                        class="footer-social-link"
+                        href="https://twitter.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <svg class="footer-social-icon">
+                            <use href="./img/icons.svg#icon-twitter"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer-social-item">
+                    <a
+                        class="footer-social-link"
+                        href="https://www.youtube.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <svg class="footer-social-icon">
+                            <use href="./img/icons.svg#icon-youtube"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-nav">
+            <ul class="footer-nav-list">
+                <li class="footer-nav-item">
+                    <a class="footer-nav-link" href="./index.html"
+                        >Health & Safety Guidelines</a
+                    >
+                </li>
+                <li class="footer-nav-item">
+                    <a class="footer-nav-link" href="./index.html"
+                        >Privacy Policy</a
+                    >
+                </li>
+                <li class="footer-nav-item">
+                    <a class="footer-nav-link" href="./index.html"
+                        >Terms & Conditions</a
+                    >
+                </li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <p class="copyright">© 2023 TastyTreats</p>
+        </div>
+    </div>
+
+    <!-- ----------------------------- SCROLL UP -->
+    <button type="button" class="btn-up">
+        <svg class="btn-up-icon">
+            <use href="./img/icons.svg#icon-scroll_up"></use>
+        </svg>
+    </button>
+
+    <!-- ----------------------------- FEEDBACK MODAL -->
+    <!-- data-feedback-backdrop -->
+    <!-- data-feedback-btn-close -->
+    <div class="feedback-backdrop is-hidden" data-feedback-modal>
+        <!--is-hidden-->
+        <div class="feedback-modal">
+            <button
+                type="button"
+                class="feedback-modal-close-btn"
+                data-feedback-modal-close
+            >
+                <svg class="feedback-close-btn-icon">
+                    <use href="./img/icons.svg#icon-close_btn"></use>
+                </svg>
+            </button>
+            <p class="feedback-modal-text">Leave Feedback</p>
+            <div class="feedback-form-container">
+                <form class="feedback-form">
+                    <label class="feedback-form-field"
+                        ><span class="feedback-form-descr">Name</span>
+                        <input
+                            class="feedback-form-input"
+                            type="text"
+                            name="user_name"
+                            required
+                            pattern="[a-zA-Z]+"
+                            minlength="3"
+                        />
+                    </label>
+                    <label class="feedback-form-field"
+                        ><span class="feedback-form-descr">Comment</span>
+                        <textarea
+                            name="user_message"
+                            class="feedback-form-message"
+                        ></textarea>
+                    </label>
+                    <button class="feedback-form-btn" type="submit">
+                        Send
+                    </button>
+                    <!-- <p class="feedback-message is-hidden">Your message send!</p> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
