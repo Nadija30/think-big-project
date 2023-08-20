@@ -285,7 +285,7 @@ input:checked+.slider:before {
     }
 
     .menu-open-btn {
-        display: none;
+        display: block;
     }
 
     .mobile-menu {
