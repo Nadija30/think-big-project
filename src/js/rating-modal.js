@@ -69,7 +69,7 @@ export function initRatings() {
         ratingStars.forEach(star => {
             star.classList.remove(`active__star`);
         });
-        for (i = 0; i < count; i++) {
+        for (let i = 0; i < count; i++) {
             const star = ratingStars[i];
             star.classList.add(`active__star`);
         }
