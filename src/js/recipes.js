@@ -246,7 +246,9 @@ function createCards(cards) {
     <p>${description}</p>
     <p>${rating}</p>
     <button class="js-see-recipe" data-id="${_id}">See recipe</button>
-    <button class="heart js-btn-heart" data-id="${_id}">&#10084;</button>`
+    <button class="heart js-btn-heart" data-id="${_id}"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="icon-heart">
+  <path  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.994 4.708C9.162 2.565 6.105 1.988 3.81 3.95c-2.296 1.962-2.62 5.242-.816 7.563 1.5 1.929 6.037 5.998 7.524 7.315.166.147.25.221.346.25a.464.464 0 0 0 .262 0c.097-.029.18-.103.347-.25 1.487-1.317 6.025-5.386 7.524-7.315 1.803-2.32 1.52-5.622-.816-7.563-2.336-1.942-5.353-1.386-7.186.757Z" clip-rule="evenodd"/>
+</svg></button>`
         )
         .join('');
 }
@@ -358,3 +360,9 @@ function createPagination(data) {
 //         })
 //         .catch(error => console.log(error));
 // }
+
+// import { getCardByID } from './search-api';
+// const id = '6462a8f74c3d0ddd28897fbc';
+// getCardByID(id).then(data => {
+//     console.log(data);
+// });

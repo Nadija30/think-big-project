@@ -202,6 +202,15 @@
     font-weight: 500;
     line-height: 1.33;
 }
+/* stroke="#F8F8F8" */
+
+/* --------------- cards ------------------- */
+
+.icon-heart:is(:hover, :focus) {
+    fill: red;
+    opacity: 1;
+    /* fill: rgba(248, 248, 248, 1); */
+}
 
 /* ------------- @amedia ------------------- */
 @media screen and (min-width: 768px) {
