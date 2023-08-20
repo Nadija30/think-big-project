@@ -1,5 +1,3 @@
-console.log('hello team')
-
 import './js/swiper';
 import './js/burger-menu';
 import './js/categories';
@@ -12,5 +10,3 @@ import './js/order.modal';
 import './js/footer';
 import './js/favorites-recipes';
 import './js/send-to-is';
-
-

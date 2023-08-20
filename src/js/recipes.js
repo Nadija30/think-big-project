@@ -116,7 +116,8 @@ getRecipes(params)
 function createCategories(arrCategories) {
     elems.containerCategories.innerHTML = arrCategories
         .map(
-            ({ name }) => `<li><button class="js-btn-cat">${name}</button></li>`
+            ({ name }) =>
+                `<li><button class="js-btn-cat btn-categories">${name}</button></li>`
         )
         .join('');
 }
