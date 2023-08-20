@@ -1,19 +1,109 @@
 <form class="js-form-filter">
-    <label for="search">Search</label>
-    <input type="text" name="search" id="search" placeholder="Enter Text" />
-    <label for="time">Time</label>
-    <select name="time" id="time" class="js-select-time">
-        <option disabled="disabled" selected="selected">0 min</option>
-    </select>
-    <label for="area">Area</label>
-    <select name="area" id="area">
-        <option disabled="disabled" selected="selected">Region</option>
-    </select>
-    <label for="ingredients">Ingredients</label>
-    <select name="ingredients" id="ingredients">
-        <option disabled="disabled" selected="selected">Product</option>
-    </select>
-    <button class="js-btn-reset-filters"><span>X</span>Reset the filter</button>
+    <div class="form-filter">
+        <div class="field-search">
+            <label for="search" class="form-label">Search</label>
+            <div class="input-thumb">
+                <input
+                    type="text"
+                    name="search"
+                    id="search"
+                    placeholder="Enter Text"
+                    class="input-search"
+                />
+                <svg width="18" height="18">
+                    <use href="./img/icons.svg#icon-search"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="field-time">
+            <label for="time" class="form-label">Time</label>
+            <select
+                name="time"
+                id="time"
+                class="js-select-time select-time"
+                style="
+                    color: rgba(5, 5, 5, 0.5);
+                    font-family: Inter;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 1.28;
+                    padding: 14px 18px;
+                    border-radius: 15px;
+                    border: 1px solid rgba(5, 5, 5, 0.2);
+                "
+            >
+                <option disabled="disabled" selected="selected">0 min</option>
+            </select>
+        </div>
+        <div class="field-area">
+            <label for="area" class="form-label">Area</label>
+            <select
+                name="area"
+                id="area"
+                class="select-area"
+                style="
+                    color: rgba(5, 5, 5, 0.5);
+                    font-family: Inter;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 1.28;
+                    padding: 14px 18px;
+                    border-radius: 15px;
+                    border: 1px solid rgba(5, 5, 5, 0.2);
+                "
+            >
+                <option disabled="disabled" selected="selected">Region</option>
+            </select>
+        </div>
+        <div class="field-ingredients">
+            <label for="ingredients" class="form-label">Ingredients</label>
+            <select
+                name="ingredients"
+                id="ingredients"
+                class="select-ingredients"
+                style="
+                    color: rgba(5, 5, 5, 0.5);
+                    font-family: Inter;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 1.28;
+                    padding: 14px 18px;
+                    border-radius: 15px;
+                    border: 1px solid rgba(5, 5, 5, 0.2);
+                "
+            >
+                <option disabled="disabled" selected="selected">Product</option>
+            </select>
+        </div>
+    </div>
+    <button class="js-btn-reset-filters btn-reset-form">
+        <span
+            ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+            >
+                <path
+                    d="M12 4L4 12"
+                    stroke="#9BB537"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M4 4L12 12"
+                    stroke="#9BB537"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                /></svg></span
+        ><span class="span-reset-form">Reset the filter</span>
+    </button>
 </form>
 <div class="cards js-cards"></div>
 <div class="pages js-pages"></div>
