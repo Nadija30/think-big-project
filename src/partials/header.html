@@ -1,0 +1,86 @@
+<header class="section-header">
+    <div class="container header-container">
+        <div class="header-items">
+            <nav class="header-nav">
+                <a
+                    class="header-link-home header-link-active"
+                    href="./index.html"
+                    >Home</a
+                >
+                <a
+                    class="header-link header-link-favorites"
+                    href="./favorites.html"
+                    >Favorite</a
+                >
+            </nav>
+            <div class="header-logo">
+                <a href="./index.html" class="logo-light"
+                    >tasty<span class="dark-logo">treats.</span>
+                </a>
+            </div>
+
+            <div class="header-icons">
+                <button
+                    class="button order-button"
+                    data-modal-open
+                    type="button"
+                >
+                    <svg
+                        class="icon-shopping-cart"
+                        width="24"
+                        height="24"
+                        aria-label="Shopping cart"
+                    >
+                        <use href="./img/icons.svg#icon-shopping_cart"></use>
+                    </svg>
+                </button>
+
+                <button class="menu-open-btn" data-menu-open type="button">
+                    <svg
+                        class="menu-open-icon"
+                        width="32"
+                        height="32"
+                        aria-label="Mobile menu switch"
+                    >
+                        <use href="./img/icons.svg#icon-burger"></use>
+                    </svg>
+                </button>
+
+                <div>
+                    <label class="header-switch">
+                        <input type="checkbox" />
+                        <span class="header-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- мобільне меню -->
+    <div class="mobile-menu">
+        <button class="mob-menu-btn-close" type="button">
+            <svg class="mob-menu-close" width="32" height="32">
+                <use
+                    class="mob-menu-close-icon"
+                    href="./img/icons.svg#icon-close_btn"
+                ></use>
+            </svg>
+        </button>
+        <ul class="mob-menu-list">
+            <li>
+                <a class="header-list-item-home" href="./index.html">Home</a>
+            </li>
+            <li>
+                <a class="header-list-item" href="./favorites.html"
+                    >Favorites</a
+                >
+            </li>
+        </ul>
+        <div>
+            <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+</header>
