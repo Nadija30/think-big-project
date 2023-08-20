@@ -20,28 +20,29 @@ function createMarkup(recipe) {
     const tagsItem = tags
         .map(
             tag => `
-                <li class="pop-up-item-tag">${tag}</li>`
+                <li class="pop-up-item-tag">#${tag}</li>`
         )
         .join('');
 
     const markup = `
             <iframe class="pop-up-iframe"
-              src="https://www.youtube.com/embed/${id}?autoplay=0&mute=0&controls=1" width="466" height="250"
+              src="https://www.youtube.com/embed/${id}?autoplay=0&mute=0&controls=1"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
             </iframe>
             <h2 class="pop-up-title">${title}</h2>
-            <ul class="pop-up-list-tags">
-              ${tagsItem}
-            </ul>
-            <span class="pop-up-rating">${rating}</span>
-            <span class="pop-up-time">${time} min</span>
+            <div class="pop-up-wrap">           
+              <p class="pop-up-rating">${rating}</p>     
+              <p class="pop-up-time">${time} min</p>
+            </div>
             <ul class="pop-up-list-ingredient">
               ${ingredientItems}
             </ul>
+            <ul class="pop-up-list-tags">
+              ${tagsItem}
+            </ul>
             <p class="pop-up-instructions">${instructions}</p>
             `;
-
     refs.recipeContainer.insertAdjacentHTML('beforeend', markup);
 }
 
