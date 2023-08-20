@@ -29,6 +29,12 @@
 }
 
 /*логотип*/
+.header-logo {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.13;
+}
+
 .logo-light {
     color: var(--secondary-border-color);
 }
@@ -210,7 +216,6 @@ input:checked+.slider:before {
     height: 2px;
     background-color: linear-gradient(rgba(155, 181, 55, 1),
             rgba(155, 181, 55, 0.69));
-    ;
 }
 
 .nav-link-active {
@@ -267,6 +272,9 @@ input:checked+.slider:before {
     .header-logo {
         display: flex;
         justify-content: center;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.11;
     }
 
     .header-icons {
