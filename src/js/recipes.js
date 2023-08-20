@@ -66,13 +66,16 @@ elems.formFilters.addEventListener('submit', event => {
     event.preventDefault();
 });
 
+Loading.dots('Loading data, please wait...');
+
 getCategories()
     .then(data => {
         createCategories(data);
     })
     .catch(error => {
         Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-    });
+    })
+    .finally(Loading.remove());
 
 getAreas()
     .then(data => {
@@ -83,7 +86,8 @@ getAreas()
     })
     .catch(error => {
         Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-    });
+    })
+    .finally(Loading.remove());
 
 getIngredients()
     .then(data => {
@@ -94,7 +98,8 @@ getIngredients()
     })
     .catch(error => {
         Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-    });
+    })
+    .finally(Loading.remove());
 
 createOptionsTime();
 
@@ -105,7 +110,8 @@ getRecipes(params)
     })
     .catch(error => {
         Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-    });
+    })
+    .finally(Loading.remove());
 
 function createCategories(arrCategories) {
     elems.containerCategories.innerHTML = arrCategories
@@ -154,6 +160,8 @@ function handlerSearch(e) {
 
     pagination.reset();
 
+    Loading.dots('Loading data, please wait...');
+
     getRecipes(params)
         .then(data => {
             createCards(data.results);
@@ -161,7 +169,8 @@ function handlerSearch(e) {
         })
         .catch(error => {
             Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-        });
+        })
+        .finally(Loading.remove());
 }
 
 elems.selectTime.addEventListener('change', handlerSearchByTime);
@@ -169,6 +178,8 @@ elems.selectTime.addEventListener('change', handlerSearchByTime);
 function handlerSearchByTime(e) {
     params.time = `${e.target.value}`;
 
+    Loading.dots('Loading data, please wait...');
+
     getRecipes(params)
         .then(data => {
             createCards(data.results);
@@ -176,7 +187,8 @@ function handlerSearchByTime(e) {
         })
         .catch(error => {
             Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-        });
+        })
+        .finally(Loading.remove());
 }
 
 elems.selectArea.addEventListener('change', handlerSearchByArea);
@@ -184,6 +196,8 @@ elems.selectArea.addEventListener('change', handlerSearchByArea);
 function handlerSearchByArea(e) {
     params.area = `${e.target.value}`;
 
+    Loading.dots('Loading data, please wait...');
+
     getRecipes(params)
         .then(data => {
             createCards(data.results);
@@ -192,7 +206,8 @@ function handlerSearchByArea(e) {
         })
         .catch(error => {
             Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-        });
+        })
+        .finally(Loading.remove());
 }
 
 elems.selectIngredients.addEventListener('change', handlerSearchByIngredients);
@@ -200,6 +215,8 @@ elems.selectIngredients.addEventListener('change', handlerSearchByIngredients);
 function handlerSearchByIngredients(e) {
     params.ingredient = `${e.target.value}`;
 
+    Loading.dots('Loading data, please wait...');
+
     getRecipes(params)
         .then(data => {
             createCards(data.results);
@@ -208,7 +225,8 @@ function handlerSearchByIngredients(e) {
         })
         .catch(error => {
             Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-        });
+        })
+        .finally(Loading.remove());
 }
 
 function createCards(cards) {
@@ -242,26 +260,33 @@ function handlerChooseCategory(e) {
 
     params.category = e.target.textContent;
 
+    Loading.dots('Loading data, please wait...');
+
     getRecipes(params)
         .then(data => {
             createCards(data.results);
         })
         .catch(error => {
             Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-        });
+        })
+        .finally(Loading.remove());
 }
 
 elems.btnAllCategories.addEventListener('click', handlerClearCategory);
 
 function handlerClearCategory() {
     params.category = '';
+
+    Loading.dots('Loading data, please wait...');
+
     getRecipes(params)
         .then(data => {
             createCards(data.results);
         })
         .catch(error => {
             Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-        });
+        })
+        .finally(Loading.remove());
 }
 elems.btnResetFilters.addEventListener('click', hanlerClearFilters);
 
@@ -270,13 +295,16 @@ function hanlerClearFilters() {
 
     params = {};
 
+    Loading.dots('Loading data, please wait...');
+
     getRecipes()
         .then(data => {
             createCards(data.results);
         })
         .catch(error => {
             Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-        });
+        })
+        .finally(Loading.remove());
 }
 
 function createPagination(data) {
@@ -290,7 +318,10 @@ function createPagination(data) {
 
     pagination.on('afterMove', event => {
         options.page = event.page;
+
         params.page = options.page;
+
+        Loading.dots('Loading data, please wait...');
 
         getRecipes(params)
             .then(data => {
@@ -301,7 +332,8 @@ function createPagination(data) {
             })
             .catch(error => {
                 Report.failure(`${error.code}`, `${error.message}`, 'Okay');
-            });
+            })
+            .finally(Loading.remove());
     });
 }
 
