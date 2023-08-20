@@ -44,7 +44,8 @@ export const getRecipes = async parametrsOfSearch => {
     return response.data;
 };
 
-// export const getCardByID = async id => {
-//     const response = await axios(`${END_POINTS.recipes}/${id}`);
-//     return response.data;
-// };
+export const getCardByID = async id => {
+    const response = await axios(`${END_POINTS.recipes}/${id}`);
+    return response.data;
+};
+
