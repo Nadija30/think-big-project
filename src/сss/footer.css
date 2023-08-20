@@ -10,8 +10,8 @@
     align-items: center;
     text-align: center;
     gap: 12px;
-    padding-top: 60px;
-    padding-bottom: 20px;
+    padding-top: 80px;
+    padding-bottom: 40px;
 }
 
 .feedback-btn {
@@ -136,15 +136,15 @@
     visibility: hidden;
     position: fixed;
     z-index: 3;
-    bottom: 60px;
+    bottom: 68px;
     right: 26px;
     transform: translateX(100px);
 
     width: 40px;
     height: 40px;
 
-    border: 1px solid #9bb537;
-    background-color: transparent;
+    border: 1px solid rgba(5, 5, 5, 0.3);
+    background-color: rgba(155, 181, 55, 0.2);
     border-radius: 50%;
 
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -178,7 +178,7 @@
 
 @media screen and (min-width: 768px) {
     .btn-up {
-        bottom: 116px;
+        bottom: 140px;
 
         width: 44px;
         height: 44px;
@@ -194,7 +194,7 @@
 
 @media screen and (min-width: 1280px) {
     .btn-up {
-        bottom: 130px;
+        bottom: 150px;
     }
 }
 
@@ -210,6 +210,9 @@
     background: var(--color-black-40, rgba(20, 20, 20, 0.5));
 
     overflow-y: auto;
+}
+.no-scroll {
+    overflow: hidden;
 }
 
 .feedback-modal {
