@@ -271,11 +271,11 @@
     font-style: normal;
     font-weight: 400;
     line-height: 1.33333;
-    position: relative;
-    white-space: pre;
-}
 
-/* white-space: nowrap|pre|pre-line|pre-wrap; */
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
 
 .thumb-rating-btn-see {
     display: flex;
