@@ -87,6 +87,11 @@ video {
         max-width: 768px;
         padding: 0 32px;
     }
+.wrapper {
+    display: flex;
+    gap: 32px;
+
+}
 }
 
 @media screen and (min-width: 1280px) {
@@ -94,4 +99,9 @@ video {
         max-width: 1280px;
         padding: 0 100px;
     }
+        .wrapper {
+            display: flex;
+            gap: 63px;
+    
+        }
 }
