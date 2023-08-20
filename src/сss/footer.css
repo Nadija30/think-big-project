@@ -1,8 +1,10 @@
 /** =============================================== FOOTER */
 /** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @media PHONE */
 
-/* footer {
-} */
+footer {
+    margin-top: 40px;
+    border-top: 2px solid rgba(155, 181, 55, 0.2);
+}
 
 .footer-wrap {
     display: flex;
@@ -10,8 +12,8 @@
     align-items: center;
     text-align: center;
     gap: 12px;
-    padding-top: 80px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 .feedback-btn {
@@ -45,20 +47,39 @@
 .footer-social-list {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 6px;
 }
 
 .footer-social-link {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.footer-social-link .instagram {
+    /* fill: rgba(5, 5, 5, 0.5); */
+    fill: #e1306c;
+    opacity: 0.4;
+}
+.footer-social-link .facebook {
+    fill: #4267b2;
+    opacity: 0.4;
+}
+.footer-social-link .twitter {
+    fill: #1da1f2;
+    opacity: 0.4;
+}
+.footer-social-link .youtube {
+    fill: #ff0000;
+    opacity: 0.4;
+}
+
 .footer-social-link:hover .footer-social-icon,
 .footer-social-link:focus .footer-social-icon {
-    fill: #9bb537;
+    /* fill: #9bb537; */
+    opacity: 0.9;
     transform: scale(1.1);
 }
 
@@ -68,8 +89,10 @@
 
 .footer-social-icon {
     fill: #050505;
-    width: 30px;
-    height: 28px;
+    /* width: 30px;
+    height: 28px; */
+    width: 22px;
+    height: 22px;
     display: inline-block;
 }
 
@@ -94,9 +117,12 @@
         letter-spacing: -0.72px;
     }
 
+    .footer-social-list {
+        gap: 10px;
+    }
     .footer-social-icon {
-        width: 32px;
-        height: 32px;
+        width: 24px;
+        height: 24px;
     }
 
     .footer-nav-item,
@@ -125,7 +151,7 @@
 
 @media screen and (min-width: 1280px) {
     .footer-wrap {
-        gap: 24px 80px;
+        gap: 18px 80px;
     }
 }
 
