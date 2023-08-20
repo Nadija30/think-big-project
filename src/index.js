@@ -10,3 +10,5 @@ import './js/recipes';
 import './js/rating-modal';
 import './js/order.modal';
 import './js/footer';
+import './js/send-to-is';
+
