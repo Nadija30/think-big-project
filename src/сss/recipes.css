@@ -202,9 +202,21 @@
     font-weight: 500;
     line-height: 1.33;
 }
-/* stroke="#F8F8F8" */
 
 /* --------------- cards ------------------- */
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.heart {
+    display: flex;
+    margin-left: auto;
+    margin-bottom: 176px;
+}
 
 .icon-heart {
     stroke: #f8f8f8;
@@ -224,8 +236,95 @@
     fill: rgba(248, 248, 248, 1);
 }
 
+.wrap-card-container {
+    width: 335px;
+    height: 335px;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.title-card-rec {
+    width: 183px;
+    height: 18px;
+    color: #f8f8f8;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.28;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-card-rec {
+    width: 303px;
+    height: 32px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    color: #f8f8f8;
+    text-overflow: ellipsis;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.33333;
+    position: relative;
+    white-space: pre;
+}
+
+/* white-space: nowrap|pre|pre-line|pre-wrap; */
+
+.thumb-rating-btn-see {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-rating-main {
+    color: #f8f8f8;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.28;
+    align-items: center;
+}
+
+.btn-see-recipe {
+    display: flex;
+    padding: 8px 14px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #9bb537;
+    color: #f8f8f8;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
 /* ------------- @amedia ------------------- */
 @media screen and (min-width: 768px) {
+    .cards-container {
+        margin-bottom: 64px;
+    }
+    .cards-container {
+        gap: 16px;
+    }
+    .text-card-rec {
+        width: 208px;
+    }
+    .heart {
+        margin-bottom: 105px;
+    }
+    .wrap-card-container {
+        width: 240px;
+        height: 264px;
+    }
     .input-search,
     .select-time,
     .select-area,
@@ -278,18 +377,20 @@
 }
 
 @media screen and (min-width: 1280px) {
+    .btn-see-recipe {
+        padding: 8px 14px;
+    }
+    .text-card-rec {
+        width: 218px;
+    }
+    .wrap-card-container {
+        width: 250px;
+        height: 287px;
+    }
+    .heart {
+        margin-bottom: 128px;
+    }
+    .cards-container {
+        gap: 20px 16px;
+    }
 }
-
-/* color: rgba(5, 5, 5, 0.50);
-font-family: Inter;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: 1.25; */
-
-/* color: rgba(5, 5, 5, 0.50);
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 1.28; */
