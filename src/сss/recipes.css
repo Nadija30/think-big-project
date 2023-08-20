@@ -162,6 +162,11 @@
     border-radius: 15px;
     border: 1px solid rgba(5, 5, 5, 0.2);
     height: 46px;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.field-search:is(:hover, :focus) .input-search {
+    border: 1px solid rgb(5, 5, 5);
 }
 
 .input-search {
@@ -197,7 +202,28 @@
     font-style: normal;
     font-weight: 500;
     line-height: 1.33;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.btn-reset-form:is(:hover, :focus) .span-reset-form {
+    color: #9bb537;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.icon-reset-form {
+    width: 16px;
+    height: 16px;
+}
+
+/* .btn-reset-form:is(:hover, :focus) .icon-reset-form {
+    width: 18px;
+    height: 18px;
+}
+.icon-reset-form:is(:hover, :focus) {
+    width: 18px;
+    height: 18px;
+} */
 
 /* --------------- Cards ------------------- */
 
@@ -320,9 +346,14 @@
     font-weight: 500;
     line-height: normal;
     margin-bottom: 24px;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn-all-cat.bnt-cat-is-active {
+.btn-all-cat:is(:hover, :focus) {
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.4);
+}
+
+.btn-all-cat.bnt-all-cat-is-active {
     background: #9bb537;
     color: #f8f8f8;
     border: none;
@@ -344,6 +375,13 @@
     font-style: normal;
     font-weight: 500;
     line-height: 1.28;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-categories:is(:hover, :focus) {
+    color: #9bb537;
+    font-size: 16px;
+    line-height: 1.25px;
 }
 
 .btn-categories.btn-categories-is-active {
