@@ -1,3 +1,5 @@
+/* ---------- Pagination -------------- */
+
 .pages {
     text-align: center;
     display: flex;
@@ -99,7 +101,130 @@
     margin-left: 4px;
 }
 
+/* ------------- Select -------------------- */
+
+.js-form-filter {
+    margin-bottom: 20px;
+}
+
+.form-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.field-search {
+    max-width: 335px;
+}
+
+.field-time {
+    width: 160px;
+}
+
+.field-area {
+    width: 161px;
+}
+
+.field-ingredients {
+    width: 188px;
+}
+.input-search::placeholder {
+    color: rgba(5, 5, 5, 0.5);
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.28;
+}
+.form-label {
+    display: block;
+    color: rgba(5, 5, 5, 0.5);
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.16;
+
+    padding-bottom: 8px;
+}
+
+.select-time,
+.select-area,
+.select-ingredients {
+    padding: 14px 18px;
+}
+
+.input-search,
+.select-time,
+.select-area,
+.select-ingredients {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid rgba(5, 5, 5, 0.2);
+    height: 46px;
+}
+
+/* .input-search:hover {
+    border-color: black;
+} */
+
+.input-search {
+    padding: 14px 122px 14px 48px;
+}
+
+.select-ingredients {
+    width: 188px;
+}
+
+.input-thumb {
+    position: relative;
+}
+
+.input-thumb svg {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    transform: translateY(-50%);
+    fill: rgba(5, 5, 5, 0.5);
+}
+
+.btn-reset-form {
+    margin-left: auto;
+    display: flex;
+    gap: 4px;
+}
+
+.span-reset-form {
+    color: rgba(5, 5, 5, 0.5);
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.33;
+}
+
+/* ------------- @amedia ------------------- */
 @media screen and (min-width: 768px) {
+    .input-search,
+    .select-time,
+    .select-area,
+    .select-ingredients {
+        height: 48px;
+    }
+    .field-search {
+        max-width: 278px;
+    }
+    .form-label {
+        font-size: 14px;
+        line-height: 1.28;
+    }
+    .form-filter {
+        gap: 16px;
+        margin-bottom: 14px;
+    }
+    .js-form-filter {
+        margin-bottom: 14px;
+    }
     .pages {
         max-width: 446px;
         gap: 8px;
@@ -126,7 +251,24 @@
         margin-right: 16px;
         margin-left: 2px;
     }
+    .field-search {
+        max-width: 278px;
+    }
 }
 
 @media screen and (min-width: 1280px) {
 }
+
+/* color: rgba(5, 5, 5, 0.50);
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 1.25; */
+
+/* color: rgba(5, 5, 5, 0.50);
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 1.28; */

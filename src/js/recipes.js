@@ -1,5 +1,7 @@
 import debounce from 'lodash.debounce';
 import Pagination from 'tui-pagination';
+import SlimSelect from 'slim-select';
+import 'slim-select/dist/slimselect.css';
 
 import { getAreas } from './search-api';
 import { getIngredients } from './search-api';
@@ -92,12 +94,18 @@ getCategories()
 getAreas()
     .then(data => {
         createOptionsAreas(data);
+        new SlimSelect({
+            select: '#area',
+        });
     })
     .catch(error => console.log(error));
 
 getIngredients()
     .then(data => {
         createOptionsIngredients(data);
+        new SlimSelect({
+            select: '#ingredients',
+        });
     })
     .catch(error => console.log(error));
 
@@ -144,6 +152,10 @@ function createOptionsTime() {
     }
 
     elems.selectTime.insertAdjacentHTML('beforeend', markup.join(''));
+
+    new SlimSelect({
+        select: '#time',
+    });
 }
 
 elems.inputSearch.addEventListener('input', debounce(handlerSearch, 600));
@@ -219,7 +231,7 @@ function createCards(cards) {
     <p>${description}</p>
     <p>${rating}</p>
     <button class="js-see-recipe" data-id="${_id}">See recipe</button>
-    <button class="heart js-favorites">&#10084;</button>`
+    <button class="heart js-btn-heart" data-id="${_id}">&#10084;</button>`
         )
         .join('');
 }

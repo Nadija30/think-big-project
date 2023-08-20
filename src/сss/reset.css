@@ -1,11 +1,11 @@
 body {
-font-family: 'Inter', sans-serif;
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 1.29;
-color: #050505;
-background-color: #f8f8f8;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    color: #050505;
+    background-color: #f8f8f8;
 }
 
 h1,
@@ -15,15 +15,15 @@ h4,
 h5,
 h6,
 p {
-margin: 0;
+    margin: 0;
 }
 
 html {
-scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 p:last-child {
-margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 input,
@@ -33,62 +33,65 @@ select {
     font-family: inherit;
 }
 ul {
-margin: 0;
-padding: 0;
-list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 a {
-color: currentColor;
-text-decoration: none;
+    color: currentColor;
+    text-decoration: none;
 }
 
 button {
-cursor: pointer;
-border: none;
-outline: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    padding: 0;
+    background-color: transparent;
 }
 
 img {
-display: block;
-max-width: 100%;
-height: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .is-hidden {
-position: absolute;
-width: 1px;
-height: 1px;
-margin: -1px;
-border: 0;
-padding: 0;
-white-space: nowrap;
-clip-path: inset(100%);
-clip: rect(0 0 0 0);
-overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 video {
-display: block;
-max-width: 100%;
-height: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 .container {
-width: 100%;
-max-width: 375px;
-padding: 0 20px;
-margin: 0 auto;
+    width: 100%;
+    max-width: 375px;
+    padding: 0 20px;
+    margin: 0 auto;
 }
-@media screen and (min-width:768px) {
-.container {
-max-width: 768px;
-padding: 0 32px;
-}
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 768px;
+        padding: 0 32px;
+    }
 }
 
-@media screen and (min-width:1280px) {
-.container {
-max-width: 1280px;
-padding: 0 100px;
-}
+@media screen and (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+        padding: 0 100px;
+    }
 }
