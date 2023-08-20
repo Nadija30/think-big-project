@@ -1,22 +1,34 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import { recipeID } from './pop-up-modal';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
 
-const recipeID = `6462a8f74c3d0ddd28897fc1`;
-
 const refs = {
-    modal: document.querySelector(`.backdrop__rating`),
-
+    ratingModal: document.querySelector(`.backdrop__rating`),
+    openRatingModal: document.querySelector(`.pop-up-btn-rating`),
     closeRatingModal: document.querySelector(`.close__rating__btn`),
     ratingForm: document.querySelector(`.rating__form`),
+    ratingRadio: document.querySelectorAll(`.rating__radio`),
 };
 
-refs.closeRatingModal.addEventListener(`click`, toggleModal);
+refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
 refs.ratingForm.addEventListener(`submit`, submitRating);
+refs.openRatingModal.addEventListener(`click`, openRatingModal);
 
-function toggleModal() {
-    refs.modal.classList.toggle(`is-hidden`);
+function closeRatingModal() {
+    refs.ratingModal.classList.add(`is-hidden`);
+}
+
+function openRatingModal() {
+    const value = document.querySelector(`.rating__value`);
+    refs.ratingRadio.forEach(radio => {
+        radio.checked = false;
+    });
+    refs.ratingForm.reset();
+    value.innerHTML = `0.0`;
+    initRatings();
+    refs.ratingModal.classList.remove(`is-hidden`);
 }
 
 initRatings();
@@ -76,10 +88,7 @@ async function submitRating(e) {
     }
 
     await axios
-        .patch(
-            `https://tasty-treats-backend.p.goit.global/api/recipes/6462a8f74c3d0ddd28897fc1/rating`,
-            inputValues
-        )
+        .patch(`${BASE_URL}${recipeID}/rating`, inputValues)
         .then(response => {
             Notiflix.Report.success(
                 `Great`,
@@ -87,7 +96,7 @@ async function submitRating(e) {
                 `Return`
             );
 
-            toggleModal();
+            closeRatingModal();
         })
         .catch(error => {
             Notiflix.Notify.failure(`${error.response.data.message}`);
