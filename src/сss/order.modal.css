@@ -1,154 +1,139 @@
 .order-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-black-40, rgba(20, 20, 20, 0.5));
+    position: fixed;
+    top: 0;
+    left: 0;
 
-  overflow-y: auto;
+    z-index: 15;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 20, 20, 0.5);
+
+    overflow-y: auto;
 }
 
-/* ORDER NOW */
-
-/* body.order-modal {
-  height: 100vh;
-  overflow-y: hidden;
-} */
-
 .order-modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 335px;
-  background: #ffffff;
-  border-radius: 15px;
-  padding: 28px 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 310px;
+    max-width: 335px;
+    /* height: calc(100% - 10px); */
+    height: auto;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 28px 20px;
 }
 
 .order-modal-close-btn {
-  position: absolute;
+    position: absolute;
 
-  top: 14px;
-  right: 14px;
+    top: 14px;
+    right: 14px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  border: none;
-  background-color: transparent;
+    border: none;
+    background-color: transparent;
 
-  padding: 0;
+    padding: 0;
 
-  cursor: pointer;
-  /* transition: background var(--transition-hover-focus); */
+    cursor: pointer;
 }
 
 .order-modal-close-btn:hover,
 .order-modal-close-btn:focus {
-  /* background: var(--ocean); */
-  border: none;
+    border: none;
 }
 
 .order-modal-close-icon {
-  width: 20px;
-  height: 20px;
-
-  /* fill: var(--navy- blue-modal); */
-
-  /* transition: fill var(--transition-hover-focus); */
-}
-
-.order-modal-close-btn:hover .order-modal-close-icon,
-.order-modal-close-btn:focus .order-modal-close-icon {
-  /* fill: var(--white); */
+    width: 20px;
+    height: 20px;
 }
 
 .order-modal-text {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.375rem;
-  text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.375rem;
+    text-transform: uppercase;
 
-  color: #050505;
+    color: #050505;
 
-  margin-bottom: 28px;
+    margin-bottom: 18px;
 }
 
 /* Order now form */
 
 .order-form {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .order-form-field {
-  margin-bottom: 8px;
 }
 
 .order-form-desc {
-  display: block;
+    display: block;
 
-  /* font-size: 14px; */
-  /* font-style: normal; */
-  /* font-weight: 500; */
-  /* line-height: 1.125rem; */
+    color: rgba(5, 5, 5, 0.5);
 
-  /* color: var(--light-slate); */
-  color: rgba(5, 5, 5, 0.5);
-
-  margin-bottom: 8px;
+    margin-bottom: 8px;
 }
 .order-form-input {
-  width: 100%;
-  height: 46px;
+    width: 100%;
+    height: 46px;
 
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 15px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 15px;
 
-  background-color: transparent;
-  /* color: var(--navy-blue-modal); */
+    background-color: transparent;
+    /* color: var(--navy-blue-modal); */
 
-  padding: 14px 18px;
-  margin-bottom: 16px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
 
-  /* transition: border-color var(--transition-hover-focus); */
+    transition: border-color var(--transition);
 }
 
 .order-form-input:focus {
-  /* border-color: var(--iris); */
-  outline: none;
+    border-color: var(--accent-color);
+    outline: none;
 }
 
 .order-form-message {
-  width: 100%;
-  min-height: 80px;
-  max-height: 100px;
-  resize: none;
+    width: 100%;
+    min-height: 80px;
+    max-height: 100px;
+    resize: none;
 
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 15px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 15px;
 
-  background-color: transparent;
-  /* color: var(--navy-blue-modal); */
+    background-color: transparent;
+    /* color: var(--navy-blue-modal); */
 
-  padding: 14px 18px;
-  margin-bottom: 40px;
+    padding: 14px 18px;
+    margin-bottom: 40px;
 
-  /* transition: border-color var(--transition-hover-focus); */
+    transition: border-color var(--transition);
 }
 
 .order-form-message:focus {
-  /* border-color: var(--iris); */
-  outline: none;
+    border-color: var(--accent-color);
+    outline: none;
 }
 
 @media screen and (min-width: 768px) {
-  .order-modal {
-    width: 440px;
-  }
+    .order-modal {
+        width: 440px;
+        height: auto;
+    }
+
+    .order-form-input {
+        margin-bottom: 18px;
+    }
 }
 
 @media screen and (min-width: 1280px) {
