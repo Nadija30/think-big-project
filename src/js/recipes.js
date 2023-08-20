@@ -2,6 +2,9 @@ import debounce from 'lodash.debounce';
 import Pagination from 'tui-pagination';
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Report } from 'notiflix/build/notiflix-report-aio';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 import { getAreas } from './search-api';
 import { getIngredients } from './search-api';
@@ -63,33 +66,13 @@ elems.formFilters.addEventListener('submit', event => {
     event.preventDefault();
 });
 
-// window.addEventListener('resize', debounce(onResize, 600));
-
-// function onResize() {
-//     widthOfViewport = window.innerWidth;
-
-//     // const pagination = new Pagination(elems.containerPagination, options);
-
-//     if (widthOfViewport >= 768 && widthOfViewport < 1280) {
-//         params.limit = 8;
-//     }
-
-//     if (widthOfViewport >= 1280) {
-//         params.limit = 9;
-//     }
-
-//     getRecipes(params)
-//         .then(data => {
-//             createCards(data.results);
-//         })
-//         .catch(error => console.log(error));
-// }
-
 getCategories()
     .then(data => {
         createCategories(data);
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+        Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+    });
 
 getAreas()
     .then(data => {
@@ -98,7 +81,9 @@ getAreas()
             select: '#area',
         });
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+        Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+    });
 
 getIngredients()
     .then(data => {
@@ -107,7 +92,9 @@ getIngredients()
             select: '#ingredients',
         });
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+        Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+    });
 
 createOptionsTime();
 
@@ -116,7 +103,9 @@ getRecipes(params)
         createCards(data.results);
         createPagination(data);
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+        Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+    });
 
 function createCategories(arrCategories) {
     elems.containerCategories.innerHTML = arrCategories
@@ -170,7 +159,9 @@ function handlerSearch(e) {
             createCards(data.results);
             createPagination(data);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+        });
 }
 
 elems.selectTime.addEventListener('change', handlerSearchByTime);
@@ -183,7 +174,9 @@ function handlerSearchByTime(e) {
             createCards(data.results);
             createPagination(data);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+        });
 }
 
 elems.selectArea.addEventListener('change', handlerSearchByArea);
@@ -197,7 +190,9 @@ function handlerSearchByArea(e) {
 
             createPagination(data);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+        });
 }
 
 elems.selectIngredients.addEventListener('change', handlerSearchByIngredients);
@@ -211,7 +206,9 @@ function handlerSearchByIngredients(e) {
 
             createPagination(data);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+        });
 }
 
 function createCards(cards) {
@@ -249,7 +246,9 @@ function handlerChooseCategory(e) {
         .then(data => {
             createCards(data.results);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+        });
 }
 
 elems.btnAllCategories.addEventListener('click', handlerClearCategory);
@@ -260,7 +259,9 @@ function handlerClearCategory() {
         .then(data => {
             createCards(data.results);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+        });
 }
 elems.btnResetFilters.addEventListener('click', hanlerClearFilters);
 
@@ -273,7 +274,9 @@ function hanlerClearFilters() {
         .then(data => {
             createCards(data.results);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+        });
 }
 
 function createPagination(data) {
@@ -295,9 +298,31 @@ function createPagination(data) {
                 options.totalItems =
                     Number(data.perPage) * Number(data.totalPages);
                 options.itemsPerPage = Number(data.perPage);
-                console.log(options);
-                console.log(data);
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+            });
     });
 }
+
+// window.addEventListener('resize', debounce(onResize, 600));
+
+// function onResize() {
+//     widthOfViewport = window.innerWidth;
+
+//     // const pagination = new Pagination(elems.containerPagination, options);
+
+//     if (widthOfViewport >= 768 && widthOfViewport < 1280) {
+//         params.limit = 8;
+//     }
+
+//     if (widthOfViewport >= 1280) {
+//         params.limit = 9;
+//     }
+
+//     getRecipes(params)
+//         .then(data => {
+//             createCards(data.results);
+//         })
+//         .catch(error => console.log(error));
+// }
