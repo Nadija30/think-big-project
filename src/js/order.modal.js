@@ -1,4 +1,5 @@
 import throttle from 'lodash.throttle';
+import Notiflix from 'notiflix';
 
 const refs = {
     btnOpen: document.querySelector('[data-order-btn-open]'),
@@ -51,17 +52,24 @@ function onFormSubmit(event) {
         !refs.form.user_name.value ||
         !refs.form.user_phone.value ||
         !refs.form.user_email.value
-    )
-        return alert('Будь ласка, заповніть усі поля!');
+    ) {
+        return Notiflix.Report.warning(
+            `Oops`,
+            `Need to enter all fields`,
+            `Return`
+        );
+    } else {
+        localStorage.removeItem(LOCAL_KEY);
+        event.currentTarget.reset();
+        formData = {};
+        Notiflix.Report.success(
+            `Great`,
+            `Your data is saved. Our manager will contact you soon`,
+            `Ok`
+        );
 
-    localStorage.removeItem(LOCAL_KEY);
-    event.currentTarget.reset();
-    formData = {};
-
-    // refs.message.classList.remove('is-hidden');
-    // setTimeout(() => {
-    //   refs.message.classList.add('is-hidden');
-    // }, 5000);
+        refs.backdrop.classList.add('is-hidden');
+    }
 }
 
 function onBtnCloseClick() {
