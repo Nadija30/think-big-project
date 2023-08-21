@@ -42,12 +42,10 @@ const options = {
         currentPage:
             '<span class="tui-page-btn tui-is-selected">{{page}}</span>',
         moveButton:
-            '<a href="#" class="tui-page-btn tui-{{type}}">' +
-            '<span class="tui-ico-{{type}}"></span>' +
+            '<a href="#" class="tui-page-btn tui-is-active tui-{{type}}">' +
             '</a>',
         disabledMoveButton:
             '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-            '<span class="tui-ico-{{type}}"></span>' +
             '</span>',
         moreButton:
             '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
