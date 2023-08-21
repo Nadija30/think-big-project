@@ -52,10 +52,19 @@ function onClickRender(ID) {
     refs.recipeContainer.innerHTML = '';
 }
 
+function onCloseModal() {
+    if (videoIframe) {
+        videoIframe.src = '';
+    }
+}
+
 function onBtnCloseClick() {
     window.removeEventListener('keydown', onEscPress);
     refs.scrollOnModal.classList.remove('scroll-blocked');
     refs.backdrop.classList.add('is-hidden');
+
+    videoIframe = document.querySelector('.pop-up-iframe iframe');
+    onCloseModal();
 }
 
 function onBackdropClick(event) {
