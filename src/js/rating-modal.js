@@ -10,6 +10,7 @@ const refs = {
     closeRatingModal: document.querySelector(`.close__rating__btn`),
     ratingForm: document.querySelector(`.rating__form`),
     ratingRadio: document.querySelectorAll(`.rating__radio`),
+    body: document.querySelector(`body`),
 };
 
 refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
@@ -25,6 +26,7 @@ function onBackdropClick(event) {
 
 function closeRatingModal() {
     refs.ratingModal.classList.add(`is-hidden`);
+    refs.body.classList.remove('scroll-blocked');
 }
 
 function openRatingModal() {
@@ -36,6 +38,7 @@ function openRatingModal() {
     value.innerHTML = `0.0`;
     initRatings();
     refs.ratingModal.classList.remove(`is-hidden`);
+    refs.body.classList.add('scroll-blocked');
 }
 
 export function initRatings() {
