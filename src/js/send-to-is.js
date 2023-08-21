@@ -18,6 +18,7 @@ function addToLocalStorage(event) {
             description: data.description,
             preview: data.preview,
             id: data._id,
+            category: data.category,
         }
 
         const cardPreviewJSON = JSON.stringify(cardPreview);
