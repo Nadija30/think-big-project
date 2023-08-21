@@ -30,11 +30,15 @@
 
 .dark {
     background-color: var(--dark-theme-background-color);
-    --stars-uncolored: #3c3b3b;
-    --light-theme-text-color: #fff;
-    --light-theme-semi-transparent-color: #ffffff80;
-    --light-theme-almost-transparent-color: #ffffff4d;
-    --light-theme-transparent-color: #ffffff33;
+        --stars-uncolored: #3c3b3b;
+        --light-theme-text-color: #fff;
+        --light-theme-semi-transparent-color: #ffffff80;
+        --light-theme-almost-transparent-color: #ffffff4d;
+        --light-theme-transparent-color: #ffffff33;
+        --light-modal-text-color: #ffffffcc;
+        --light-modal-underline-color: #ffffff80;
+        --light-modal-scroll-color: #ffffff2e;
+        --light-modal-background-color: #050505;
 }
 
 .base-btn {
