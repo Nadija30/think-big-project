@@ -56,31 +56,37 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* opacity: 0.4; */
 }
 
-.footer-social-link .instagram {
-    /* fill: rgba(5, 5, 5, 0.5); */
+/* .footer-social-link .instagram {
+    fill: rgba(5, 5, 5, 0.5);
     fill: #e1306c;
     opacity: 0.4;
-}
-.footer-social-link .facebook {
+} */
+/* .footer-social-link .facebook {
     fill: #4267b2;
     opacity: 0.4;
-}
-.footer-social-link .twitter {
+} */
+/* .footer-social-link .twitter {
     fill: #1da1f2;
     opacity: 0.4;
-}
-.footer-social-link .youtube {
+} */
+/* .footer-social-link .youtube {
     fill: #ff0000;
     opacity: 0.4;
+} */
+
+.footer-social-link .footer-social-icon {
+    fill: rgba(5, 5, 5, 0.4);
 }
 
 .footer-social-link:hover .footer-social-icon,
 .footer-social-link:focus .footer-social-icon {
-    /* fill: #9bb537; */
-    opacity: 0.9;
+    fill: #9bb537;
+    opacity: 0.8;
     transform: scale(1.1);
+    stroke: rgba(5, 5, 5, 0.5);
 }
 
 .footer-nav-link:is(:hover, :focus) {
@@ -89,8 +95,6 @@ footer {
 
 .footer-social-icon {
     fill: #050505;
-    /* width: 30px;
-    height: 28px; */
     width: 22px;
     height: 22px;
     display: inline-block;
@@ -195,7 +199,8 @@ footer {
 }
 
 .btn-up-icon {
-    fill: #050505;
+    /* fill: #050505; */
+    fill: rgba(5, 5, 5, 0.6);
     width: 16px;
     height: 18px;
     display: inline-block;

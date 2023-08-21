@@ -1,48 +1,21 @@
-// import Notiflix from 'notiflix';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import Notiflix from 'notiflix';
+import throttle from 'lodash.throttle';
 
-  // const notifyInit = Notify.init({
-  // width: '280px',
-  // position: 'right-bottom',
-  // distance: '20px',
-  // // timeout: 2600,
-  // opacity: 0.8,
-  // fontSize: '20px',
-  // borderRadius: '50px 10px',
-  // notiflixIconColor: 'rgba(0,0,0,0.6)',
-  // pauseOnHover: true,
-  // });
-  // Notiflix.Notify.info('Thank you for your feedback!');
-  // Notiflix.Notify.info("Please, tell us what you are looking for.", notifyInit);
-  
+const paramsForNotify = {
+            position: 'center-center',
+            timeout: 3000,
+            width: '400px',
+            fontSize: '24px',
+            opacity: 0.8,
+            fontSize: '20px',
+            borderRadius: '15px',
+            background: '#9bb537',
+            pauseOnHover: true,
+        };
+//  Notify.success('Thank you for your feedback!', paramsForNotify);
 // .catch(error => {
 //         Notiflix.Notify.Failure('An error occurred: ' + error.message);
 //     });
-
-// const paramsForNotify = {
-//             position: 'center-center',
-//             timeout: 3000,
-//             width: '400px',
-//             fontSize: '24px'
-//         };
-
-// const paramsForNotify = {
-//             position: 'center-center',
-//             timeout: 3000,
-//             width: '400px',
-//             fontSize: '24px',
-//             // opacity: 0.8,
-//             fontSize: '20px',
-//             borderRadius: '15px',
-//   //           background: 'rgba(155, 181, 55, 0.6)',
-//   // notiflixIconColor: '#f8f8f8',
-//                 backOverlayColor: '#9bb537',
-
-//             pauseOnHover: true,
-//         };
-//   Notify.Success('Thank you for your feedback!', paramsForNotify);
-
-//  Notify.info('Введіть свій запит, будь ласка!', paramsForNotify);
 //* =============================================== BTN-UP */
 
 const btnUp = document.querySelector(".btn-up");
@@ -61,7 +34,6 @@ function scrollToTop() {
   btnUp.blur();
 }
 
-  
 //* =============================================== FEEDBACK MODAL */
 
 (() => {
@@ -94,7 +66,7 @@ function scrollToTop() {
     document.body.classList.toggle('no-scroll');
   }
 
-  refs.form.addEventListener("input", onFormInput);
+  refs.form.addEventListener("input", throttle(onFormInput, 500));
   refs.form.addEventListener("submit", onFormSubmit);
 
   let formData = JSON.parse(localStorage.getItem(LOCAL_KEY)) || {};
@@ -120,7 +92,7 @@ function scrollToTop() {
     evt.currentTarget.reset();
     toggleModal();
     formData = {};
-    Notiflix.Notify.info('Thank you for your feedback!', paramsForNotify);
+  Notiflix.Notify.success('Thank you for your feedback!', paramsForNotify);
      }
 })();
 
