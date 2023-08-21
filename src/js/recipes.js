@@ -29,6 +29,7 @@ const elems = {
     formFilters: document.querySelector('.js-form-filter'),
     containerPagination: document.querySelector('.js-pages'),
 };
+
 const options = {
     totalItems: 80,
     itemsPerPage: 8,
