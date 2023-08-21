@@ -3,9 +3,8 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(46, 47, 66, 0.4);
-    transition: opacity var(--transform-dur-and-func)
-        var(--transform-dur-and-func);
+    background-color: var(--light-theme-transparent-color);
+    transition: opacity var(--animation);
     z-index: 21;
 }
 
@@ -15,7 +14,7 @@
     padding: 32px;
     border-radius: 15px;
 
-    background-color: rgba(255, 255, 255, 1);
+    background-color: var(--light-color);
 
     position: absolute;
 
@@ -23,8 +22,7 @@
     top: 50%;
     transform: translate(-50%, -50%) scale(1);
 
-    transition: transform var(--transform-dur-and-func)
-        var(--transform-dur-and-func);
+    transition: transform var(--animation);
 }
 
 @media screen and (max-width: 768px) {
@@ -35,9 +33,12 @@
     }
 }
 
+.backdrop__rating.is-hidden .rating__modal {
+    transform: translate(-50%, -50%) scale(0);
+}
+
 .rating-text {
     font-weight: 600;
-    margin-bottom: 4px;
 }
 
 .rating__wrap {
@@ -45,6 +46,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 24px;
+    margin-top: 4px;
 }
 
 .set__rating .rating__value {
@@ -64,21 +66,12 @@
     left: 32px;
 }
 
-.set__rating .rating__icon {
-    width: 24px;
-    height: 24px;
-}
-
 .rating__icon {
-    fill: rgb(217, 217, 217);
+    fill: var(--stars-uncolored);
 }
 
 .active__star {
-    fill: rgba(238, 161, 12, 1);
-}
-
-.rating__form {
-    min-width: 295px;
+    fill: var(--stars-color);
 }
 
 .rating__input {
@@ -92,11 +85,7 @@
 }
 
 .rating__submit {
-    height: 46px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .close__rating__btn {
@@ -105,8 +94,9 @@
     top: 14px;
     background-color: transparent;
 }
+
 .close__icon {
-    stroke: rgba(5, 5, 5, 1);
+    stroke: currentColor;
 }
 
 .card__rating {
@@ -117,6 +107,7 @@
 .card__rating .rating__icon {
     width: 18px;
     height: 18px;
+    fill-opacity: 0.1;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
@@ -124,4 +115,8 @@
         width: 16px;
         height: 16px;
     }
+}
+
+.card__rating .active__star {
+    fill-opacity: 1;
 }
