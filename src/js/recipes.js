@@ -79,12 +79,14 @@ getCategories()
 
 getAreas()
     .then(data => {
-        createOptionsAreas(data);
+        console.log('areas>>', data);
+        createOptionsAreas(data.filter(area => area.name != 'Unknown'));
         new SlimSelect({
             select: '#area',
             settings: {
                 placeholderText: 'Region',
                 allowDeselect: true,
+                showSearch: false,
             },
         });
     })
@@ -101,6 +103,7 @@ getIngredients()
             settings: {
                 placeholderText: 'Product',
                 allowDeselect: true,
+                showSearch: false,
             },
         });
     })
@@ -131,37 +134,53 @@ function createCategories(arrCategories) {
 }
 
 function createOptionsAreas(arrAreas) {
-    elems.selectArea.insertAdjacentHTML(
-        'beforeend',
-        arrAreas
-            .map(({ name }) => `<option value=${name}>${name}</option>`)
-            .join('')
-    );
+    // elems.selectArea.insertAdjacentHTML(
+    //     'beforeend',
+    //     arrAreas
+    //         .map(({ name }) => `<option value=${name}>${name}</option>`)
+    //         .join('')
+    // );
+
+    const markup = [
+        '<option data-placeholder="true"></option>',
+        ...arrAreas.map(({ name }) => `<option value=${name}>${name}</option>`),
+    ];
+
+    elems.selectArea.innerHTML = markup.join('');
 }
 
 function createOptionsIngredients(arrIngredients) {
-    elems.selectIngredients.insertAdjacentHTML(
-        'beforeend',
-        arrIngredients
-            .map(({ _id, name }) => `<option value=${_id}>${name}</option>`)
-            .join('')
-    );
+    // elems.selectIngredients.insertAdjacentHTML(
+    //     'beforeend',
+    //     arrIngredients
+    //         .map(({ _id, name }) => `<option value=${_id}>${name}</option>`)
+    //         .join('')
+    // );
+    const markup = [
+        '<option data-placeholder="true"></option>',
+        ...arrIngredients.map(
+            ({ _id, name }) => `<option value=${_id}>${name}</option>`
+        ),
+    ];
+
+    elems.selectIngredients.innerHTML = markup.join('');
 }
 
 function createOptionsTime() {
-    const markup = [];
+    const markup = ['<option data-placeholder="true"></option>'];
 
     for (let i = 5; i <= 160; i += 5) {
         markup.push(`<option value=${i}>${i}</option>`);
     }
 
-    elems.selectTime.insertAdjacentHTML('beforeend', markup.join(''));
+    elems.selectTime.innerHTML = markup.join('');
 
     new SlimSelect({
         select: '#time',
         settings: {
             placeholderText: '0 min',
             allowDeselect: true,
+            showSearch: false,
         },
     });
 }
