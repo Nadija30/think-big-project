@@ -11,3 +11,4 @@ import './js/footer';
 import './js/favorites-recipes';
 import './js/send-to-is';
 import './js/change-theme';
+import './js/render-cards';
