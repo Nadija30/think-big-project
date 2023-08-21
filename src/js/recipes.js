@@ -79,9 +79,15 @@ getCategories()
 
 getAreas()
     .then(data => {
-        createOptionsAreas(data);
+        console.log('areas>>', data);
+        createOptionsAreas(data.filter(area => area.name != 'Unknown'));
         new SlimSelect({
             select: '#area',
+            settings: {
+                placeholderText: 'Region',
+                allowDeselect: true,
+                showSearch: false,
+            },
         });
     })
     .catch(error => {
@@ -94,6 +100,11 @@ getIngredients()
         createOptionsIngredients(data);
         new SlimSelect({
             select: '#ingredients',
+            settings: {
+                placeholderText: 'Product',
+                allowDeselect: true,
+                showSearch: false,
+            },
         });
     })
     .catch(error => {
@@ -123,34 +134,54 @@ function createCategories(arrCategories) {
 }
 
 function createOptionsAreas(arrAreas) {
-    elems.selectArea.insertAdjacentHTML(
-        'beforeend',
-        arrAreas
-            .map(({ name }) => `<option value=${name}>${name}</option>`)
-            .join('')
-    );
+    // elems.selectArea.insertAdjacentHTML(
+    //     'beforeend',
+    //     arrAreas
+    //         .map(({ name }) => `<option value=${name}>${name}</option>`)
+    //         .join('')
+    // );
+
+    const markup = [
+        '<option data-placeholder="true"></option>',
+        ...arrAreas.map(({ name }) => `<option value=${name}>${name}</option>`),
+    ];
+
+    elems.selectArea.innerHTML = markup.join('');
 }
 
 function createOptionsIngredients(arrIngredients) {
-    elems.selectIngredients.insertAdjacentHTML(
-        'beforeend',
-        arrIngredients
-            .map(({ _id, name }) => `<option value=${_id}>${name}</option>`)
-            .join('')
-    );
+    // elems.selectIngredients.insertAdjacentHTML(
+    //     'beforeend',
+    //     arrIngredients
+    //         .map(({ _id, name }) => `<option value=${_id}>${name}</option>`)
+    //         .join('')
+    // );
+    const markup = [
+        '<option data-placeholder="true"></option>',
+        ...arrIngredients.map(
+            ({ _id, name }) => `<option value=${_id}>${name}</option>`
+        ),
+    ];
+
+    elems.selectIngredients.innerHTML = markup.join('');
 }
 
 function createOptionsTime() {
-    const markup = [];
+    const markup = ['<option data-placeholder="true"></option>'];
 
     for (let i = 5; i <= 160; i += 5) {
         markup.push(`<option value=${i}>${i}</option>`);
     }
 
-    elems.selectTime.insertAdjacentHTML('beforeend', markup.join(''));
+    elems.selectTime.innerHTML = markup.join('');
 
     new SlimSelect({
         select: '#time',
+        settings: {
+            placeholderText: '0 min',
+            allowDeselect: true,
+            showSearch: false,
+        },
     });
 }
 
@@ -313,6 +344,8 @@ function hanlerClearFilters() {
 
     params = {};
 
+    formFilters.reset();
+
     Loading.dots('Loading data, please wait...');
 
     getRecipes()
@@ -354,31 +387,3 @@ function createPagination(data) {
             .finally(Loading.remove());
     });
 }
-
-// window.addEventListener('resize', debounce(onResize, 600));
-
-// function onResize() {
-//     widthOfViewport = window.innerWidth;
-
-//     // const pagination = new Pagination(elems.containerPagination, options);
-
-//     if (widthOfViewport >= 768 && widthOfViewport < 1280) {
-//         params.limit = 8;
-//     }
-
-//     if (widthOfViewport >= 1280) {
-//         params.limit = 9;
-//     }
-
-//     getRecipes(params)
-//         .then(data => {
-//             createCards(data.results);
-//         })
-//         .catch(error => console.log(error));
-// }
-
-// import { getCardByID } from './search-api';
-// const id = '6462a8f74c3d0ddd28897fbc';
-// getCardByID(id).then(data => {
-//     console.log(data);
-// });
