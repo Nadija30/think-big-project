@@ -1,7 +1,3 @@
-:root {
-    --color-invert: #F8F8F8;
-    --transform-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 .hero-container {
     padding-left: 20px;
@@ -22,6 +18,7 @@
     line-height: 1.2;
     text-transform: uppercase;
     margin-bottom: 14px;
+    color: var(--light-theme-text-color);
 }
 
 .hero-title-decor {
@@ -45,14 +42,15 @@
     background-color: transparent;
     text-align: center;
     margin-bottom: 48px;
-    transition: background-color var(--transform-dur-and-func), border var(--transform-dur-and-func), color var(--transform-dur-and-func);
+    color: inherit;
+    transition: background-color var(--animation), border var(--animation), color var(--animation);
 }
 
 .hero-btn:hover,
 .hero-btn:focus {
     background-color: var(--accent-color);
     border: 1px solid transparent;
-    color: var(--color-invert);
+    color: var(--light-color);
 }
 
 @media screen and (min-width:768px) {
@@ -85,7 +83,7 @@
         border-radius: 15px;
         text-align: center;
         margin-bottom: 64px;
-        transition: background-color var(--transform-dur-and-func), border var(--transform-dur-and-func);
+        transition: background-color var(--animation), border var(--animation);
     }
 }
 
@@ -205,7 +203,7 @@ p.image-descraption {
 .swiper .swiper-pagination-bullet {
     width: 5px;
     height: 5px;
-    background: #050505;
+    background: var(--dark-color);
     opacity: 1;
 }
 
