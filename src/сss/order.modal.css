@@ -27,9 +27,12 @@
 
 .order-modal-close-btn {
     position: absolute;
-
     top: 14px;
     right: 14px;
+
+    width: 22px;
+    height: 22px;
+    padding: 0;
 
     display: flex;
     justify-content: center;
@@ -37,10 +40,6 @@
 
     border: none;
     background-color: transparent;
-
-    padding: 0;
-
-    cursor: pointer;
 }
 
 .order-modal-close-btn:hover,
@@ -49,6 +48,7 @@
 }
 
 .order-modal-close-icon {
+    stroke: #050505;
     width: 20px;
     height: 20px;
 }
