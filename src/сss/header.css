@@ -10,12 +10,9 @@
 }
 
 
-.section-header {
-    background: var(--primary-brand-color);
-}
-
 .header-container.container {
     min-width: 320px;
+    background: var(--primary-brand-color);
 }
 
 .header-items {
