@@ -1,9 +1,3 @@
-.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
 .backdrop__rating {
     position: fixed;
     top: 0;
@@ -12,13 +6,13 @@
     background-color: rgba(46, 47, 66, 0.4);
     transition: opacity var(--transform-dur-and-func)
         var(--transform-dur-and-func);
-    z-index: 2;
+    z-index: 21;
 }
 
 .rating__modal {
-    min-width: 335px;
-    height: 216px;
-    padding: 20px;
+    width: 424px;
+    height: 254px;
+    padding: 32px;
     border-radius: 15px;
 
     background-color: rgba(255, 255, 255, 1);
@@ -31,6 +25,14 @@
 
     transition: transform var(--transform-dur-and-func)
         var(--transform-dur-and-func);
+}
+
+@media screen and (max-width: 768px) {
+    .rating__modal {
+        min-width: 335px;
+        height: 216px;
+        padding: 20px;
+    }
 }
 
 .rating-text {
@@ -85,18 +87,16 @@
     border-radius: 15px;
     display: block;
     width: 100%;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    padding-left: 18px;
+    padding: 14px 18px;
     margin-bottom: 14px;
 }
 
 .rating__submit {
     height: 46px;
     width: 100%;
-    border-radius: 15px;
-    padding: 15px auto;
-    background-color: rgba(155, 181, 55, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .close__rating__btn {
@@ -117,4 +117,11 @@
 .card__rating .rating__icon {
     width: 18px;
     height: 18px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+    .card__rating .rating__icon {
+        width: 16px;
+        height: 16px;
+    }
 }
