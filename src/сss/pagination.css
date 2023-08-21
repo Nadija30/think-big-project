@@ -3,6 +3,8 @@
 .pages {
     display: flex;
     justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tui-page-btn {
@@ -84,7 +86,6 @@
 @media screen and (min-width: 768px) {
     .pages {
         max-width: 500px;
-        margin-left: 129px;
     }
 
     .tui-page-btn {
@@ -136,10 +137,5 @@
         background-image: url(../img/icon-prev.svg), url(../img/icon-prev.svg);
         background-repeat: no-repeat;
         background-position: 35% 50%, 65% 50%;
-    }
-}
-@media screen and (min-width: 1280px) {
-    .pages {
-        margin-left: 480px;
     }
 }
