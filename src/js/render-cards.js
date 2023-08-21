@@ -1,7 +1,6 @@
 import { initRatings } from './rating-modal';
 
 export function createCards(cards, container) {
-    console.log(cards);
     if (!cards.length) {
         container.innerHTML =
             '<p>Nothing was found for your request. Try changing your search parameters...</p>';

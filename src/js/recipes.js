@@ -398,3 +398,36 @@ function createPagination(data) {
             .finally(Loading.remove());
     });
 }
+
+// console.log(localStorage);
+
+// let keysArr = [];
+// let cardsArr = [];
+// for (const key in localStorage) {
+//     if (key != 'TOAST UI pagination for localhost') {
+//         keysArr.push(key);
+//     }
+// }
+// console.log(keysArr);
+console.log('ssss');
+
+function a() {}
+
+let value = {
+    id: '111',
+    title: 'Title',
+};
+const ls = 'lsls';
+const aaa = JSON.stringify(value);
+const bbb = JSON.stringify(ls);
+
+localStorage.setItem('ui-theme', 'dark');
+localStorage.setItem(bbb, aaa);
+
+const theme = localStorage.getItem('ui-theme');
+console.log(theme);
+
+// console.log(b);
+console.log(value);
+console.log(localStorage);
+// localStorage.setItem(b, a);
