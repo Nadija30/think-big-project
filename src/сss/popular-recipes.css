@@ -4,7 +4,7 @@
   }
 
   .popular-title {
-    color: #050505;
+    color: var(--light-theme-text-color);
     margin-bottom: 20px;
     font-size: 18px;
     text-align: left;
@@ -33,7 +33,7 @@
   }
   
   .popular-text-title {
-    color: #050505;
+    color: var(--light-theme-text-color);
     margin-bottom: 8px;
     font-size: 14px;
     font-weight: 600;
@@ -46,7 +46,7 @@
     text-overflow: ellipsis;
   }
   .popular-description {
-    color: rgba(5, 5, 5, 0.80);
+    color: var(--light-theme-semi-transparent-color);
     font-size: 12px;
     line-height: 16px;
     display: -webkit-box;
