@@ -344,6 +344,8 @@ function hanlerClearFilters() {
 
     params = {};
 
+    formFilters.reset();
+
     Loading.dots('Loading data, please wait...');
 
     getRecipes()
