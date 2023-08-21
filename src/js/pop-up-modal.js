@@ -18,15 +18,16 @@ refs.btnClose.addEventListener('click', onBtnCloseClick);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
 let recipeID = '';
+let recipePopularID = '';
 
 function onPopularClick(event) {
     const listItem = event.target.closest('.popular-list-item');
 
     if (listItem) {
-        const recipeID = listItem.getAttribute('data-id');
-        console.log(recipeID);
+        const recipePopularID = listItem.getAttribute('data-id');
+        console.log(recipePopularID);
 
-        onClickRender(recipeID);
+        onClickRender(recipePopularID);
     }
 }
 
@@ -45,6 +46,10 @@ function onClickRender(ID) {
     getDataRecipeByID(ID);
     checkRecipeInStorage();
 
+    onOpenModal();
+}
+
+function onOpenModal() {
     window.addEventListener('keydown', onEscPress);
     refs.scrollOnModal.classList.add('scroll-blocked');
     refs.backdrop.classList.remove('is-hidden');
