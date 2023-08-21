@@ -1,10 +1,10 @@
 import { getCardByID } from './search-api';
 
-const cardsBox = document.querySelector('.js-cards');
+// const cardsBox = document.querySelector('.js-cards');
 
-cardsBox.addEventListener('click', addToLocalStorage);
+// cardsBox.addEventListener('click', addToLocalStorage);
 
-function addToLocalStorage(event) {
+export function addToLocalStorage(event) {
     if (event.target.tagName !== 'path') return;
 
     console.log(event.target);
