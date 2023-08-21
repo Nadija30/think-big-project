@@ -1,7 +1,6 @@
 import Notiflix from 'notiflix';
 import throttle from 'lodash.throttle';
 
-
 const paramsForNotify = {
             position: 'center-center',
             timeout: 3000,
@@ -14,7 +13,6 @@ const paramsForNotify = {
             pauseOnHover: true,
         };
 //  Notify.success('Thank you for your feedback!', paramsForNotify);
-//  Notify.info('Введіть свій запит, будь ласка!', paramsForNotify);
 // .catch(error => {
 //         Notiflix.Notify.Failure('An error occurred: ' + error.message);
 //     });
@@ -68,7 +66,6 @@ function scrollToTop() {
     document.body.classList.toggle('no-scroll');
   }
 
-  // refs.form.addEventListener("input", onFormInput);
   refs.form.addEventListener("input", throttle(onFormInput, 500));
   refs.form.addEventListener("submit", onFormSubmit);
 
