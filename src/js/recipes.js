@@ -82,6 +82,10 @@ getAreas()
         createOptionsAreas(data);
         new SlimSelect({
             select: '#area',
+            settings: {
+                placeholderText: 'Region',
+                allowDeselect: true,
+            },
         });
     })
     .catch(error => {
@@ -94,6 +98,10 @@ getIngredients()
         createOptionsIngredients(data);
         new SlimSelect({
             select: '#ingredients',
+            settings: {
+                placeholderText: 'Product',
+                allowDeselect: true,
+            },
         });
     })
     .catch(error => {
@@ -151,6 +159,10 @@ function createOptionsTime() {
 
     new SlimSelect({
         select: '#time',
+        settings: {
+            placeholderText: '0 min',
+            allowDeselect: true,
+        },
     });
 }
 
@@ -354,31 +366,3 @@ function createPagination(data) {
             .finally(Loading.remove());
     });
 }
-
-// window.addEventListener('resize', debounce(onResize, 600));
-
-// function onResize() {
-//     widthOfViewport = window.innerWidth;
-
-//     // const pagination = new Pagination(elems.containerPagination, options);
-
-//     if (widthOfViewport >= 768 && widthOfViewport < 1280) {
-//         params.limit = 8;
-//     }
-
-//     if (widthOfViewport >= 1280) {
-//         params.limit = 9;
-//     }
-
-//     getRecipes(params)
-//         .then(data => {
-//             createCards(data.results);
-//         })
-//         .catch(error => console.log(error));
-// }
-
-// import { getCardByID } from './search-api';
-// const id = '6462a8f74c3d0ddd28897fbc';
-// getCardByID(id).then(data => {
-//     console.log(data);
-// });
