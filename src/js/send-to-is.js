@@ -16,8 +16,9 @@ export function addToLocalStorage(event) {
             title: data.title,
             description: data.description,
             preview: data.preview,
-            id: data._id,
+            _id: data._id,
             category: data.category,
+            rating: data.rating,
         };
 
         const cardPreviewJSON = JSON.stringify(cardPreview);
