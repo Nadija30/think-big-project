@@ -99,7 +99,8 @@
     stroke: currentColor;
 }
 
-.card__rating {
+.card__rating,
+.popup__rating {
     display: flex;
     gap: 4;
 }

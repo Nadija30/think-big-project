@@ -52,7 +52,8 @@ export function initRatings() {
     // Ініціалізуємо кожен рейтинг, якщо рейтинг на картці, то рендеримо зірки
     function initRating(rating) {
         if (
-            rating.classList.contains(`card__rating`) &&
+            (rating.classList.contains(`card__rating`) ||
+                rating.classList.contains(`popup__rating`)) &&
             rating.lastElementChild.classList.contains(`rating__value`)
         ) {
             renderIcons(rating);
