@@ -1,31 +1,27 @@
-import { getCardByID } from "./search-api";
+import { getCardByID } from './search-api';
 
-const cardsBox = document.querySelector('.js-cards')
+// const cardsBox = document.querySelector('.js-cards');
 
-cardsBox.addEventListener('click', addToLocalStorage);
+// cardsBox.addEventListener('click', addToLocalStorage);
 
-function addToLocalStorage(event) {
+export function addToLocalStorage(event) {
     if (event.target.tagName !== 'path') return;
 
-    console.log(event.target)
+    console.log(event.target);
 
     const dataIdValue = event.target.getAttribute('data-id');
 
     getCardByID(dataIdValue).then(data => {
-    
         const cardPreview = {
             title: data.title,
             description: data.description,
             preview: data.preview,
             id: data._id,
             category: data.category,
-        }
+        };
 
         const cardPreviewJSON = JSON.stringify(cardPreview);
 
         localStorage.setItem(`${data.title}`, cardPreviewJSON);
     });
 }
-
-
-

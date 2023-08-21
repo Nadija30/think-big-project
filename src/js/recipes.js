@@ -10,7 +10,7 @@ import { getAreas } from './search-api';
 import { getIngredients } from './search-api';
 import { getRecipes } from './search-api';
 import { getCategories } from './search-api';
-
+import { addToLocalStorage } from './send-to-is';
 import { initRatings } from './rating-modal';
 
 let widthOfViewport = window.innerWidth;
@@ -29,6 +29,7 @@ const elems = {
     formFilters: document.querySelector('.js-form-filter'),
     containerPagination: document.querySelector('.js-pages'),
 };
+
 const options = {
     totalItems: 80,
     itemsPerPage: 8,
@@ -53,6 +54,8 @@ const options = {
             '</a>',
     },
 };
+
+elems.containerCards.addEventListener('click', addToLocalStorage);
 
 if (widthOfViewport >= 768 && widthOfViewport < 1280) {
     params.limit = 8;
