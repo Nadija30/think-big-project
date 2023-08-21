@@ -1,106 +1,3 @@
-/* ---------- Pagination -------------- */
-
-.pages {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-}
-
-.tui-page-btn {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid rgba(5, 5, 5, 0.3);
-
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 22px;
-}
-
-.tui-ico-next {
-    width: 100%;
-    height: 100%;
-}
-
-.tui-is-selected {
-    background-color: #9bb537;
-}
-
-.tui-first {
-    display: inline-block;
-
-    text-align: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.tui-ico-first {
-    width: 100%;
-    height: 100%;
-    display: block;
-    text-align: center;
-
-    background-image: url(../img/icon-start.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: contain;
-}
-
-.tui-ico-prev {
-    width: 100%;
-    height: 100%;
-    display: block;
-    text-align: center;
-
-    background-image: url(../img/icon-prev.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: contain;
-}
-
-.tui-ico-next {
-    width: 100%;
-    height: 100%;
-    display: block;
-    text-align: center;
-
-    background-image: url(../img/icon-next.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: contain;
-}
-
-.tui-ico-last {
-    width: 100%;
-    height: 100%;
-    display: block;
-    text-align: center;
-
-    background-image: url(../img/icon-last.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: contain;
-}
-
-.tui-first-child {
-    margin-left: 10px;
-    margin-right: 4px;
-}
-
-.tui-last-child {
-    margin-right: 10px;
-    margin-left: 4px;
-}
-
 /* ------------- Select -------------------- */
 
 .js-form-filter {
@@ -403,6 +300,7 @@
         gap: 24px;
     }
     .btn-all-cat {
+        margin-top: 26px;
         margin-bottom: 30px;
     }
     .cards-container {
@@ -447,32 +345,7 @@
     .js-form-filter {
         margin-bottom: 14px;
     }
-    .pages {
-        max-width: 446px;
-        gap: 8px;
-    }
-    .tui-page-btn {
-        width: 44px;
-        height: 44px;
-    }
-    .icon {
-        width: 24px;
-        height: 24px;
-    }
-    .tui-prev {
-        margin-left: 8px;
-    }
-    .tui-next {
-        margin-right: 8px;
-    }
-    .tui-first-child {
-        margin-left: 16px;
-        margin-right: 2px;
-    }
-    .tui-last-child {
-        margin-right: 16px;
-        margin-left: 2px;
-    }
+
     .field-search {
         max-width: 278px;
     }
