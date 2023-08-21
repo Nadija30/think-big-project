@@ -42,13 +42,14 @@ function openRatingModal() {
 }
 
 export function initRatings() {
+    // Знаходимо всі рейтинги
     const ratings = document.querySelectorAll(`.rating`);
     let ratingValue, ratingStars;
 
     ratings.forEach(rating => {
         initRating(rating);
     });
-
+    // Ініціалізуємо кожен рейтинг, якщо рейтинг на картці, то рендеримо зірки
     function initRating(rating) {
         if (
             rating.classList.contains(`card__rating`) &&
@@ -56,8 +57,10 @@ export function initRatings() {
         ) {
             renderIcons(rating);
         }
+        // Ініціалізуємо змінні для роботи і зафарбовуємо зіки залежно від значення рейтингу
         initRatingValues(rating);
         setActiveStars();
+        // Ініціалізуємо вибір рейтингу, якщо він в модальному вікні
         if (rating.classList.contains(`set__rating`)) {
             rating.addEventListener(`change`, setNewValue);
         }
@@ -83,6 +86,7 @@ export function initRatings() {
         setActiveStars();
     }
 
+    // Єдиний робочий варіант рендеру SVG з JS який мені вдалось знайти
     function renderIcons(rating) {
         const starWrap = document.createElement(`div`);
 
@@ -116,6 +120,7 @@ export function initRatings() {
     }
 }
 
+// Відправка рейтингу на бек(проблема в тому, що якщо в email є '.' то бек не прийме його)
 async function submitRating(e) {
     e.preventDefault();
 
@@ -131,6 +136,7 @@ async function submitRating(e) {
     }
     if (inputValues.email.trim() === '') {
         Notiflix.Report.warning(`Oops`, `Need to enter email`, `Return`);
+        return;
     }
 
     await axios
@@ -138,7 +144,7 @@ async function submitRating(e) {
         .then(response => {
             Notiflix.Report.success(
                 `Great`,
-                `Compeltly add rating for ${response.data.title}`,
+                `Completly added rating for ${response.data.title}`,
                 `Return`
             );
 
