@@ -79,7 +79,6 @@ getCategories()
 
 getAreas()
     .then(data => {
-        console.log('areas>>', data);
         createOptionsAreas(data.filter(area => area.name != 'Unknown'));
         new SlimSelect({
             select: '#area',
@@ -344,7 +343,15 @@ function hanlerClearFilters() {
 
     params = {};
 
-    formFilters.reset();
+    elems.formFilters.reset();
+
+    [...document.querySelectorAll('[data-placeholder="true"]')].map(opt => {
+        opt.setAttribute('Selected', 'true');
+    });
+
+    document
+        .querySelector('[data-placeholder="true"]')
+        .setAttribute('Selected', 'true');
 
     Loading.dots('Loading data, please wait...');
 
