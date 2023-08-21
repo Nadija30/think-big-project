@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 
 const refs = {
     btnOpen: document.querySelector('[data-order-btn-open]'),
+    btnBasket: document.querySelector('[data-basket-btn-open]'),
     btnClose: document.querySelector('[data-order-btn-closed]'),
     backdrop: document.querySelector('[data-order-backdrop]'),
     scrollOnModal: document.querySelector('body'),
@@ -10,11 +11,10 @@ const refs = {
     message: document.querySelector('.order-message'),
 };
 
-console.log(refs);
-
 const LOCAL_KEY = 'order-data';
 
 refs.btnOpen.addEventListener('click', onBtnOpenClick);
+refs.btnBasket.addEventListener('click', onBtnOpenClick);
 refs.btnClose.addEventListener('click', onBtnCloseClick);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
@@ -68,6 +68,7 @@ function onFormSubmit(event) {
             `Ok`
         );
 
+        refs.scrollOnModal.classList.remove('scroll-blocked');
         refs.backdrop.classList.add('is-hidden');
     }
 }
