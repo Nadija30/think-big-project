@@ -18,16 +18,15 @@ refs.btnClose.addEventListener('click', onBtnCloseClick);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
 let recipeID = '';
-let recipePopularID = '';
 
 function onPopularClick(event) {
     const listItem = event.target.closest('.popular-list-item');
 
     if (listItem) {
-        const recipePopularID = listItem.getAttribute('data-id');
-        console.log(recipePopularID);
+        const recipeID = listItem.getAttribute('data-id');
+        console.log(recipeID);
 
-        onClickRender(recipePopularID);
+        onClickRender(recipeID);
     }
 }
 
@@ -46,10 +45,6 @@ function onClickRender(ID) {
     getDataRecipeByID(ID);
     checkRecipeInStorage();
 
-    onOpenModal();
-}
-
-function onOpenModal() {
     window.addEventListener('keydown', onEscPress);
     refs.scrollOnModal.classList.add('scroll-blocked');
     refs.backdrop.classList.remove('is-hidden');
@@ -57,10 +52,19 @@ function onOpenModal() {
     refs.recipeContainer.innerHTML = '';
 }
 
+function onCloseModal() {
+    if (videoIframe) {
+        videoIframe.src = '';
+    }
+}
+
 function onBtnCloseClick() {
     window.removeEventListener('keydown', onEscPress);
     refs.scrollOnModal.classList.remove('scroll-blocked');
     refs.backdrop.classList.add('is-hidden');
+
+    videoIframe = document.querySelector('.pop-up-iframe iframe');
+    onCloseModal();
 }
 
 function onBackdropClick(event) {
