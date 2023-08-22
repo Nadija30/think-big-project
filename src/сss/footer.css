@@ -1,3 +1,8 @@
+body {
+    /* color: var(--light-theme-text-color);
+    background-color: var(--btn-text-color); */
+}
+
 /** =============================================== FOOTER */
 /** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @media PHONE */
 
@@ -28,6 +33,7 @@ footer {
     justify-content: center;
     align-items: center;
     border-radius: 12px;
+    color: #050505;
     border: 1px solid #9bb537;
     background-color: transparent;
     font-weight: 500;
@@ -151,7 +157,7 @@ footer {
 @media screen and (min-width: 1280px) {
 }
 
-/** =============================================== BTN-UP */
+/** =============================================== SCROLL-UP */
 /** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @media PHONE */
 
 .btn-up {
@@ -228,6 +234,7 @@ footer {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 15;
     width: 100%;
     height: 100%;
     background: var(--color-black-40, rgba(20, 20, 20, 0.5));
