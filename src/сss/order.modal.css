@@ -27,7 +27,7 @@
     width: 310px;
     max-width: 335px;
     height: auto;
-    background: var(--light-color);
+    background: var(--light-modal-background-color);
     border-radius: 15px;
     padding: 28px 20px;
 }
