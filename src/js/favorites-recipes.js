@@ -8,10 +8,10 @@ import { createCards } from './render-cards';
 const favorCatBox = document.querySelector('.favorites__categories-list');
 const favorGallBox = document.querySelector('.favorites__gallery-list');
 const containerPagination = document.querySelector('.js-pages');
+const allCatBtn = document.querySelector('.js-all-cat-btn');
 
 function start() {
     favorCatBox.addEventListener('click', handlerChooseCategor);
-    // const cardsPerPage = window.innerWidth < 768 ? 9 : 12;
 
     const options = {
         totalItems: getFromLocalStorage().length,
@@ -65,9 +65,14 @@ function start() {
     }
 
     function handlerChooseCategor(e) {
-        if (e.target.nodeName !== 'BUTTON') {
+        if (
+            e.target.nodeName !== 'BUTTON' ||
+            e.target.outerText === 'All categories'
+        ) {
             return;
         }
+
+        allCatBtn.classList.remove('bnt-all-cat-fav-is-active');
 
         function filterCatFav(category) {
             const arrFiltredCards = getFromLocalStorage().filter(
@@ -84,6 +89,23 @@ function start() {
         );
 
         createPagination(filterCatFav(e.target.textContent));
+    }
+
+    allCatBtn.addEventListener('click', hanlerResetFilterCat);
+
+    function hanlerResetFilterCat() {
+        // allCatBtn.classList.add('bnt-all-cat-fav-is-active');
+
+        // pagination.reset();
+
+        options.totalItems = getFromLocalStorage().length;
+
+        createCards(
+            setArr(options.itemsPerPage, getFromLocalStorage())[0],
+            favorGallBox
+        );
+
+        // createPagination(getFromLocalStorage());
     }
 }
 
