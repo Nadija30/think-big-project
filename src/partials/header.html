@@ -1,5 +1,5 @@
-<header class="section-header">
-    <div class="container header-container">
+<header class="container header-container">
+    <div>
         <div class="header-items">
             <nav class="header-nav">
                 <a
@@ -22,7 +22,7 @@
             <div class="header-icons">
                 <button
                     class="button order-button"
-                    data-modal-open
+                    data-basket-btn-open
                     type="button"
                 >
                     <svg
@@ -35,7 +35,7 @@
                     </svg>
                 </button>
 
-                <button class="menu-open-btn" data-menu-open type="button">
+                <button class="mob-menu-btn-open" data-menu-open type="button">
                     <svg
                         class="menu-open-icon"
                         width="32"
@@ -48,7 +48,7 @@
 
                 <div>
                     <label class="header-switch">
-                        <input class ="js-switch" type="checkbox" />
+                        <input type="checkbox" id="themeSwitch" />
                         <span class="header-slider"></span>
                     </label>
                 </div>
@@ -57,8 +57,8 @@
     </div>
 
     <!-- мобільне меню -->
-    <div class="mobile-menu is-hidden">
-        <button class="mob-menu-btn-close" type="button">
+    <div class="mobile-menu open is-hidden" data-menu>
+        <button class="mob-menu-btn-close" data-menu-close type="button">
             <svg class="mob-menu-close" width="32" height="32">
                 <use
                     class="mob-menu-close-icon"
@@ -78,7 +78,7 @@
         </ul>
         <div>
             <label class="switch">
-                <input class ="js-switch" type="checkbox" />
+                <input type="checkbox" id="themeSwitch"/>
                 <span class="slider"></span>
             </label>
         </div>

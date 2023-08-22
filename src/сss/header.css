@@ -10,10 +10,6 @@
 }
 
 
-.section-header {
-    background: var(--primary-brand-color);
-}
-
 .header-container.container {
     min-width: 320px;
 }
@@ -69,6 +65,7 @@
 
 .icon-shopping-cart:is(:hover, :focus) {
     stroke: var(--secondary-border-color);
+    transform: scale(1.5);
 }
 
 /* перемикач тем */
@@ -86,20 +83,24 @@
 
 .menu-open-icon:is(:hover, :focus) {
     stroke: var(--secondary-border-color);
+    transform: scale(1.5);
 }
 
-.menu-open-btn {
+.mob-menu-btn-open {
     background-color: var(--primary-brand-color);
     transform: translateX(0);
 }
 
-
 /* мобільне меню */
+.is-hidden {
+    display: none;
+}
+
 .mobile-menu {
     position: fixed;
     top: 0;
     left: 23%;
-    z-index: 20;
+    z-index: 999;
     width: 53.33%;
     height: 100%;
     background: var(--secondary-border-color);
@@ -108,6 +109,12 @@
     overflow: auto;
 }
 
+.mobile-menu.open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
 
 .mob-menu-btn-close {
     position: absolute;
@@ -124,7 +131,6 @@
 }
 
 .mob-menu-btn-close:hover .mob-menu-close {
-    stroke: var(--background-brand-hover);
     transform: scale(1.5);
 }
 
@@ -284,11 +290,11 @@ input:checked+.slider:before {
         margin-left: 0;
     }
 
-    .menu-open-btn {
-        display: block;
+    .mobile-menu {
+        display: none;
     }
 
-    .mobile-menu {
+    .mob-menu-btn-open {
         display: none;
     }
 
@@ -354,6 +360,5 @@ input:checked+.slider:before {
 
     .header-icons {
         gap: 24px;
-
     }
 }

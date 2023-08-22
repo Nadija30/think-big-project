@@ -5,11 +5,9 @@ const body = document.body;
 function toggleTheme() {
     body.classList.toggle('dark');
     const isDarkTheme = body.classList.contains('dark');
-
     // Зміна теми в localStorage
     localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
 }
-
 // Обробка кліку на чекбокс
 themeSwitch.addEventListener('change', toggleTheme);
 

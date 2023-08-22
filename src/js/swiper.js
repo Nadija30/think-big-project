@@ -52,7 +52,6 @@ function createEmptySwiper() {
 
 // SWIPER
 const swiper = new Swiper('.swiper', {
-    // loop: true,
 
     observer: true,
     observeParents: true,
@@ -60,7 +59,7 @@ const swiper = new Swiper('.swiper', {
 
     parallax: true,
     speed: 2000,
-
+    
     autoplay: {
         delay: 3000, 
         disableOnInteraction: false, 
