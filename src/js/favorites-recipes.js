@@ -11,6 +11,7 @@ const containerPagination = document.querySelector('.js-pages');
 
 function start() {
     favorCatBox.addEventListener('click', handlerChooseCategor);
+    console.log(getFromLocalStorage());
     const cardsPerPage = window.innerWidth < 768 ? 9 : 12;
 
     const options = {
@@ -95,7 +96,8 @@ function handlerChooseCategor(e) {
     }
 
     console.log(e.target.textContent);
-    console.log(e.target.nodeName);
+
+    filterCatFav(e.target.textContent);
 
     // elems.btnAllCategories.classList.remove('bnt-all-cat-is-active');
 
@@ -117,4 +119,13 @@ function setArr(cardsPerPage) {
     });
     arrCards.push(arrPag);
     return arrCards;
+}
+
+function filterCatFav(category) {
+    // getFromLocalStorage().filter(element => {
+    //     element.category;
+    // });
+    getFromLocalStorage().forEach(element => {
+        console.log(element.category);
+    });
 }
