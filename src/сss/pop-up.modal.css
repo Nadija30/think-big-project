@@ -35,7 +35,7 @@
 
     width: 335px;
     height: calc(100% - 20px);
-    background: var(--light-color);
+    background: var(--light-modal-background-color);
     border-radius: 15px;
     padding: 40px 20px;
     /* overflow-y: scroll; */

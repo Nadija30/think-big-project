@@ -22,12 +22,13 @@ function getDataRecipeByID(recipeID) {
         .catch(error => console.log(error));
 }
 
-function getArrayRecipeByID(recipeID) {
-    return getRecipeByID(recipeID)
-        .then(data => {
-            return data;
-        })
-        .catch(error => console.log(error));
+async function getArrayRecipeByID(recipeID) {
+    try {
+        const data = await getRecipeByID(recipeID);
+        return data;
+    } catch (error) {
+        return console.log(error);
+    }
 }
 
 export { getDataRecipeByID, getArrayRecipeByID };
