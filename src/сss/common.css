@@ -48,6 +48,7 @@
     border: 1px var(--accent-color) solid;
     border-radius: 15px;
     transition: color var(--animation);
+    
 }
 
 .base-btn:hover,
