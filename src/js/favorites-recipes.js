@@ -10,7 +10,7 @@ const favorGallBox = document.querySelector('.favorites__gallery-list');
 const containerPagination = document.querySelector('.js-pages');
 
 function start() {
-    // favorCatBox.addEventListener('click', handlerChooseCategor);
+    favorCatBox.addEventListener('click', handlerChooseCategor);
     const cardsPerPage = window.innerWidth < 768 ? 9 : 12;
 
     const options = {
@@ -53,7 +53,6 @@ function start() {
     function createPagination() {
         pagination = new Pagination(containerPagination, options);
         pagination.on('afterMove', event => {
-            console.log(event.page - 1);
             createCards(setArr(cardsPerPage)[event.page - 1], favorGallBox);
         });
     }
@@ -95,9 +94,12 @@ function handlerChooseCategor(e) {
         return;
     }
 
-    elems.btnAllCategories.classList.remove('bnt-all-cat-is-active');
+    console.log(e.target.textContent);
+    console.log(e.target.nodeName);
 
-    createCards(getFromLocalStorage(), favorGallBox);
+    // elems.btnAllCategories.classList.remove('bnt-all-cat-is-active');
+
+    // createCards(getFromLocalStorage(), favorGallBox);
 }
 
 function setArr(cardsPerPage) {
@@ -116,83 +118,3 @@ function setArr(cardsPerPage) {
     arrCards.push(arrPag);
     return arrCards;
 }
-
-// function getFromLocalStorage() {
-
-//     for (let key in localStorage) {
-//         const value = localStorage.getItem(key);
-//         const parsedValue = JSON.parse(value);
-//     if (typeof parsedValue === 'object' && parsedValue !== null && 'preview' in parsedValue) {
-
-//         try {
-//             const notatendetBlock = document.querySelector('.favorites__not-atendent');
-//             notatendetBlock.classList.add('is-hidden');
-//             const favoriteCard = `<li class="favorites__gallery-list-item">
-//           <div class="favorites__card">
-//             <img src="${parsedValue.preview}" alt="${key}" class="favorites__card-image">
-//             <div class="favorites__card-info">
-//               <h2 class="favorites__card-tittle">${parsedValue.title}</h2>
-//               <p class="favorites__card-description">${parsedValue.description}</p>
-//               <button class="favorites__card-btn">card test</button>
-//             </div>
-//             <div class="favorites__card-heart"></div>
-//           </div>
-//         </li>`;
-
-//             favorGallBox.insertAdjacentHTML('beforeend', favoriteCard)
-//         } catch (error) {
-//             console.error(`Key: ${key}, Error parsing value: `, error);
-//         }
-//     }
-// }
-// }
-
-// function getCategoriesFromLS() {
-//     for (let key in localStorage) {
-//         const value = localStorage.getItem(key);
-//         const parsedValue = JSON.parse(value);
-
-//         if (
-//             typeof parsedValue === 'object' &&
-//             parsedValue !== null &&
-//             'preview' in parsedValue
-//         ) {
-//             try {
-//                 // console.log(parsedValue.category);
-//             } catch {
-//                 console.error(`Key: ${key}, Error parsing value: `, error);
-//             }
-//         }
-//     }
-// }
-
-// getFromLocalStorage();
-// getCategoriesFromLS();
-
-// arrCards.push([])
-
-//
-//
-//
-//
-// getFromLocalStorage().forEach(elem => {
-//     counter += 1;
-
-//     crr.push(elem);
-
-//     if (!counter % cardsPerPage) {
-//     }
-// });
-
-// for (let index = 0; index <= getFromLocalStorage().length; index++) {
-//     const element = array[index];
-// }
-//
-// if (!counter % cardsPerPage) {}
-
-//
-//
-//
-//
-//
-//
