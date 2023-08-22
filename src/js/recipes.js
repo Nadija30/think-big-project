@@ -10,7 +10,6 @@ import { getIngredients } from './search-api';
 import { getRecipes } from './search-api';
 import { getCategories } from './search-api';
 import { addToLocalStorage } from './send-to-is';
-import { initRatings } from './rating-modal';
 import { createCards } from './render-cards';
 
 let widthOfViewport = window.innerWidth;
@@ -120,7 +119,6 @@ getRecipes(params)
     .then(data => {
         createCards(data.results, elems.containerCards);
         createPagination(data);
-        console.log(data);
     })
     .catch(error => {
         Report.failure(`${error.code}`, `${error.message}`, 'Okay');

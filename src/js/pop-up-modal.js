@@ -16,6 +16,15 @@ export const refs = {
 // refs.popular.addEventListener('click', onPopularClick);
 // refs.btnClose.addEventListener('click', onBtnCloseClick);
 // refs.backdrop.addEventListener('click', onBackdropClick);
+function start() {
+    refs.recipes.addEventListener('click', onBtnOpenClick);
+    refs.popular.addEventListener('click', onPopularClick);
+    refs.btnClose.addEventListener('click', onBtnCloseClick);
+    refs.backdrop.addEventListener('click', onBackdropClick);
+}
+if (refs.recipes) {
+    window.onload = start;
+}
 
 let recipeID = '';
 
