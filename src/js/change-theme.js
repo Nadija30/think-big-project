@@ -7,15 +7,23 @@ function toggleTheme() {
     const isDarkTheme = body.classList.contains('dark');
     // Зміна теми в localStorage
     localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+    // Зміна стилів в localStorage
+    const switchStyle = themeSwitch.checked ? 'checked' : '';
+    localStorage.setItem('switchStyle', switchStyle);
 }
 // Обробка кліку на чекбокс
 themeSwitch.addEventListener('change', toggleTheme);
 
-// Застосування збереженої теми при завантаженні
+// Застосування збереженої теми та стилів при завантаженні
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
+    const savedSwitchStyle = localStorage.getItem('switchStyle');
 
     if (savedTheme === 'dark') {
         body.classList.add('dark');
+    }
+
+    if (savedSwitchStyle === 'checked') {
+        themeSwitch.checked = true;
     }
 });
