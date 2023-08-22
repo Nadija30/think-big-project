@@ -11,12 +11,11 @@ const containerPagination = document.querySelector('.js-pages');
 
 function start() {
     favorCatBox.addEventListener('click', handlerChooseCategor);
-    console.log(getFromLocalStorage());
-    const cardsPerPage = window.innerWidth < 768 ? 9 : 12;
+    // const cardsPerPage = window.innerWidth < 768 ? 9 : 12;
 
     const options = {
-        totalItems: setArr().length,
-        itemsPerPage: cardsPerPage,
+        totalItems: getFromLocalStorage().length,
+        itemsPerPage: window.innerWidth < 768 ? 9 : 12,
         visiblePages: window.innerWidth < 768 ? 2 : 3,
         page: 1,
         centerAlign: false,
@@ -48,14 +47,43 @@ function start() {
             Report.failure(`${error.code}`, `${error.message}`, 'Okay');
         });
 
-    createCards(setArr(cardsPerPage)[0], favorGallBox);
+    createCards(
+        setArr(options.itemsPerPage, getFromLocalStorage())[0],
+        favorGallBox
+    );
 
-    createPagination();
-    function createPagination() {
+    createPagination(getFromLocalStorage());
+
+    function createPagination(array) {
         pagination = new Pagination(containerPagination, options);
         pagination.on('afterMove', event => {
-            createCards(setArr(cardsPerPage)[event.page - 1], favorGallBox);
+            createCards(
+                setArr(options.itemsPerPage, array)[event.page - 1],
+                favorGallBox
+            );
         });
+    }
+
+    function handlerChooseCategor(e) {
+        if (e.target.nodeName !== 'BUTTON') {
+            return;
+        }
+
+        function filterCatFav(category) {
+            const arrFiltredCards = getFromLocalStorage().filter(
+                element => element.category === category
+            );
+            return arrFiltredCards;
+        }
+
+        options.totalItems = filterCatFav(e.target.textContent).length;
+
+        createCards(
+            setArr(options.itemsPerPage, filterCatFav(e.target.textContent))[0],
+            favorGallBox
+        );
+
+        createPagination(filterCatFav(e.target.textContent));
     }
 }
 
@@ -90,25 +118,11 @@ if (favorGallBox && favorCatBox) {
     window.onload = start;
 }
 
-function handlerChooseCategor(e) {
-    if (e.target.nodeName !== 'BUTTON') {
-        return;
-    }
-
-    console.log(e.target.textContent);
-
-    filterCatFav(e.target.textContent);
-
-    // elems.btnAllCategories.classList.remove('bnt-all-cat-is-active');
-
-    // createCards(getFromLocalStorage(), favorGallBox);
-}
-
-function setArr(cardsPerPage) {
+function setArr(cardsPerPage, array) {
     let arrCards = [];
     let arrPag = [];
     let counter = 0;
-    getFromLocalStorage().forEach(elem => {
+    array.forEach(elem => {
         counter += 1;
         arrPag.push(elem);
 
@@ -119,13 +133,4 @@ function setArr(cardsPerPage) {
     });
     arrCards.push(arrPag);
     return arrCards;
-}
-
-function filterCatFav(category) {
-    // getFromLocalStorage().filter(element => {
-    //     element.category;
-    // });
-    getFromLocalStorage().forEach(element => {
-        console.log(element.category);
-    });
 }
