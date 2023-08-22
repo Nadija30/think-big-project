@@ -206,7 +206,7 @@ p.image-descraption {
 .swiper .swiper-pagination-bullet {
     width: 5px;
     height: 5px;
-    background: #050505;
+    background: var(--dark-color);
     opacity: 1;
 }
 
