@@ -3,14 +3,9 @@ import { getFromLocalStorage } from './favorites-recipes';
 
 export function createCards(cards, container) {
     if (!cards.length) {
-        // container.innerHTML =
-        //     '<p>Nothing was found for your request. Try changing your search parameters...</p>';
-        // return;
-
-        const notAttendent = document.querySelector('.favorites__not-atendent');
-        const favorCatBox = document.querySelector('.favorites__categories-list');
-        notAttendent.classList.remove('is-hidden');
-        favorCatBox.classList.add('is-hidden');
+        container.innerHTML =
+            '<p>Nothing was found for your request. Try changing your search parameters...</p>';
+        return;
         
     }
 
