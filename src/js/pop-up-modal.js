@@ -10,21 +10,10 @@ export const refs = {
     scrollOnModal: document.querySelector('body'),
 };
 
-// console.log(refs.popularContainer);
-
-// refs.recipes.addEventListener('click', onBtnOpenClick);
-// refs.popular.addEventListener('click', onPopularClick);
-// refs.btnClose.addEventListener('click', onBtnCloseClick);
-// refs.backdrop.addEventListener('click', onBackdropClick);
-function start() {
-    refs.recipes.addEventListener('click', onBtnOpenClick);
-    refs.popular.addEventListener('click', onPopularClick);
-    refs.btnClose.addEventListener('click', onBtnCloseClick);
-    refs.backdrop.addEventListener('click', onBackdropClick);
-}
-if (refs.recipes) {
-    window.onload = start;
-}
+refs.recipes.addEventListener('click', onBtnOpenClick);
+refs.popular.addEventListener('click', onPopularClick);
+refs.btnClose.addEventListener('click', onBtnCloseClick);
+refs.backdrop.addEventListener('click', onBackdropClick);
 
 let recipeID = '';
 
@@ -40,6 +29,7 @@ function onPopularClick(event) {
 }
 
 function onBtnOpenClick(event) {
+    console.log('click');
     if (!event.target.closest('.js-see-recipe')) {
         return;
     }
