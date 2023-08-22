@@ -10,10 +10,23 @@ export const refs = {
     scrollOnModal: document.querySelector('body'),
 };
 
-refs.recipes.addEventListener('click', onBtnOpenClick);
-refs.popular.addEventListener('click', onPopularClick);
-refs.btnClose.addEventListener('click', onBtnCloseClick);
-refs.backdrop.addEventListener('click', onBackdropClick);
+// refs.recipes.addEventListener('click', onBtnOpenClick);
+// refs.popular.addEventListener('click', onPopularClick);
+// refs.btnClose.addEventListener('click', onBtnCloseClick);
+// refs.backdrop.addEventListener('click', onBackdropClick);
+
+if (refs.recipes) {
+    refs.recipes.addEventListener('click', onBtnOpenClick);
+}
+if (refs.popular) {
+    refs.popular.addEventListener('click', onPopularClick);
+}
+if (refs.btnClose) {
+    refs.btnClose.addEventListener('click', onBtnCloseClick);
+}
+if (refs.backdrop) {
+    refs.backdrop.addEventListener('click', onBackdropClick);
+}
 
 let recipeID = '';
 
@@ -29,7 +42,6 @@ function onPopularClick(event) {
 }
 
 function onBtnOpenClick(event) {
-    console.log('click');
     if (!event.target.closest('.js-see-recipe')) {
         return;
     }
@@ -51,7 +63,7 @@ function onClickRender(ID) {
     refs.recipeContainer.innerHTML = '';
 }
 
-function onCloseModal() {
+function stopVideoOnCloseModal() {
     if (videoIframe) {
         videoIframe.src = '';
     }
@@ -63,7 +75,7 @@ function onBtnCloseClick() {
     refs.backdrop.classList.add('is-hidden');
 
     videoIframe = document.querySelector('.pop-up-iframe iframe');
-    onCloseModal();
+    stopVideoOnCloseModal();
 }
 
 function onBackdropClick(event) {

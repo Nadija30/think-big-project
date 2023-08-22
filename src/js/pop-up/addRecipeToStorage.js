@@ -4,7 +4,9 @@ import { recipeID } from '../pop-up-modal';
 
 const addToFavoriteBtn = document.querySelector('.pop-up-btn-add');
 
-// addToFavoriteBtn.addEventListener('click', onAddFavoriteBtnClick);
+if (addToFavoriteBtn) {
+    addToFavoriteBtn.addEventListener('click', onAddFavoriteBtnClick);
+}
 
 const STORAGE_KEY = 'favorite-list';
 let objectRecipes = [];
