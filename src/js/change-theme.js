@@ -1,3 +1,5 @@
+console.log('hello');
+
 const headerSwitch = document.querySelector('.header-switch');
 const body = document.body;
 
