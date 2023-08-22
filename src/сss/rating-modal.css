@@ -72,12 +72,13 @@
 
 .rating__input {
     height: 46px;
-    border: 1px solid rgba(5, 5, 5, 0.2);
+    border: 1px solid var(--light-theme-transparent-color);
     border-radius: 15px;
     display: block;
     width: 100%;
     padding: 14px 18px;
     margin-bottom: 14px;
+    background-color: inherit;
 }
 
 .rating__submit {
