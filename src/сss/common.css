@@ -18,6 +18,7 @@
     /* transparent 20% */
     --light-theme-transparent-color: #05050533;
     --light-theme-slider-semi-transparent-color: #f8f8f880;
+    --light-theme-card-stars-color: #f8f8f8;
 
     --dark-theme-background-color: #1e1e1e;
 
@@ -40,6 +41,7 @@
     --light-modal-underline-color: #ffffff80;
     --light-modal-scroll-color: #ffffff2e;
     --light-modal-background-color: #050505;
+    --light-theme-card-stars: #fff;
 }
 
 .base-btn {
