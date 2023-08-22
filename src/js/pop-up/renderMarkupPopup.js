@@ -42,19 +42,19 @@ async function createMarkup(recipe) {
             const videoEmbedHtml = videoData.html;
 
             const markup = `
-                <div class="pop-up-iframe">${videoEmbedHtml}</div>
-                <h2 class="pop-up-title">${title}</h2>
-                <div class="pop-up-wrap">          
-                  <div class="rating card__rating"><p class="pop-up-rating rating__value">${rating}</p></div>    
-                  <p class="pop-up-time">${time} min</p>
+                <div class="pop-up-main-wrap">
+                  <div class="pop-up-iframe">${videoEmbedHtml}</div>
+                  <h2 class="pop-up-title">${title}</h2>
                 </div>
-                <ul class="pop-up-list-ingredient">
-                  ${ingredientItems}
-                </ul>
-                <ul class="pop-up-list-tags">
-                  ${tagsItem}
-                </ul>
-                <p class="pop-up-instructions">${instructions}</p>
+                <div class="pop-up-info">
+                  <div class="pop-up-wrap">          
+                    <div class="rating popup__rating"><p class="pop-up-rating rating__value">${rating}</p></div>    
+                    <p class="pop-up-time">${time} min</p>
+                  </div>
+                  <ul class="pop-up-list-ingredient">${ingredientItems}</ul>
+                  <ul class="pop-up-list-tags">${tagsItem}</ul>
+                  <p class="pop-up-instructions">${instructions}</p>
+                </div>
             `;
 
             refs.recipeContainer.insertAdjacentHTML('beforeend', markup);
@@ -62,20 +62,20 @@ async function createMarkup(recipe) {
         } else {
             console.error('Error fetching video data');
 
-            const markup = `
-                <div class="pop-up-iframe"><img class="pop-up-image" src="${thumb}"></div>
-                <h2 class="pop-up-title">${title}</h2>
-                <div class="pop-up-wrap">           
-                  <div class="rating card__rating"><p class="pop-up-rating rating__value">${rating}</p></div>      
-                  <p class="pop-up-time">${time} min</p>
+            const markup = `                
+                <div class="pop-up-main-wrap">
+                  <div class="pop-up-iframe"><img class="pop-up-image" src="${thumb}"></div>
+                  <h2 class="pop-up-title">${title}</h2>
                 </div>
-                <ul class="pop-up-list-ingredient">
-                  ${ingredientItems}
-                </ul>
-                <ul class="pop-up-list-tags">
-                  ${tagsItem}
-                </ul>
-                <p class="pop-up-instructions">${instructions}</p>
+                <div class="pop-up-info">
+                  <div class="pop-up-wrap">          
+                    <div class="rating popup__rating"><p class="pop-up-rating rating__value">${rating}</p></div>    
+                    <p class="pop-up-time">${time} min</p>
+                  </div>
+                  <ul class="pop-up-list-ingredient">${ingredientItems}</ul>
+                  <ul class="pop-up-list-tags">${tagsItem}</ul>
+                  <p class="pop-up-instructions">${instructions}</p>
+                </div>
             `;
             refs.recipeContainer.insertAdjacentHTML('beforeend', markup);
             initRatings();
