@@ -14,7 +14,7 @@
     padding: 32px;
     border-radius: 15px;
 
-    background-color: var(--light-color);
+    background-color: var(--light-modal-background-color);
 
     position: absolute;
 
@@ -70,18 +70,15 @@
     fill: var(--stars-uncolored);
 }
 
-.active__star {
-    fill: var(--stars-color);
-}
-
 .rating__input {
     height: 46px;
-    border: 1px solid rgba(5, 5, 5, 0.2);
+    border: 1px solid var(--light-theme-transparent-color);
     border-radius: 15px;
     display: block;
     width: 100%;
     padding: 14px 18px;
     margin-bottom: 14px;
+    background-color: inherit;
 }
 
 .rating__submit {
@@ -96,7 +93,7 @@
 }
 
 .close__icon {
-    stroke: currentColor;
+    stroke: var(--light-theme-text-color);
 }
 
 .card__rating,
@@ -106,8 +103,12 @@
 }
 
 .card__rating .rating__icon {
-    width: 18px;
-    height: 18px;
+    fill: var(--light-theme-card-stars-color);
+    fill-opacity: 0.1;
+}
+
+.popup__rating .rating__icon {
+    fill: var(--light-theme-text-color);
     fill-opacity: 0.1;
 }
 
@@ -118,6 +119,13 @@
     }
 }
 
-.card__rating .active__star {
+.card__rating .active__star,
+.popup__rating .active__star {
     fill-opacity: 1;
+}
+
+.active__star,
+.popup__rating .active__star,
+.card__rating .active__star {
+    fill: var(--stars-color);
 }
