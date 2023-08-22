@@ -18,6 +18,7 @@
     /* transparent 20% */
     --light-theme-transparent-color: #05050533;
     --light-theme-slider-semi-transparent-color: #f8f8f880;
+    --light-theme-card-stars-color: #f8f8f8;
 
     --dark-theme-background-color: #1e1e1e;
 
@@ -31,15 +32,16 @@
 
 .dark {
     background-color: var(--dark-theme-background-color);
-        --stars-uncolored: #3c3b3b;
-        --light-theme-text-color: #fff;
-        --light-theme-semi-transparent-color: #ffffff80;
-        --light-theme-almost-transparent-color: #ffffff4d;
-        --light-theme-transparent-color: #ffffff33;
-        --light-modal-text-color: #ffffffcc;
-        --light-modal-underline-color: #ffffff80;
-        --light-modal-scroll-color: #ffffff2e;
-        --light-modal-background-color: #050505;
+    --stars-uncolored: #3c3b3b;
+    --light-theme-text-color: #fff;
+    --light-theme-semi-transparent-color: #ffffff80;
+    --light-theme-almost-transparent-color: #ffffff4d;
+    --light-theme-transparent-color: #ffffff33;
+    --light-modal-text-color: #ffffffcc;
+    --light-modal-underline-color: #ffffff80;
+    --light-modal-scroll-color: #ffffff2e;
+    --light-modal-background-color: #050505;
+    --light-theme-card-stars: #fff;
 }
 
 .base-btn {
@@ -49,7 +51,6 @@
     border: 1px var(--accent-color) solid;
     border-radius: 15px;
     transition: color var(--animation);
-    
 }
 
 .base-btn:hover,
@@ -57,3 +58,32 @@
     color: var(--dark-color);
     outline: none;
 }
+
+/* ----------- Scrollbar styles ------------- */
+
+body::-webkit-scrollbar,
+.list-btn-categories::-webkit-scrollbar,
+select::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track,
+.list-btn-categories::-webkit-scrollbar-track,
+select::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb,
+.list-btn-categories::-webkit-scrollbar-thumb,
+select::-webkit-scrollbar-thumb {
+    background-color: rgba(5, 5, 5, 0.18);
+    border-radius: 12px;
+}
+
+body,
+.list-btn-categories,
+select {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(5, 5, 5, 0.18) transparent;
+}
+

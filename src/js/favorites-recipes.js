@@ -1,3 +1,4 @@
+
 const favorCatBox = document.querySelector('.favorites__categories-list');
 const favorGallBox = document.querySelector('.favorites__gallery-list');
 
@@ -81,6 +82,7 @@ function getFromLocalStorage() {
 // const favorCat = categoriesArray.join('')
 
 // console.log(favorCat);
+
 
 
 
