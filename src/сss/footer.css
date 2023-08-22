@@ -15,7 +15,13 @@ footer {
     padding-top: 20px;
     padding-bottom: 30px;
 }
-
+.footer-feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
 .feedback-btn {
     display: inline-flex;
     padding: 10px 20px;
@@ -56,26 +62,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* opacity: 0.4; */
 }
-
-/* .footer-social-link .instagram {
-    fill: rgba(5, 5, 5, 0.5);
-    fill: #e1306c;
-    opacity: 0.4;
-} */
-/* .footer-social-link .facebook {
-    fill: #4267b2;
-    opacity: 0.4;
-} */
-/* .footer-social-link .twitter {
-    fill: #1da1f2;
-    opacity: 0.4;
-} */
-/* .footer-social-link .youtube {
-    fill: #ff0000;
-    opacity: 0.4;
-} */
 
 .footer-social-link .footer-social-icon {
     fill: rgba(5, 5, 5, 0.4);
@@ -89,15 +76,15 @@ footer {
     stroke: rgba(5, 5, 5, 0.5);
 }
 
-.footer-nav-link:is(:hover, :focus) {
-    color: #9bb537;
-}
-
 .footer-social-icon {
     fill: #050505;
     width: 22px;
     height: 22px;
     display: inline-block;
+}
+
+.footer-nav-link:is(:hover, :focus) {
+    color: #9bb537;
 }
 
 .copyright {
@@ -107,10 +94,34 @@ footer {
 /** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @media TABLET */
 
 @media screen and (min-width: 768px) {
+    .footer-wrap {
+        flex-direction: column;
+    }
+    .footer-feed {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .footer-nav {
+        display: flex;
+        flex-direction: row;
+    }
+    .footer-nav-list {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-nav-item:not(:last-child) {
+        padding-right: 10px;
+    }
+    .footer-nav-item:not(:last-child)::after {
+        content: '|';
+    }
+
     .feedback-btn:nth-child(2) {
         order: -1;
     }
-
     .feedback-btn {
         padding: 14px 28px;
     }
@@ -129,34 +140,15 @@ footer {
         height: 24px;
     }
 
-    .footer-nav-item,
-    .copyright {
+    /* .footer-nav-item {
         font-size: 16px;
         line-height: 1.25;
-    }
-
-    .footer-wrap {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .footer-nav-list {
-        display: inline-flex;
-        flex-direction: row;
-    }
-
-    .footer-nav-item:not(:first-child)::before {
-        content: '|';
-    }
+    } */
 }
 
 /** <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @media DESKTOP */
 
 @media screen and (min-width: 1280px) {
-    .footer-wrap {
-        gap: 18px 80px;
-    }
 }
 
 /** =============================================== BTN-UP */
