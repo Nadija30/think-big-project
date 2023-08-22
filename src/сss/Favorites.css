@@ -2,12 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 50px;
 }
 
 .favorites__not-atendent {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 335px;
+    margin: 0 auto;
 }
 
 .favorites__svg {
@@ -22,6 +25,8 @@
 
 .favorites__categories-list {
     margin-bottom: 24px;
+    display: flex;
+    gap: 15px;
 }
 
 .favorites__image-box {
@@ -48,12 +53,16 @@
     border-radius: 15px;
     border: 1px solid rgba(5, 5, 5, 0.2);
     cursor: pointer;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .favorites__categories-btn:hover {
     color: white;
     background-color: #9bb537;
-    border: none;
+    border-color: #9bb537;
 }
 
 .favorites__gallery-list {
@@ -63,6 +72,7 @@
     justify-content: start;
     margin: 0 auto;
     margin-bottom: 40px;
+    
 }
 
 .favorites__card {
@@ -127,6 +137,8 @@
     background-color: #fff;
 }
 
+
+
 @media screen and (min-width: 768px) {
     .favorites__container {
         max-width: 768px;
@@ -145,10 +157,18 @@
     .favorites__gallery-list {
         margin-bottom: 64px;
     }
+
+    .favorites__not-atendent {
+        width: 481px;
+    }
 }
 
 @media screen and (min-width: 1280px) {
     .favorites__card {
         max-width: 258px;
+    }
+
+    .favorites__image-box {
+        padding-top: 40px;
     }
 }

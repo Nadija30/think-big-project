@@ -5,6 +5,7 @@ import { getCategories } from './search-api';
 import { getCardByID } from './search-api';
 import { createCards } from './render-cards';
 
+
 const favorCatBox = document.querySelector('.favorites__categories-list');
 const favorGallBox = document.querySelector('.favorites__gallery-list');
 const containerPagination = document.querySelector('.js-pages');
@@ -130,7 +131,7 @@ function createCategor(arrCategories) {
         arrCategories
             .map(
                 ({ name }) =>
-                    `<li><button class="js-btn-class btn-class">${name}</button></li>`
+                    `<li><button class="js-btn-class btn-class favorites__categories-btn">${name}</button></li>`
             )
             .join('')
     );
@@ -156,3 +157,17 @@ function setArr(cardsPerPage, array) {
     arrCards.push(arrPag);
     return arrCards;
 }
+
+function filterCatFav(category) {
+    // getFromLocalStorage().filter(element => {
+    //     element.category;
+    // });
+    getFromLocalStorage().forEach(element => {
+        console.log(element.category);
+    });
+}
+
+
+
+
+
