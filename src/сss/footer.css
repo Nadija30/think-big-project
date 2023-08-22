@@ -9,6 +9,8 @@ body {
 footer {
     margin-top: 40px;
     border-top: 2px solid rgba(155, 181, 55, 0.2);
+    /* border-top: 2px solid var(--accent-color); */
+    /* border-top: 2px solid rgba(var(--accent-color), 0.2); */
 }
 
 .footer-wrap {
