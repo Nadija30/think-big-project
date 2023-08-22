@@ -1,13 +1,7 @@
 import { getCardByID } from './search-api';
 
-// const cardsBox = document.querySelector('.js-cards');
-
-// cardsBox.addEventListener('click', addToLocalStorage);
-
 export function addToLocalStorage(event) {
     if (event.target.tagName !== 'path') return;
-
-    console.log(event.target);
 
     const dataIdValue = event.target.getAttribute('data-id');
 
@@ -22,7 +16,7 @@ export function addToLocalStorage(event) {
         };
 
         const cardPreviewJSON = JSON.stringify(cardPreview);
-
-        localStorage.setItem(`${data.title}`, cardPreviewJSON);
+        const keyJSON = JSON.stringify('fav' + data._id);
+        localStorage.setItem(keyJSON, cardPreviewJSON);
     });
 }

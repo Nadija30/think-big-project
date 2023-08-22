@@ -13,10 +13,20 @@ const refs = {
     body: document.querySelector(`body`),
 };
 
-refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
-refs.ratingForm.addEventListener(`submit`, submitRating);
-refs.openRatingModal.addEventListener(`click`, openRatingModal);
-refs.ratingModal.addEventListener('click', onBackdropClick);
+// refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
+// refs.ratingForm.addEventListener(`submit`, submitRating);
+// refs.openRatingModal.addEventListener(`click`, openRatingModal);
+// refs.ratingModal.addEventListener('click', onBackdropClick);
+
+function start() {
+    refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
+    refs.ratingForm.addEventListener(`submit`, submitRating);
+    refs.openRatingModal.addEventListener(`click`, openRatingModal);
+    refs.ratingModal.addEventListener('click', onBackdropClick);
+}
+if (refs.closeRatingModal) {
+    window.onload = start;
+}
 
 function onBackdropClick(event) {
     if (event.target === event.currentTarget) {

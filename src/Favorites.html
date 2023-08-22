@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tasty Treats</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+            integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+        />
+        <link rel="stylesheet" href="./сss/styles.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tasty Treats</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
-        integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./сss/styles.css" />
-</head>
+    <body>
+        <!-- Тетяна -->
+        <include src="./partials/header.html"></include>
+        <main>
+            <!-- Святослав -->
+            <section class="fovorites section">
+                <div class="container">
+                    <include src="./partials/favorites-recipes.html"></include>
+                    <div class="favorites__gallery-list"></div>
+                    <include src="./partials/pagination.html"></include>
+                </div>
+            </section>
+        </main>
+        <!--   Нана -->
+        <include src="./partials/footer.html"></include>
 
-<body>
-    <!-- Тетяна -->
-    <include src="./partials/header.html"></include>
-    <main>
-        <!-- Святослав -->
-        <section class="fovorites section">
-            <div class="container">
-                <include src="./partials/favorites-recipes.html"></include>
-            </div>
-    </section>
-    </main>
-    <!--   Нана -->
-    <include src="./partials/footer.html"></include>
- 
-
-    <script src="favorites.js" type="module"></script>
-</body>
-
+        <script src="favorites.js" type="module"></script>
+    </body>
 </html>

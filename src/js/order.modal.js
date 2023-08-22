@@ -14,12 +14,19 @@ const refs = {
 const LOCAL_KEY = 'order-data';
 
 refs.btnOpen.addEventListener('click', onBtnOpenClick);
-refs.btnBasket.addEventListener('click', onBtnOpenClick);
+// refs.btnBasket.addEventListener('click', onBtnOpenClick);
 refs.btnClose.addEventListener('click', onBtnCloseClick);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(onFormInput, 500));
+
+function start() {
+    refs.btnBasket.addEventListener('click', onBtnOpenClick);
+}
+if (refs.btnBasket) {
+    window.onload = start;
+}
 
 let formData = JSON.parse(localStorage.getItem(LOCAL_KEY)) || {};
 

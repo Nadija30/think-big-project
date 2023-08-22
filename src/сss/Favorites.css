@@ -35,10 +35,9 @@
     display: block;
 }
 
-
 .favorites__categories-btn {
     padding: 14px 18px;
-    color: rgba(5, 5, 5, 0.30);
+    color: rgba(5, 5, 5, 0.3);
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
@@ -47,13 +46,13 @@
 
     background-color: #f8f8f8;
     border-radius: 15px;
-    border: 1px solid rgba(5, 5, 5, 0.20);
+    border: 1px solid rgba(5, 5, 5, 0.2);
     cursor: pointer;
 }
 
 .favorites__categories-btn:hover {
     color: white;
-    background-color: #9BB537;
+    background-color: #9bb537;
     border: none;
 }
 
@@ -63,6 +62,7 @@
     gap: 16px;
     justify-content: start;
     margin: 0 auto;
+    margin-bottom: 40px;
 }
 
 .favorites__card {
@@ -85,7 +85,7 @@
 }
 
 .favorites__card-tittle {
-    color: #F8F8F8;
+    color: #f8f8f8;
     font-family: Inter;
     font-size: 14px;
     font-weight: 600;
@@ -96,7 +96,7 @@
 
 .favorites__card-description {
     overflow: hidden;
-    color: #F8F8F8;
+    color: #f8f8f8;
     font-family: Inter;
     font-size: 12px;
     font-weight: 400;
@@ -106,11 +106,11 @@
 
 .favorites__card-btn {
     border-radius: 8px;
-    background: #9BB537;
+    background: #9bb537;
     border: none;
     padding: 8px 16px;
 
-    color: #F8F8F8;
+    color: #f8f8f8;
     font-family: Inter;
     font-size: 12px;
     font-weight: 500;
@@ -142,10 +142,12 @@
     .favorites__card {
         max-width: 224px;
     }
+    .favorites__gallery-list {
+        margin-bottom: 64px;
+    }
 }
 
 @media screen and (min-width: 1280px) {
-    
     .favorites__card {
         max-width: 258px;
     }
