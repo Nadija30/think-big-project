@@ -35,23 +35,23 @@ export function createCards(cards, container) {
     initRatings();
 }
 
-[
-    {
-        description:
-            'A French dessert consisting of layers of chocolate sponge cake and chocolate ganache, typically topped with chocolate glaze and chocolate decorations.',
-        preview:
-            'https://www.themealdb.com/images/media/meals/tqtywx1468317395.jpg',
-        rating: 4.65,
-        title: 'Chocolate Gateau',
-        _id: '6462a8f74c3d0ddd28897fc1',
-    },
-    {
-        description:
-            'A French dessert consisting of layers of chocolate sponge cake and chocolate ganache, typically topped with chocolate glaze and chocolate decorations.',
-        preview:
-            'https://www.themealdb.com/images/media/meals/tqtywx1468317395.jpg',
-        rating: 4.65,
-        title: 'Chocolate Gateau',
-        _id: '6462a8f74c3d0ddd28897fc1',
-    },
-];
+// [
+//     {
+//         description:
+//             'A French dessert consisting of layers of chocolate sponge cake and chocolate ganache, typically topped with chocolate glaze and chocolate decorations.',
+//         preview:
+//             'https://www.themealdb.com/images/media/meals/tqtywx1468317395.jpg',
+//         rating: 4.65,
+//         title: 'Chocolate Gateau',
+//         _id: '6462a8f74c3d0ddd28897fc1',
+//     },
+//     {
+//         description:
+//             'A French dessert consisting of layers of chocolate sponge cake and chocolate ganache, typically topped with chocolate glaze and chocolate decorations.',
+//         preview:
+//             'https://www.themealdb.com/images/media/meals/tqtywx1468317395.jpg',
+//         rating: 4.65,
+//         title: 'Chocolate Gateau',
+//         _id: '6462a8f74c3d0ddd28897fc1',
+//     },
+// ];

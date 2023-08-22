@@ -1,4 +1,6 @@
 import { getCardByID } from './search-api';
+import { keyFav } from './ls';
+import { valueFav } from './ls';
 
 // const cardsBox = document.querySelector('.js-cards');
 
@@ -6,8 +8,6 @@ import { getCardByID } from './search-api';
 
 export function addToLocalStorage(event) {
     if (event.target.tagName !== 'path') return;
-
-    console.log(event.target);
 
     const dataIdValue = event.target.getAttribute('data-id');
 
@@ -21,8 +21,19 @@ export function addToLocalStorage(event) {
             rating: data.rating,
         };
 
-        const cardPreviewJSON = JSON.stringify(cardPreview);
+        // localStorage.setItem(keyFav, JSON.stringify(valueFav));
 
-        localStorage.setItem(`${data.title}`, cardPreviewJSON);
+        // valueFav.push(cardPreview);
+
+        // localStorage.setItem(keyFav, JSON.stringify(valueFav));
+        // console.log(localStorage.getItem(keyFav));
+        // const keyFav = { _id: data._id };
+
+        const cardPreviewJSON = JSON.stringify(cardPreview);
+        const keyJSON = JSON.stringify('fav' + data._id);
+        localStorage.setItem(keyJSON, cardPreviewJSON);
+        // // const favorites = JSON.parse();
+        // console.log(localStorage.getItem(keyFav));
+        // localStorage.setItem(`key:`, cardPreviewJSON);
     });
 }
