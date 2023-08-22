@@ -13,10 +13,18 @@ const refs = {
     body: document.querySelector(`body`),
 };
 
-refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
-refs.ratingForm.addEventListener(`submit`, submitRating);
-refs.openRatingModal.addEventListener(`click`, openRatingModal);
-refs.ratingModal.addEventListener('click', onBackdropClick);
+if (refs.closeRatingModal) {
+    refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
+}
+if (refs.ratingForm) {
+    refs.ratingForm.addEventListener(`submit`, submitRating);
+}
+if (refs.openRatingModal) {
+    refs.openRatingModal.addEventListener(`click`, openRatingModal);
+}
+if (refs.ratingModal) {
+    refs.ratingModal.addEventListener('click', onBackdropClick);
+}
 
 function onBackdropClick(event) {
     if (event.target === event.currentTarget) {
