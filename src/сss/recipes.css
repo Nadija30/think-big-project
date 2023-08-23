@@ -125,12 +125,13 @@
     position: relative;
 }
 
-.input-thumb svg {
+.input-search + svg {
     position: absolute;
     top: 50%;
     left: 18px;
     transform: translateY(-50%);
     fill: var(--light-theme-semi-transparent-color, #05050580);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .input-search:is(:hover, :focus) + svg {
     fill: var(--accent-color, #9bb537);
@@ -141,6 +142,9 @@
     display: flex;
     gap: 4px;
 }
+/* #0505051A -white
+#FFFFFF1A -dark 
+*/
 
 .span-reset-form {
     color: var(--light-theme-semi-transparent-color, #05050580);
