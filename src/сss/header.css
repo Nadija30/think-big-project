@@ -1,14 +1,8 @@
 :root {
     --white-2: #F3F3F3;
     --switch-light-grey: #CECDCD;
-    --primary-brand-color: #F8F8F8;
-    --background-brand-hover: #FFFFFF;
-    --secondary-border-color: #9BB537;
-    --modal-background-color-dark: #050505;
-    --anim-time: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --switch-dark: linear-gradient(rgba(155, 181, 55, 1), rgba(155, 181, 55, 0.69));
 }
-
 
 .header-container.container {
     min-width: 320px;
@@ -29,14 +23,19 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 1.13;
+    transition: transform var(--animation);
+}
+
+.header-logo:hover {
+    transform: scale(1.3);
 }
 
 .logo-light {
-    color: var(--secondary-border-color);
+    color: var(--accent-color);
 }
 
 .dark-logo {
-    color: var(--modal-background-color-dark);
+    color: var(--light-theme-text-color);
 }
 
 /* загальні стилі для іконок */
@@ -49,7 +48,7 @@
 
 /* картка покупця */
 .order-button.button {
-    stroke: #050505;
+    stroke: var(--dark-color);
     fill: none;
     width: 32px;
     height: 32px;
@@ -58,13 +57,20 @@
 }
 
 .icon-shopping-cart {
-    color: var(--modal-background-color-dark);
+    color: var(--dark-color);
+    stroke: var(--light-theme-text-color);
     background-color: transparent;
     transition: var(--anim-time);
 }
 
+
+.shopping-icon-use {
+    fill: var(--light-color);
+    stroke: var(--light-theme-text-color);
+}
+
 .icon-shopping-cart:is(:hover, :focus) {
-    stroke: var(--secondary-border-color);
+    stroke: var(--accent-color);
     transform: scale(1.5);
 }
 
@@ -76,18 +82,18 @@
 
 /*бургер*/
 .menu-open-icon {
-    stroke: var(--modal-background-color-dark);
-    background-color: var(--primary-brand-color);
+    stroke: var(--dark-color);
+    background-color: var(--btn-text-color);
     transition: var(--anim-time);
 }
 
 .menu-open-icon:is(:hover, :focus) {
-    stroke: var(--secondary-border-color);
+    stroke: var(--accent-color);
     transform: scale(1.5);
 }
 
 .mob-menu-btn-open {
-    background-color: var(--primary-brand-color);
+    background-color: var(--btn-text-color);
     transform: translateX(0);
 }
 
@@ -103,7 +109,7 @@
     z-index: 999;
     width: 53.33%;
     height: 100%;
-    background: var(--secondary-border-color);
+    background: var(--accent-color);
     transition: transform var(--anim-time), opacity var(--anim-time),
         visibility var(--anim-time);
     overflow: auto;
@@ -135,7 +141,7 @@
 }
 
 .mob-menu-close-icon {
-    stroke: var(--primary-brand-color);
+    stroke: var(--btn-text-color);
 }
 
 .mob-menu-list {
@@ -149,21 +155,21 @@
 }
 
 .header-list-item-home {
-    color: var(--background-brand-hover);
+    color: var(--light-color);
     font-size: 12px;
     font-weight: 500;
     justify-content: center;
 }
 
 .header-list-item {
-    color: var(--primary-brand-color);
+    color: var(--btn-text-color);
     font-size: 12px;
     font-weight: 400;
     justify-content: center;
 }
 
 .active-header-list-item {
-    color: var(--modal-background-color-dark);
+    color: var(--light-theme-text-color);
 }
 
 .switch {
@@ -224,15 +230,6 @@ input:checked+.slider:before {
             rgba(155, 181, 55, 0.69));
 }
 
-.nav-link-active {
-    color: var(--secondary-border-color);
-}
-
-.shopping-icon-use {
-    fill: var(--background-brand-hover);
-    stroke: var(--modal-background-color-dark);
-}
-
 
 @media screen and (max-width: 767px) {
     .header-list {
@@ -260,19 +257,20 @@ input:checked+.slider:before {
         font-size: 12px;
         font-weight: 500;
         margin-right: 16px;
-        ;
-        color: var(--modal-background-color-dark);
-    }
-
-    .header-link-active {
-        color: var(--secondary-border-color);
     }
 
     .header-link-favorites {
         position: relative;
         font-size: 12px;
         font-weight: 400;
-        color: var(--modal-background-color-dark);
+    }
+
+    .header-link {
+        color: var(--light-theme-text-color);
+    }
+
+    .header-link.active {
+        color: var(--accent-color);
     }
 
     .header-logo {
