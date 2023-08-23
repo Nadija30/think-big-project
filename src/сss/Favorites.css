@@ -2,7 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 50px;
+    margin-top: 50px;
+    border-radius: 18px;
+    overflow: hidden;
 }
 
 .favorites__not-atendent {
@@ -87,6 +89,7 @@
     left: 16px;
     bottom: 16px;
     max-width: 303px;
+    width: 100%;
 }
 
 .favorites__card-image {
@@ -152,7 +155,8 @@
 }
 
 .favorites__card-description {
-    width: 200px;
+    max-width: 303px;
+    width: 100%;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -161,12 +165,25 @@
 }
 
 .favorites__card-tittle {
-    width: 200px;
+    max-width: 303px;
+    width: 100%;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
+}
+
+.favorites__not-atendent-empty {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+}
+
+.favorites__card .card__rating {
+    position: absolute;
+    bottom: 0;
+    color: white;
 }
 
 @media screen and (min-width: 768px) {
@@ -191,6 +208,11 @@
     .favorites__not-atendent {
         width: 481px;
     }
+
+    .favorites__card-info {
+        max-width: 192px;
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 1280px) {
@@ -199,6 +221,11 @@
     }
 
     .favorites__image-box {
-        padding-top: 40px;
+        margin-top: 40px;
+    }
+
+    .favorites__card-info {
+        max-width: 226px;
+        width: 100%;
     }
 }
