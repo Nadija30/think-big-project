@@ -53,14 +53,14 @@
     width: 32px;
     height: 32px;
     background-color: transparent;
-    transition: var(--animation);
+    transition: var(--anim-time);
 }
 
 .icon-shopping-cart {
     color: var(--dark-color);
     stroke: var(--light-theme-text-color);
     background-color: transparent;
-    transition: var(--animation);
+    transition: var(--anim-time);
 }
 
 
@@ -154,21 +154,21 @@
     padding-bottom: 566px;
 }
 
-.item-home {
+.header-list-item-home {
     color: var(--light-color);
     font-size: 12px;
     font-weight: 500;
     justify-content: center;
 }
 
-.item-favorites {
+.header-list-item {
     color: var(--btn-text-color);
     font-size: 12px;
     font-weight: 400;
     justify-content: center;
 }
 
-.item-home .item-favorites {
+.active-header-list-item {
     color: var(--light-theme-text-color);
 }
 
