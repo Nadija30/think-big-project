@@ -1,5 +1,51 @@
 /* ------------- Select -------------------- */
 
+.ss-content .ss-list .ss-option {
+    color: var(--light-theme-almost-transparent-color, #0505054d) !important;
+    padding: 4px 6px !important;
+    font-family: Inter !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: 1.28 !important;
+}
+
+.ss-content .ss-list .ss-option:hover {
+    background-color: transparent !important;
+    color: var(--light-theme-text-color, #050505) !important;
+}
+.ss-single {
+    color: var(--light-theme-semi-transparent-color, #05050580) !important;
+}
+.ss-main {
+    border: 1px solid var(--light-theme-transparent-color, #05050533) !important;
+    color: var(--light-theme-semi-transparent-color, #05050580) !important;
+}
+.ss-arrow path {
+    stroke: var(--light-theme-semi-transparent-color, #05050580) !important;
+}
+.ss-content {
+    background-color: var(--light-modal-background-color, #fff) !important;
+    border: none !important;
+    border-radius: 14px !important;
+    max-height: 176px !important;
+}
+.ss-content.select-time {
+    max-height: 124px !important;
+}
+.ss-main {
+    background-color: transparent !important;
+    padding: 14px 18px !important;
+    border-radius: 15px !important;
+}
+.ss-main:focus {
+    box-shadow: none !important;
+}
+.ss-main.ss-open-below {
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+
 .js-form-filter {
     margin-bottom: 20px;
 }
@@ -25,17 +71,19 @@
 .field-ingredients {
     width: 188px;
 }
+
 .input-search::placeholder {
-    color: rgba(5, 5, 5, 0.5);
+    color: var(--light-theme-semi-transparent-color, #05050580);
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 1.28;
 }
+
 .form-label {
     display: block;
-    color: rgba(5, 5, 5, 0.5);
+    color: var(--light-theme-semi-transparent-color, #05050580);
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
@@ -57,17 +105,16 @@
 .select-ingredients {
     width: 100%;
     border-radius: 15px;
-    border: 1px solid rgba(5, 5, 5, 0.2);
+    border: 1px solid var(--light-theme-transparent-color, #05050533);
     height: 46px;
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.field-search:is(:hover, :focus) .input-search {
-    border: 1px solid rgb(5, 5, 5);
+    background-color: transparent;
+    color: var(--light-theme-text-color, #050505);
+    outline: none;
 }
 
 .input-search {
-    padding: 14px 122px 14px 48px;
+    padding: 14px 48px;
 }
 
 .select-ingredients {
@@ -83,7 +130,10 @@
     top: 50%;
     left: 18px;
     transform: translateY(-50%);
-    fill: rgba(5, 5, 5, 0.5);
+    fill: var(--light-theme-semi-transparent-color, #05050580);
+}
+.input-search:is(:hover, :focus) + svg {
+    fill: var(--accent-color, #9bb537);
 }
 
 .btn-reset-form {
@@ -93,7 +143,7 @@
 }
 
 .span-reset-form {
-    color: rgba(5, 5, 5, 0.5);
+    color: var(--light-theme-semi-transparent-color, #05050580);
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
@@ -104,8 +154,6 @@
 
 .btn-reset-form:is(:hover, :focus) .span-reset-form {
     color: #9bb537;
-    font-size: 14px;
-    line-height: 1.25;
 }
 
 .icon-reset-form {
@@ -262,7 +310,7 @@
 }
 
 .btn-categories {
-    color: rgba(5, 5, 5, 0.3);
+    color: var(--light-theme-almost-transparent-color, #0505054d);
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
@@ -273,18 +321,28 @@
 
 .btn-categories:is(:hover, :focus) {
     color: #9bb537;
-    font-size: 16px;
-    line-height: 1.25px;
 }
 
 .btn-categories.btn-categories-is-active {
     color: #9bb537;
-    font-size: 16px;
-    line-height: 1.25px;
 }
 
 /* ------------- @amedia ------------------- */
 @media screen and (min-width: 768px) {
+    .btn-categories {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+    .ss-content .ss-list .ss-option {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+    .ss-content {
+        max-height: 188px !important;
+    }
+    .ss-content.select-time {
+        max-height: 128px !important;
+    }
     .list-btn-categories {
         width: 176px;
         height: 416px;
