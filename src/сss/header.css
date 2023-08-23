@@ -154,21 +154,21 @@
     padding-bottom: 566px;
 }
 
-.header-list-item-home {
+.item-home {
     color: var(--light-color);
     font-size: 12px;
     font-weight: 500;
     justify-content: center;
 }
 
-.header-list-item {
+.item-favorites {
     color: var(--btn-text-color);
     font-size: 12px;
     font-weight: 400;
     justify-content: center;
 }
 
-.active-header-list-item {
+.item-home .item-favorites {
     color: var(--light-theme-text-color);
 }
 
