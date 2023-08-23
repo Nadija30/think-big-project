@@ -27,7 +27,7 @@ export function addToLocalStorage(event) {
     event.target.parentNode.classList.add('icon-heart-active');
 
     function removeFromLocalStorage(e) {
-        key = JSON.stringify('fav' + e.target.dataset.id);
+        const key = JSON.stringify('fav' + e.target.dataset.id);
         localStorage.removeItem(key);
         e.target.parentNode.classList.remove('icon-heart-active');
     }
