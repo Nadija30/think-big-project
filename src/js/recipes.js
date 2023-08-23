@@ -11,7 +11,6 @@ import { getRecipes } from './search-api';
 import { getCategories } from './search-api';
 import { addToLocalStorage } from './send-to-is';
 import { createCards } from './render-cards';
-import { removeToLocalStorage } from './send-to-is';
 
 let widthOfViewport = window.innerWidth;
 let pagination = null;
