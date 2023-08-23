@@ -61,29 +61,22 @@
 
 /* ----------- Scrollbar styles ------------- */
 
-body::-webkit-scrollbar,
-.list-btn-categories::-webkit-scrollbar,
-select::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 8px;
 }
 
-body::-webkit-scrollbar-track,
-.list-btn-categories::-webkit-scrollbar-track,
-select::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background: transparent;
 }
 
-body::-webkit-scrollbar-thumb,
-.list-btn-categories::-webkit-scrollbar-thumb,
-select::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background-color: rgba(5, 5, 5, 0.18);
     border-radius: 12px;
 }
 
-body,
+*,
 .list-btn-categories,
 select {
     scrollbar-width: thin;
     scrollbar-color: rgba(5, 5, 5, 0.18) transparent;
 }
-
