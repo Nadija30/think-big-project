@@ -24,6 +24,8 @@
         rgba(5, 5, 5, 0.6) 0%,
         rgba(5, 5, 5, 0) 100%
     );
+    --light-theme-scrollbar-color-categories: #0505052e;
+    --light-theme-scrollbar-color-select: #0505051a;
 
     --dark-theme-background-color: #1e1e1e;
 
@@ -52,6 +54,8 @@
         #050505 0%,
         rgba(5, 5, 5, 0) 100%
     );
+    --light-theme-scrollbar-color-categories: #ffffff2e;
+    --light-theme-scrollbar-color-select: #ffffff1a;
 }
 
 .base-btn {
@@ -80,13 +84,23 @@
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: rgba(5, 5, 5, 0.18);
+    background-color: var(--light-theme-scrollbar-color-categories, #0505052e);
     border-radius: 12px;
 }
 
-*,
-.list-btn-categories,
-select {
+* {
     scrollbar-width: thin;
-    scrollbar-color: rgba(5, 5, 5, 0.18) transparent;
+    scrollbar-color: var(--light-theme-scrollbar-color-categories, #0505052e)
+        transparent;
+}
+
+.ss-list::-webkit-scrollbar {
+    width: 6px;
+}
+.ss-list::-webkit-scrollbar-thumb {
+    background-color: var(--light-theme-scrollbar-color-select, #0505051a);
+}
+.ss-list {
+    scrollbar-color: var(--light-theme-scrollbar-color-select, #0505051a)
+        transparent;
 }
