@@ -11,7 +11,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1px solid rgba(5, 5, 5, 0.3);
+    border: 1px solid var(--light-theme-almost-transparent-color, #0505054d);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,6 +80,12 @@
         url(../img/icon-prev-mob.svg);
     background-repeat: no-repeat;
     background-position: 35% 50%, 65% 50%;
+}
+.tui-page-btn.tui-first,
+.tui-page-btn.tui-prev,
+.tui-page-btn.tui-next,
+.tui-page-btn.tui-last {
+    border: none;
 }
 
 /* ------------- @amedia ------------------- */

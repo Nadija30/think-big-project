@@ -1,0 +1,487 @@
+:root {
+    ss-animation-timing: 0.2s;
+    ss-bg-color: #ffffff;
+    ss-border-color: #dcdee2;
+    ss-border-radius: 4px;
+    ss-content-height: 300px;
+    ss-disabled-color: #dcdee2;
+    ss-error-color: #dc3545;
+    ss-font-color: #4d4d4d;
+    ss-font-placeholder-color: #8d8d8d;
+    ss-highlight-color: #fffb8c;
+    ss-main-height: 30px;
+    ss-primary-color: #5897fb;
+    ss-spacing-l: 7px;
+    ss-spacing-m: 5px;
+    ss-spacing-s: 3px;
+    ss-success-color: #00b755;
+}
+@keyframes ss-valueIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes ss-valueOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+.ss-hide {
+    display: none !important;
+}
+.ss-main {
+    background-color: var(--ss-bg-color);
+    border: 1px solid var(--ss-border-color);
+    border-radius: var(--ss-border-radius);
+    box-sizing: border-box;
+    color: var(--ss-font-color);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    min-height: var(--ss-main-height);
+    outline: 0;
+    overflow: hidden;
+    padding: var(--ss-spacing-s);
+    position: relative;
+    transition: background-color var(--ss-animation-timing);
+    user-select: none;
+    width: 100%;
+}
+.ss-main:focus {
+    box-shadow: 0 0 5px var(--ss-primary-color);
+}
+.ss-main.ss-disabled {
+    background-color: var(--ss-disabled-color);
+    cursor: not-allowed;
+}
+.ss-main.ss-disabled .ss-values .ss-disabled {
+    color: var(--ss-font-color);
+}
+.ss-main.ss-disabled .ss-values .ss-value .ss-value-delete {
+    cursor: not-allowed;
+}
+.ss-main.ss-open-above {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.ss-main.ss-open-below {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.ss-main .ss-values {
+    display: inline-flex;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    gap: var(--ss-spacing-m);
+}
+.ss-main .ss-values .ss-placeholder {
+    align-items: center;
+    color: var(--ss-font-placeholder-color);
+    display: flex;
+    line-height: 1em;
+    margin: auto 0px auto 0px;
+    overflow: hidden;
+    padding: var(--ss-spacing-s) var(--ss-spacing-m) var(--ss-spacing-s)
+        var(--ss-spacing-m);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+.ss-main .ss-values .ss-max {
+    align-items: center;
+    background-color: var(--ss-primary-color);
+    border-radius: var(--ss-border-radius);
+    color: var(--ss-bg-color);
+    display: flex;
+    font-size: 12px;
+    line-height: 1;
+    padding: var(--ss-spacing-s) var(--ss-spacing-m);
+    user-select: none;
+    width: fit-content;
+}
+.ss-main .ss-values .ss-single {
+    display: flex;
+    margin: auto 0px auto var(--ss-spacing-s);
+}
+.ss-main .ss-values .ss-value {
+    align-items: center;
+    animation-duration: var(--ss-animation-timing);
+    animation-fill-mode: both;
+    animation-name: ss-valueIn;
+    animation-timing-function: ease-out;
+    background-color: var(--ss-primary-color);
+    border-radius: var(--ss-border-radius);
+    display: flex;
+    user-select: none;
+    width: fit-content;
+}
+.ss-main .ss-values .ss-value.ss-value-out {
+    animation-duration: var(--ss-animation-timing);
+    animation-name: ss-valueOut;
+    animation-timing-function: ease-out;
+}
+.ss-main .ss-values .ss-value .ss-value-text {
+    color: var(--ss-bg-color);
+    font-size: 12px;
+    line-height: 1;
+    padding: var(--ss-spacing-s) var(--ss-spacing-m);
+}
+.ss-main .ss-values .ss-value .ss-value-delete {
+    align-items: center;
+    border-left: solid 1px var(--ss-bg-color);
+    box-sizing: content-box;
+    cursor: pointer;
+    display: flex;
+    height: var(--ss-spacing-l);
+    padding: var(--ss-spacing-s) var(--ss-spacing-m);
+    width: var(--ss-spacing-l);
+}
+.ss-main .ss-values .ss-value .ss-value-delete svg {
+    height: var(--ss-spacing-l);
+    width: var(--ss-spacing-l);
+}
+.ss-main .ss-values .ss-value .ss-value-delete svg path {
+    fill: none;
+    stroke: var(--ss-bg-color);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 18;
+}
+.ss-main .ss-deselect {
+    align-self: center;
+    display: flex;
+    flex: 0 1 auto;
+    height: 8px;
+    justify-content: flex-end;
+    margin: 0 var(--ss-spacing-m) 0 var(--ss-spacing-m);
+    width: 8px;
+}
+.ss-main .ss-deselect svg {
+    height: 8px;
+    width: 8px;
+}
+.ss-main .ss-deselect svg path {
+    fill: none;
+    stroke: var(--ss-font-color);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 20;
+}
+.ss-main .ss-arrow {
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    height: 12px;
+    justify-content: flex-end;
+    margin: auto var(--ss-spacing-m) auto var(--ss-spacing-m);
+    width: 12px;
+}
+.ss-main .ss-arrow path {
+    fill: none;
+    stroke: var(--ss-font-color);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 18;
+    transition: var(--ss-animation-timing);
+    transition-timing-function: ease-out;
+}
+.ss-content {
+    background-color: var(--ss-bg-color);
+    border: solid 1px var(--ss-border-color);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    max-height: var(--ss-content-height);
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: center top;
+    transition: transform var(--ss-animation-timing),
+        opacity var(--ss-animation-timing);
+    width: auto;
+    z-index: 10000;
+}
+.ss-content.ss-relative {
+    height: 100%;
+    position: relative;
+}
+.ss-content.ss-open-above {
+    border-top-left-radius: var(--ss-border-radius);
+    border-top-right-radius: var(--ss-border-radius);
+    flex-direction: column-reverse;
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: center bottom;
+}
+.ss-content.ss-open-below {
+    border-bottom-left-radius: var(--ss-border-radius);
+    border-bottom-right-radius: var(--ss-border-radius);
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: center top;
+}
+.ss-content .ss-search {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    padding: var(--ss-spacing-l) var(--ss-spacing-l) var(--ss-spacing-m)
+        var(--ss-spacing-l);
+}
+.ss-content .ss-search input {
+    background-color: var(--ss-bg-color);
+    border: 1px solid var(--ss-border-color);
+    border-radius: var(--ss-border-radius);
+    box-sizing: border-box;
+    display: inline-flex;
+    flex: 1 1 auto;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+    min-width: 0px;
+    outline: 0;
+    padding: var(--ss-spacing-m) var(--ss-spacing-l);
+    text-align: left;
+    width: 100%;
+}
+.ss-content .ss-search input::placeholder {
+    color: var(--ss-font-placeholder-color);
+    vertical-align: middle;
+}
+.ss-content .ss-search input:focus {
+    box-shadow: 0 0 5px var(--ss-primary-color);
+}
+.ss-content .ss-search .ss-addable {
+    align-items: center;
+    border: 1px solid var(--ss-border-color);
+    border-radius: var(--ss-border-radius);
+    cursor: pointer;
+    display: inline-flex;
+    flex: 0 0 auto;
+    height: auto;
+    justify-content: center;
+    margin: 0 0 0 var(--ss-spacing-m);
+}
+.ss-content .ss-search .ss-addable svg {
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    height: 12px;
+    justify-content: flex-end;
+    margin: auto var(--ss-spacing-m) auto var(--ss-spacing-m);
+    width: 12px;
+}
+.ss-content .ss-search .ss-addable svg path {
+    fill: none;
+    stroke: var(--ss-font-color);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 18;
+}
+.ss-content .ss-list {
+    flex: 1 1 auto;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.ss-content .ss-list .ss-error {
+    color: var(--ss-error-color);
+    padding: var(--ss-spacing-l);
+}
+.ss-content .ss-list .ss-searching {
+    color: var(--ss-font-color);
+    padding: var(--ss-spacing-l);
+}
+.ss-content .ss-list .ss-optgroup.ss-close .ss-option {
+    display: none !important;
+}
+.ss-content .ss-list .ss-optgroup .ss-optgroup-label {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--ss-spacing-m) var(--ss-spacing-l) var(--ss-spacing-m)
+        var(--ss-spacing-l);
+}
+.ss-content .ss-list .ss-optgroup .ss-optgroup-label .ss-optgroup-label-text {
+    color: var(--ss-font-color);
+    flex: 1 1 auto;
+    font-weight: bold;
+}
+.ss-content .ss-list .ss-optgroup .ss-optgroup-label:has(.ss-arrow) {
+    cursor: pointer;
+}
+.ss-content .ss-list .ss-optgroup .ss-optgroup-label .ss-optgroup-actions {
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    gap: var(--ss-spacing-m);
+    justify-content: center;
+}
+.ss-content
+    .ss-list
+    .ss-optgroup
+    .ss-optgroup-label
+    .ss-optgroup-actions
+    .ss-selectall {
+    cursor: pointer;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: row;
+}
+.ss-content
+    .ss-list
+    .ss-optgroup
+    .ss-optgroup-label
+    .ss-optgroup-actions
+    .ss-selectall:hover {
+    opacity: 0.5;
+}
+.ss-content
+    .ss-list
+    .ss-optgroup
+    .ss-optgroup-label
+    .ss-optgroup-actions
+    .ss-selectall.ss-selected
+    svg
+    path {
+    stroke: var(--ss-error-color);
+}
+.ss-content
+    .ss-list
+    .ss-optgroup
+    .ss-optgroup-label
+    .ss-optgroup-actions
+    .ss-selectall
+    span {
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    font-size: 60%;
+    justify-content: center;
+    padding: 0 var(--ss-spacing-s) 0 0;
+    text-align: center;
+}
+.ss-content
+    .ss-list
+    .ss-optgroup
+    .ss-optgroup-label
+    .ss-optgroup-actions
+    .ss-selectall
+    svg {
+    flex: 0 1 auto;
+    height: 13px;
+    width: 13px;
+}
+.ss-content
+    .ss-list
+    .ss-optgroup
+    .ss-optgroup-label
+    .ss-optgroup-actions
+    .ss-selectall
+    svg
+    path {
+    fill: none;
+    stroke: var(--ss-success-color);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.ss-content
+    .ss-list
+    .ss-optgroup
+    .ss-optgroup-label
+    .ss-optgroup-actions
+    .ss-selectall
+    svg:first-child {
+    stroke-width: 5;
+}
+.ss-content
+    .ss-list
+    .ss-optgroup
+    .ss-optgroup-label
+    .ss-optgroup-actions
+    .ss-selectall
+    svg:last-child {
+    stroke-width: 11;
+}
+.ss-content
+    .ss-list
+    .ss-optgroup
+    .ss-optgroup-label
+    .ss-optgroup-actions
+    .ss-closable {
+    cursor: pointer;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+}
+.ss-content
+    .ss-list
+    .ss-optgroup
+    .ss-optgroup-label
+    .ss-optgroup-actions
+    .ss-closable
+    .ss-arrow {
+    flex: 1 1 auto;
+    height: 10px;
+    width: 10px;
+}
+.ss-content
+    .ss-list
+    .ss-optgroup
+    .ss-optgroup-label
+    .ss-optgroup-actions
+    .ss-closable
+    .ss-arrow
+    path {
+    fill: none;
+    stroke: var(--ss-font-color);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 18;
+    transition: var(--ss-animation-timing);
+    transition-timing-function: ease-out;
+}
+.ss-content .ss-list .ss-optgroup .ss-option {
+    padding: var(--ss-spacing-s) var(--ss-spacing-s) var(--ss-spacing-s)
+        calc(var(--ss-spacing-l) * 3);
+}
+.ss-content .ss-list .ss-option {
+    color: var(--ss-font-color);
+    cursor: pointer;
+    display: flex;
+    padding: var(--ss-spacing-m) var(--ss-spacing-l) var(--ss-spacing-m)
+        var(--ss-spacing-l);
+    user-select: none;
+}
+.ss-content .ss-list .ss-option:hover {
+    background-color: var(--ss-primary-color);
+    color: var(--ss-bg-color);
+}
+.ss-content .ss-list .ss-option.ss-highlighted,
+.ss-content .ss-list .ss-option:not(.ss-disabled).ss-selected {
+    background-color: var(--ss-primary-color);
+    color: var(--ss-bg-color);
+}
+.ss-content .ss-list .ss-option.ss-disabled {
+    background-color: var(--ss-disabled-color);
+    cursor: not-allowed;
+}
+.ss-content .ss-list .ss-option.ss-disabled:hover {
+    color: var(--ss-font-color);
+}
+.ss-content .ss-list .ss-option .ss-search-highlight {
+    background-color: var(--ss-highlight-color);
+}
