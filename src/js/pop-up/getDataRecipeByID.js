@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-import { createMarkup } from './renderMarkupPopup';
-import { recipeID } from '../pop-up-modal';
+import { createMarkup, createMarkupBtn } from './renderMarkupPopup';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
 
@@ -18,6 +17,7 @@ function getDataRecipeByID(recipeID) {
     getRecipeByID(recipeID)
         .then(data => {
             createMarkup(data);
+            createMarkupBtn(data);
         })
         .catch(error => console.log(error));
 }

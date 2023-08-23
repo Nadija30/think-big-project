@@ -1,59 +1,94 @@
-import { setToLocalStorage, getFromLocalStorage } from './localeStorage';
-import { getArrayRecipeByID } from './getDataRecipeByID';
-import { recipeID } from '../pop-up-modal';
+// import { setToLocalStorage, getFromLocalStorage } from './localeStorage';
+// import { getArrayRecipeByID } from './getDataRecipeByID';
 
-const addToFavoriteBtn = document.querySelector('.pop-up-btn-add');
+import { getCardByID } from '../search-api';
 
-if (addToFavoriteBtn) {
-    addToFavoriteBtn.addEventListener('click', onAddFavoriteBtnClick);
-}
+export function addToLocalStorageFromModal(event) {
+    if (!event.target.className.includes('pop-up-btn-add')) return;
 
-const STORAGE_KEY = 'favorite-list';
-let objectRecipes = [];
-let arrayIDs = [];
+    if (event.target.innerText === 'Remove from favorite') {
+        removeFromLocalStorage(event);
+        return;
+    }
 
-function checkRecipeInStorage() {
-    switchAddBtn();
-    checkContentsStorage();
+    const dataIdValue = event.target.getAttribute('data-id');
 
-    if (arrayIDs.includes(recipeID)) {
-        switchRemoveBtn();
+    getCardByID(dataIdValue).then(data => {
+        const cardPreview = {
+            title: data.title,
+            description: data.description,
+            preview: data.preview,
+            _id: data._id,
+            category: data.category,
+            rating: data.rating,
+        };
+
+        const cardPreviewJSON = JSON.stringify(cardPreview);
+        const keyJSON = JSON.stringify('fav' + data._id);
+        localStorage.setItem(keyJSON, cardPreviewJSON);
+    });
+
+    event.target.innerText = 'Remove from favorite';
+
+    function removeFromLocalStorage(event) {
+        const key = JSON.stringify('fav' + event.target.dataset.id);
+        localStorage.removeItem(key);
+        event.target.innerText = 'Add to favorite';
     }
 }
 
-async function onAddFavoriteBtnClick() {
-    checkContentsStorage();
+// const addToFavoriteBtn = document.querySelector('.pop-up-btn-add');
 
-    if (arrayIDs.includes(recipeID)) {
-        onRemoveFavoriteBtnClick();
-    } else {
-        const objectRecipe = await getArrayRecipeByID(recipeID);
-        objectRecipes.push(objectRecipe);
-        setToLocalStorage(STORAGE_KEY, objectRecipes);
-        switchRemoveBtn();
-    }
-}
+// if (addToFavoriteBtn) {
+//     addToFavoriteBtn.addEventListener('click', onAddFavoriteBtnClick);
+// }
 
-function onRemoveFavoriteBtnClick() {
-    const indexRecipe = arrayIDs.indexOf(recipeID);
-    objectRecipes.splice(indexRecipe, 1);
-    setToLocalStorage(STORAGE_KEY, objectRecipes);
-    switchAddBtn();
-}
+// const STORAGE_KEY = 'favorite-list';
+// let objectRecipes = [];
+// let arrayIDs = [];
 
-function checkContentsStorage() {
-    if (getFromLocalStorage(STORAGE_KEY)) {
-        objectRecipes = getFromLocalStorage(STORAGE_KEY);
-    }
-    arrayIDs = objectRecipes.map(recipeID => recipeID._id);
-}
+// function checkRecipeInStorage() {
+// switchAddBtn();
+//     checkContentsStorage();
 
-function switchAddBtn() {
-    addToFavoriteBtn.textContent = 'Add to favorite';
-}
+//     if (arrayIDs.includes(recipeID)) {
+// switchRemoveBtn();
+//     }
+// }
 
-function switchRemoveBtn() {
-    addToFavoriteBtn.textContent = 'Remove from favorite';
-}
+// async function onAddFavoriteBtnClick() {
+//     checkContentsStorage();
 
-export { checkRecipeInStorage };
+//     if (arrayIDs.includes(recipeID)) {
+//         onRemoveFavoriteBtnClick();
+//     } else {
+//         const objectRecipe = await getArrayRecipeByID(recipeID);
+//         objectRecipes.push(objectRecipe);
+//         setToLocalStorage(STORAGE_KEY, objectRecipes);
+// switchRemoveBtn();
+//     }
+// }
+
+// function onRemoveFavoriteBtnClick() {
+//     const indexRecipe = arrayIDs.indexOf(recipeID);
+//     objectRecipes.splice(indexRecipe, 1);
+//     setToLocalStorage(STORAGE_KEY, objectRecipes);
+//     switchAddBtn();
+// }
+
+// function checkContentsStorage() {
+//     if (getFromLocalStorage(STORAGE_KEY)) {
+//         objectRecipes = getFromLocalStorage(STORAGE_KEY);
+//     }
+//     arrayIDs = objectRecipes.map(recipeID => recipeID._id);
+// }
+
+// function switchAddBtn() {
+//     addToFavoriteBtn.textContent = 'Add to favorite';
+// }
+
+// function switchRemoveBtn() {
+//     addToFavoriteBtn.textContent = 'Remove from favorite';
+// }
+
+// export { checkRecipeInStorage };
