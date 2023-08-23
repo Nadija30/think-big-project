@@ -12,7 +12,7 @@ function getFromLocalStorage() {
     for (let key in localStorage) {
         
 
-    if (key.length >= 24) {
+    if (key.length >= 24 && !key.includes(' ')) {
           
       try {
           const value = localStorage.getItem(key);
