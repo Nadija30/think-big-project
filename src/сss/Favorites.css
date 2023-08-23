@@ -134,7 +134,7 @@
     position: absolute;
     top: 19px;
     right: 17px;
-    background-color: #fff;
+    background-color: transparent;
 }
 
 .favorite__heart-svg {
@@ -142,7 +142,32 @@
     height: 22px;
 }
 
+.favorites__svg-heart {
+    stroke: white;
+    fill: white;
+}
 
+.heart-svg-bg {
+    fill: transparent;
+}
+
+.favorites__card-description {
+    width: 200px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.favorites__card-tittle {
+    width: 200px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
 
 @media screen and (min-width: 768px) {
     .favorites__container {
