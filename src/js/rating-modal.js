@@ -10,7 +10,7 @@ const refs = {
     closeRatingModal: document.querySelector(`.close__rating__btn`),
     ratingForm: document.querySelector(`.rating__form`),
     ratingRadio: document.querySelectorAll(`.rating__radio`),
-    body: document.querySelector(`body`),
+    body: document.body,
 };
 
 if (refs.closeRatingModal) {
@@ -132,6 +132,39 @@ export function initRatings() {
 // Відправка рейтингу на бек(проблема в тому, що якщо в email є '.' то бек не прийме його)
 async function submitRating(e) {
     e.preventDefault();
+    let notiflixOptions;
+    if (refs.body.classList.contains(`dark`)) {
+        notiflixOptions = {
+            className: `rating__notiflix`,
+
+            backgroundColor: `#050505`,
+            success: {
+                titleColor: `#fff`,
+                messageColor: `#fff`,
+                okBtnColor: `#fff`,
+            },
+            warning: {
+                titleColor: `#fff`,
+                messageColor: `#fff`,
+                okBtnColor: `#fff`,
+            },
+        };
+    } else {
+        notiflixOptions = {
+            className: `rating__notiflix`,
+            backgroundColor: `#fff`,
+            success: {
+                titleColor: `#080808`,
+                messageColor: `#080808`,
+                buttonColor: `#f8f8f8`,
+            },
+            warning: {
+                titleColor: `#080808`,
+                messageColor: `#080808`,
+                buttonColor: `#f8f8f8`,
+            },
+        };
+    }
 
     const { rating, email } = e.currentTarget;
 
@@ -140,11 +173,21 @@ async function submitRating(e) {
         email: email.value,
     };
     if (inputValues.rate === 0) {
-        Notiflix.Report.warning(`Oops`, `Need to select some rating`, `Return`);
+        Notiflix.Report.warning(
+            `Oops`,
+            `Need to select some rating`,
+            `Return`,
+            notiflixOptions
+        );
         return;
     }
     if (inputValues.email.trim() === '') {
-        Notiflix.Report.warning(`Oops`, `Need to enter email`, `Return`);
+        Notiflix.Report.warning(
+            `Oops`,
+            `Need to enter email`,
+            `Return`,
+            notiflixOptions
+        );
         return;
     }
 
@@ -154,7 +197,8 @@ async function submitRating(e) {
             Notiflix.Report.success(
                 `Great`,
                 `Completly added rating for ${response.data.title}`,
-                `Return`
+                `Return`,
+                notiflixOptions
             );
 
             closeRatingModal();
