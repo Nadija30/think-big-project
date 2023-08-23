@@ -1,14 +1,11 @@
 import { initRatings } from './rating-modal';
-import { getFromLocalStorage } from './favorites-recipes';
+import { getDataFromLocalStorage } from './local-storage-api';
 
 export function createCards(cards, container) {
     if (!cards.length) {
-
         container.innerHTML =
             '<p>Nothing was found for your request. Try changing your search parameters...</p>';
         return;
-        
-
     }
 
     container.innerHTML = cards
@@ -40,7 +37,7 @@ export function createCards(cards, container) {
 
     document.querySelectorAll('.icon-heart').forEach(icon => {
         if (icon) {
-            getFromLocalStorage()
+            getDataFromLocalStorage()
                 .map(favorite => favorite._id)
                 .forEach(favId => {
                     if (favId === icon.dataset.id) {
