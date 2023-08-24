@@ -19,9 +19,6 @@ if (refs.closeRatingModal) {
 if (refs.ratingForm) {
     refs.ratingForm.addEventListener(`submit`, submitRating);
 }
-if (refs.openRatingModal) {
-    refs.openRatingModal.addEventListener(`click`, openRatingModal);
-}
 if (refs.ratingModal) {
     refs.ratingModal.addEventListener('click', onBackdropClick);
 }
@@ -37,7 +34,7 @@ function closeRatingModal() {
     refs.body.classList.remove('scroll-blocked');
 }
 
-function openRatingModal() {
+export function openRatingModal() {
     const value = document.querySelector(`.set__rating > .rating__value`);
     refs.ratingRadio.forEach(radio => {
         radio.checked = false;
@@ -114,6 +111,7 @@ export function initRatings() {
             starSvg.setAttribute('viewBox', '0 0 32 32');
             starSvg.setAttribute('width', '18');
             starSvg.setAttribute('height', '18');
+            starSvg.setAttribute('alt', 'rating star');
 
             starSvg.classList.add('rating__icon');
 
