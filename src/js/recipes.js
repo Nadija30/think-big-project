@@ -253,8 +253,6 @@ function handlerChooseCategory(e) {
         return;
     }
 
-    elems.btnAllCategories.classList.remove('bnt-all-cat-is-active');
-
     params.category = e.target.textContent;
 
     Loading.dots('Loading data, please wait...');
@@ -273,8 +271,6 @@ elems.btnAllCategories.addEventListener('click', handlerClearCategory);
 
 function handlerClearCategory() {
     params.category = '';
-
-    elems.btnAllCategories.classList.add('bnt-all-cat-is-active');
 
     Loading.dots('Loading data, please wait...');
 
