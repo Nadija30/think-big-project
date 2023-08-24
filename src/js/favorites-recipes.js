@@ -80,24 +80,27 @@ function renderCategoriesBtn() {
 }
 
 function filterCards(event) {
-  console.log(event.target.textContent) 
-  const categories = document.querySelectorAll('.favorites__gallery-list-item')
-  console.log(categories)
+  
+  const categories = document.querySelectorAll('.favorites__gallery-list-item') // массив лишек
+  
 
-  categories.forEach(category => {
+  
+
+
+  categories.forEach(category => {  //category в цикле это лишка
     category.classList.remove('is-hidden')
-    const allCatBtn = document.querySelector('.favorites__all-categories-btn');
+    const allCatBtn = document.querySelector('.favorites__all-categories-btn'); //кнопка все категории
     allCatBtn.classList.remove('favorites__all-cat-chose-btn')
     const dataAtrValue = category.getAttribute('data-categories')
-    console.log(dataAtrValue)
     if (dataAtrValue !== event.target.textContent) {
-        
+      
       if (event.target.textContent === 'All categories') {
         allCatBtn.classList.add('favorites__all-cat-chose-btn');
         return
       }
       category.classList.add('is-hidden');
-
+      // event.target.classList.add('favorites__all-cat-chose-btn')
+      
     }
   })
 }
