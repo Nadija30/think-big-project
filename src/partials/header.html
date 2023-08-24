@@ -3,14 +3,16 @@
         <div class="header-items">
             <nav class="header-nav">
                 <a
-                    class="header-link-home header-link active"
+                    class="header-link header-link-home"
+                    id="home-link"
                     href="./index.html"
                     >Home</a
                 >
                 <a
                     class="header-link header-link-favorites"
+                    id="favorites-link"
                     href="./Favorites.html"
-                    >Favorite</a
+                    >Favorites</a
                 >
             </nav>
             <div class="header-logo">
@@ -68,17 +70,21 @@
         </button>
         <ul class="mob-menu-list">
             <li>
-                <a class="header-list-item-home" href="./index.html">Home</a>
+                <a class="header-list-item item-home active" href="./index.html"
+                    >Home</a
+                >
             </li>
             <li>
-                <a class="header-list-item" href="./Favorites.html"
+                <a
+                    class="header-list-item item-favorites"
+                    href="./Favorites.html"
                     >Favorites</a
                 >
             </li>
         </ul>
         <div>
             <label class="switch">
-                <input type="checkbox" id="themeSwitch" />
+                <input type="checkbox" id="mobileThemeSwitch" />
                 <span class="slider"></span>
             </label>
         </div>

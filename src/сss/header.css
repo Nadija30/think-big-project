@@ -27,7 +27,7 @@
 }
 
 .header-logo:hover {
-    transform: scale(1.3);
+    transform: scale(1.1);
 }
 
 .logo-light {
@@ -53,14 +53,14 @@
     width: 32px;
     height: 32px;
     background-color: transparent;
-    transition: var(--anim-time);
+    transition: transform var(--animation);
 }
 
 .icon-shopping-cart {
     color: var(--dark-color);
     stroke: var(--light-theme-text-color);
     background-color: transparent;
-    transition: var(--anim-time);
+    transition: transform var(--animation);
 }
 
 
@@ -71,7 +71,7 @@
 
 .icon-shopping-cart:is(:hover, :focus) {
     stroke: var(--accent-color);
-    transform: scale(1.5);
+    transform: scale(1.1);
 }
 
 /* перемикач тем */
@@ -82,18 +82,16 @@
 
 /*бургер*/
 .menu-open-icon {
-    stroke: var(--dark-color);
-    background-color: var(--btn-text-color);
-    transition: var(--anim-time);
+    stroke: var(--light-theme-text-color);
+    transition: transform var(--animation);
 }
 
 .menu-open-icon:is(:hover, :focus) {
     stroke: var(--accent-color);
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 .mob-menu-btn-open {
-    background-color: var(--btn-text-color);
     transform: translateX(0);
 }
 
@@ -110,8 +108,8 @@
     width: 53.33%;
     height: 100%;
     background: var(--accent-color);
-    transition: transform var(--anim-time), opacity var(--anim-time),
-        visibility var(--anim-time);
+    transition: transform var(--animation), opacity var(--animation),
+        visibility var(--animation);
     overflow: auto;
 }
 
@@ -137,7 +135,7 @@
 }
 
 .mob-menu-btn-close:hover .mob-menu-close {
-    transform: scale(1.5);
+    transform: scale(1.1);
 }
 
 .mob-menu-close-icon {
@@ -154,21 +152,21 @@
     padding-bottom: 566px;
 }
 
-.header-list-item-home {
+.item-home {
     color: var(--light-color);
     font-size: 12px;
     font-weight: 500;
     justify-content: center;
 }
 
-.header-list-item {
+.item-favorites {
     color: var(--btn-text-color);
     font-size: 12px;
     font-weight: 400;
     justify-content: center;
 }
 
-.active-header-list-item {
+.item-home .item-favorites {
     color: var(--light-theme-text-color);
 }
 
