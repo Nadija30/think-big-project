@@ -1,6 +1,7 @@
 import { refs } from '../pop-up-modal';
 import { initRatings } from '../rating-modal';
 
+// Функція яка створює розмітку модального вікна
 async function createMarkup(recipe) {
     const {
         youtube,
@@ -80,6 +81,7 @@ async function createMarkup(recipe) {
     }
 }
 
+// Функція яка створює розмітку кнопок модального вікна
 function createMarkupBtn({ _id }) {
     const isFavorite = localStorage.getItem(`"fav${_id}"`);
 

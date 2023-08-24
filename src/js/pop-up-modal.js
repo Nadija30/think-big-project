@@ -32,6 +32,7 @@ if (refs.recipeContainerBtn) {
 }
 // let recipeID = '';
 
+// Функція яка відкриває модалку з Popular
 function onPopularClick(event) {
     const listItem = event.target.closest('.popular-list-item');
 
@@ -42,6 +43,7 @@ function onPopularClick(event) {
     }
 }
 
+// Функція яка відкриває модалку з кнопки See recipe
 function onBtnOpenClick(event) {
     if (!event.target.closest('.js-see-recipe')) {
         return;
@@ -53,6 +55,7 @@ function onBtnOpenClick(event) {
     modalRender(recipeID);
 }
 
+// Функція яка рендерить модалку
 function modalRender(ID) {
     getDataRecipeByID(ID);
 
@@ -64,6 +67,7 @@ function modalRender(ID) {
     refs.recipeContainerBtn.innerHTML = '';
 }
 
+// Функція закриття модалки по кнопці CLose
 function onBtnCloseClick() {
     window.removeEventListener('keydown', onEscPress);
     refs.scrollOnModal.classList.remove('scroll-blocked');
@@ -75,12 +79,14 @@ function onBtnCloseClick() {
     }
 }
 
+// Функція закриття модалки по бекдропу
 function onBackdropClick(event) {
     if (event.target === event.currentTarget) {
         onBtnCloseClick();
     }
 }
 
+// Функція закриття модалки по натисканню на клавішу Escape
 function onEscPress(event) {
     const ESC_KEY_CODE = 'Escape';
 
@@ -89,6 +95,7 @@ function onEscPress(event) {
     }
 }
 
+// Функція яка зупиняє відео з модалки якщо вона закривається
 function stopVideoOnCloseModal() {
     if (videoIframe) {
         videoIframe.src = '';

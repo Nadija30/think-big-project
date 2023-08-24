@@ -23,6 +23,7 @@ refs.form.addEventListener('input', throttle(onFormInput, 500));
 
 let formData = JSON.parse(localStorage.getItem(LOCAL_KEY)) || {};
 
+// Функція яка відкриває модалку з кнопки Order now
 function onBtnOpenClick() {
     window.addEventListener('keydown', onEscPress);
     refs.scrollOnModal.classList.add('scroll-blocked');
@@ -31,11 +32,13 @@ function onBtnOpenClick() {
     setFormData();
 }
 
+// Функція яка записує дані з полів форми в локальне сховище
 function onFormInput(event) {
     formData[event.target.name] = event.target.value;
     localStorage.setItem(LOCAL_KEY, JSON.stringify(formData));
 }
 
+// Функція яка встановлює збережені дані в поля форми при завантаженні сторінки
 function setFormData() {
     const savedFormData = JSON.parse(localStorage.getItem(LOCAL_KEY));
     if (savedFormData) {
@@ -45,6 +48,7 @@ function setFormData() {
     }
 }
 
+// Функція яка обробляє події відправки форми
 function onFormSubmit(event) {
     event.preventDefault();
 
@@ -73,18 +77,21 @@ function onFormSubmit(event) {
     }
 }
 
+// Функція закриття модалки по кнопці CLose
 function onBtnCloseClick() {
     window.removeEventListener('keydown', onEscPress);
     refs.scrollOnModal.classList.remove('scroll-blocked');
     refs.backdrop.classList.add('is-hidden');
 }
 
+// Функція закриття модалки по бекдропу
 function onBackdropClick(event) {
     if (event.target === event.currentTarget) {
         onBtnCloseClick();
     }
 }
 
+// Функція закриття модалки по натисканню на клавішу Escape
 function onEscPress(event) {
     const ESC_KEY_CODE = 'Escape';
 
