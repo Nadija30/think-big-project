@@ -50,8 +50,9 @@ if (window.innerWidth < 728) {
 }
 
 getFromLocalStorage();
+renderCards();
 initRatings();
-favHeartBtn.addEventListener('click', removeFromLocalStorageFavorites);
+// favHeartBtn.addEventListener('click', removeFromLocalStorageFavorites);
 renderCategoriesBtn();
 
 function getFromLocalStorage() {
@@ -61,28 +62,27 @@ function getFromLocalStorage() {
                 const value = localStorage.getItem(key);
                 const parsedValue = JSON.parse(value);
                 favoriteArr.push(parsedValue);
-                if (!categoriesArr.includes(parsedValue.category)) {
-                    categoriesArr.push(parsedValue.category);
-                    const category = `<li class="favorites__categories-item">
-          <button type="button" class="favorites__categories-btn">${parsedValue.category}</button>
-          </li>`;
-                    favorCatBox.insertAdjacentHTML('beforeend', category);
+                if (!categoriesArray.includes(parsedValue.category)) {
+                    categoriesArray.push(parsedValue.category);
                 }
             } catch (error) {
                 console.log(`Key: ${key}, Error parsing value: `, error);
             }
         }
     }
-    console.log(favoriteArr);
-    console.log(favoriteArr.length);
-    if (favoriteArr.length > 0 && favoriteArr.length <= cardsPerPage) {
-        createFavCards(favoriteArr);
+}
+
+function renderCards(cardsArr = favoriteArr) {
+    if (cardsArr.length > 0 && cardsArr.length <= cardsPerPage) {
+        totalPages = 1;
+        createFavCards(cardsArr);
+        createPagination();
         catList.classList.remove('is-hidden');
         notAtended.classList.add('is-hidden');
     }
-    if (favoriteArr.length > cardsPerPage) {
-        totalPages = ++favoriteArr.length / cardsPerPage;
-        pageItems = favoriteArr.slice(0, cardsPerPage);
+    if (cardsArr.length > cardsPerPage) {
+        totalPages = Math.ceil(cardsArr.length / cardsPerPage);
+        pageItems = cardsArr.slice(0, cardsPerPage);
         createFavCards(pageItems);
         createPagination();
 
@@ -126,7 +126,7 @@ function createFavCards(cards) {
     initRatings();
 }
 
-function createPagination() {
+function createPagination(cardsArr = favoriteArr) {
     if (totalPages === 1) {
         paginationEl.innerHTML = '';
         return;
@@ -134,7 +134,7 @@ function createPagination() {
 
     options.page = page;
 
-    options.totalItems = favoriteArr.length + 1;
+    options.totalItems = cardsArr.length + 1;
 
     options.itemsPerPage = cardsPerPage;
 
@@ -152,7 +152,7 @@ function createPagination() {
         console.log(lastItemIndex);
         pageItems = favoriteArr.slice(firstItemIndex, lastItemIndex);
         createFavCards(pageItems, favorGallBox);
-        options.totalItems = favoriteArr.length + 1;
+        options.totalItems = cardsArr.length + 1;
         options.itemsPerPage = cardsPerPage;
 
         Loading.remove();
@@ -160,11 +160,7 @@ function createPagination() {
 }
 
 function renderCategoriesBtn() {
-    const uniqueCategoriesArray = categoriesArray.filter(
-        (course, index, array) => array.indexOf(course) === index
-    );
-
-    const renderArray = uniqueCategoriesArray
+    const renderArray = categoriesArray
         .map(item => {
             return `<li class="favorites__categories-item">
           <button type="button" class="favorites__categories-btn">${item}</button>
@@ -176,37 +172,18 @@ function renderCategoriesBtn() {
 }
 
 function filterCards(event) {
-    console.log(event.target.textContent);
-    const categories = document.querySelectorAll(
-        '.favorites__gallery-list-item'
+    pageItems = favoriteArr.filter(
+        card => card.category === event.target.textContent
     );
-    console.log(categories);
-
-    categories.forEach(category => {
-        category.classList.remove('is-hidden');
-        const allCatBtn = document.querySelector(
-            '.favorites__all-categories-btn'
-        );
-        allCatBtn.classList.remove('favorites__all-cat-chose-btn');
-        const dataAtrValue = category.getAttribute('data-categories');
-        console.log(dataAtrValue);
-        if (dataAtrValue !== event.target.textContent) {
-            if (event.target.textContent === 'All categories') {
-                allCatBtn.classList.add('favorites__all-cat-chose-btn');
-                return;
-            }
-            category.classList.add('is-hidden');
-        }
-    });
+    renderCards(pageItems);
 }
 
 // const favHeartBtn = document.querySelector('.favorites__gallery-list');
 // favHeartBtn.addEventListener('click', removeFromLocalStorageFavorites);
 
-function removeFromLocalStorageFavorites(event) {
-    if (event.target.tagName !== 'path') return;
-    console.log(event.target.dataset.id);
-    event.target.classList.toggle('heart-svg-bg');
-    const currentHeartId = event.target.dataset.id;
-    console.log(currentHeartId);
-}
+// function removeFromLocalStorageFavorites(event) {
+//     if (event.target.tagName !== 'path') { return };
+//     event.target.classList.toggle('heart-svg-bg');
+//     const currentHeartId = event.target.dataset.id;
+//     console.log(currentHeartId);
+// }
