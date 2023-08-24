@@ -20,6 +20,7 @@ let page = 1;
 let cardsPerPage = 12;
 let totalPages = 1;
 
+// Опції для пагінації взяті у Олега
 const options = {
     totalItems: 80,
     itemsPerPage: 8,
@@ -55,6 +56,7 @@ initRatings();
 // favHeartBtn.addEventListener('click', removeFromLocalStorageFavorites);
 renderCategoriesBtn();
 
+// Дістаємо з ЛС і кладемо картки в масив і категорії також(тут одразу фільруємо категорії)
 function getFromLocalStorage() {
     for (let key in localStorage) {
         if (key.length >= 24 && !key.includes(' ')) {
@@ -72,23 +74,28 @@ function getFromLocalStorage() {
     }
 }
 
+// Рендеримо картки залежно від довжини масиву, передаємо сюди масив відфільтровіаних карток для категорій, при першому рендері дефолт це загальний масив(Треба на "All categories" теж додади рендер без передачі змінної)
 function renderCards(cardsArr = favoriteArr) {
+    // Якщо довжина менше за кіл-ть карток на сторінці то просто рендеримо картки
     if (cardsArr.length > 0 && cardsArr.length <= cardsPerPage) {
+        // Для прибирання пагінації нативно перетираємо
         totalPages = 1;
         createFavCards(cardsArr);
         createPagination();
         catList.classList.remove('is-hidden');
         notAtended.classList.add('is-hidden');
     }
+    // Якщо довжина більше за кіл-ть карток на сторінці рахуємо загальну кількість карток і при колбеку пагінації вона вже створюється
     if (cardsArr.length > cardsPerPage) {
-        totalPages = Math.ceil(cardsArr.length / cardsPerPage);
+        totalPages = cardsArr.length / cardsPerPage;
         pageItems = cardsArr.slice(0, cardsPerPage);
         createFavCards(pageItems);
         createPagination();
-
         catList.classList.remove('is-hidden');
         notAtended.classList.add('is-hidden');
-    } else {
+    }
+    // Це не чіпав здається
+    else {
         if (window.innerWidth < 768) {
             const imageBox = document.querySelector('.favorites__image-box');
             const notAtended = document.querySelector(
@@ -99,7 +106,7 @@ function renderCards(cardsArr = favoriteArr) {
         }
     }
 }
-
+// Функція створення карток, просто з твого макета, і тут ініціюємо одразу зірки
 function createFavCards(cards) {
     favorGallBox.innerHTML = '';
     cards.forEach(card => {
@@ -126,6 +133,7 @@ function createFavCards(cards) {
     initRatings();
 }
 
+// Пагіная взята у Олега, підставлені наші данні, якщо чесно не дуже розбирався в ній
 function createPagination(cardsArr = favoriteArr) {
     if (totalPages === 1) {
         paginationEl.innerHTML = '';
@@ -148,8 +156,6 @@ function createPagination(cardsArr = favoriteArr) {
         Loading.dots('Loading data, please wait...');
         const lastItemIndex = page * cardsPerPage;
         const firstItemIndex = lastItemIndex - cardsPerPage;
-        console.log(firstItemIndex);
-        console.log(lastItemIndex);
         pageItems = favoriteArr.slice(firstItemIndex, lastItemIndex);
         createFavCards(pageItems, favorGallBox);
         options.totalItems = cardsArr.length + 1;
@@ -158,7 +164,7 @@ function createPagination(cardsArr = favoriteArr) {
         Loading.remove();
     });
 }
-
+// Теж твоя функція, просто фільтруємо на моменті додавання в масив тому тут вона компактна
 function renderCategoriesBtn() {
     const renderArray = categoriesArray
         .map(item => {
@@ -170,7 +176,7 @@ function renderCategoriesBtn() {
 
     favorCatBox.insertAdjacentHTML('beforeend', renderArray);
 }
-
+// Фільтруємо масив за категорією і знову рендеримо картки
 function filterCards(event) {
     pageItems = favoriteArr.filter(
         card => card.category === event.target.textContent
