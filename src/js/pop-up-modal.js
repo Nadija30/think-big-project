@@ -30,13 +30,13 @@ if (refs.recipeContainerBtn) {
         addToLocalStorageFromModal
     );
 }
-// let recipeID = '';
+let recipeID = '';
 
 function onPopularClick(event) {
     const listItem = event.target.closest('.popular-list-item');
 
     if (listItem) {
-        const recipeID = listItem.getAttribute('data-id');
+        recipeID = listItem.getAttribute('data-id');
 
         modalRender(recipeID);
     }
@@ -48,7 +48,7 @@ function onBtnOpenClick(event) {
     }
 
     // const recipeID = event.target.closest('.js-see-recipe').dataset.id;
-    const recipeID = event.target.dataset.id;
+    recipeID = event.target.dataset.id;
 
     modalRender(recipeID);
 }
