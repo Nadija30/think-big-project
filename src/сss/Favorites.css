@@ -51,7 +51,9 @@
     display: block;
 }
 
-.favorites__categories-btn {
+
+.favorites__categories-btn,
+.favorites__all-categories-btn {
     padding: 14px 18px;
     color: rgba(5, 5, 5, 0.3);
     font-family: Inter;
@@ -68,6 +70,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.favorites__all-cat-chose-btn {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    border: none;
 }
 
 .favorites__categories-btn:hover {
