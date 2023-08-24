@@ -97,3 +97,14 @@ function scrollToTop() {
 })();
 
 
+//* =============================================== SOCIAL LINK */
+
+const links = document.querySelectorAll(".footer-social-link");
+
+links.forEach(link => {
+    link.addEventListener("click", removeFocus);
+});
+
+function removeFocus() {
+    this.blur();
+}
