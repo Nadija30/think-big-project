@@ -27,6 +27,7 @@ const elems = {
     btnResetFilters: document.querySelector('.js-btn-reset-filters'),
     formFilters: document.querySelector('.js-form-filter'),
     containerPagination: document.querySelector('.js-pages'),
+    btnResetInput: document.querySelector('.js-btn-search-reset'),
 };
 
 const options = {
@@ -68,7 +69,9 @@ elems.formFilters.addEventListener('submit', event => {
     event.preventDefault();
 });
 
-Loading.dots('Loading data, please wait...');
+Loading.dots('Loading data, please wait...', {
+    backgroundColor: 'rgba(0,0,0,0)',
+});
 
 getCategories()
     .then(data => {
@@ -173,12 +176,13 @@ function createOptionsTime() {
     });
 }
 
-elems.inputSearch.addEventListener('input', debounce(handlerSearch, 600));
-
+elems.inputSearch.addEventListener('input', debounce(handlerSearch, 300));
 function handlerSearch(e) {
     params.title = `${e.target.value}`;
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -191,12 +195,45 @@ function handlerSearch(e) {
         .finally(Loading.remove());
 }
 
-elems.selectTime.addEventListener('change', handlerSearchByTime);
+elems.inputSearch.addEventListener('input', handlerDisplayResetBtn);
+function handlerDisplayResetBtn(e) {
+    if (!e.target.value) {
+        elems.btnResetInput.classList.add('is-hidden');
+        return;
+    }
+    elems.btnResetInput.classList.remove('is-hidden');
+}
 
+elems.btnResetInput.addEventListener('click', handlerSearchReset);
+function handlerSearchReset() {
+    elems.inputSearch.value = '';
+
+    params.title = elems.inputSearch.value;
+
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
+
+    getRecipes(params)
+        .then(data => {
+            createCards(data.results, elems.containerCards);
+            createPagination(data);
+        })
+        .catch(error => {
+            Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+        })
+        .finally(Loading.remove());
+
+    elems.btnResetInput.classList.add('is-hidden');
+}
+
+elems.selectTime.addEventListener('change', handlerSearchByTime);
 function handlerSearchByTime(e) {
     params.time = `${e.target.value}`;
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -210,11 +247,12 @@ function handlerSearchByTime(e) {
 }
 
 elems.selectArea.addEventListener('change', handlerSearchByArea);
-
 function handlerSearchByArea(e) {
     params.area = `${e.target.value}`;
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -229,11 +267,12 @@ function handlerSearchByArea(e) {
 }
 
 elems.selectIngredients.addEventListener('change', handlerSearchByIngredients);
-
 function handlerSearchByIngredients(e) {
     params.ingredient = `${e.target.value}`;
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -247,7 +286,6 @@ function handlerSearchByIngredients(e) {
 }
 
 elems.containerCategories.addEventListener('click', handlerChooseCategory);
-
 function handlerChooseCategory(e) {
     if (e.target.nodeName !== 'BUTTON') {
         return;
@@ -255,7 +293,9 @@ function handlerChooseCategory(e) {
 
     params.category = e.target.textContent;
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -268,11 +308,12 @@ function handlerChooseCategory(e) {
 }
 
 elems.btnAllCategories.addEventListener('click', handlerClearCategory);
-
 function handlerClearCategory() {
     params.category = '';
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -284,7 +325,6 @@ function handlerClearCategory() {
         .finally(Loading.remove());
 }
 elems.btnResetFilters.addEventListener('click', hanlerClearFilters);
-
 function hanlerClearFilters() {
     document.querySelector('.js-form-filter').reset();
 
@@ -306,7 +346,9 @@ function hanlerClearFilters() {
         .querySelector('[data-placeholder="true"]')
         .setAttribute('Selected', 'true');
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -337,7 +379,9 @@ function createPagination(data) {
 
         params.page = options.page;
 
-        Loading.dots('Loading data, please wait...');
+        Loading.dots('Loading data, please wait...', {
+            backgroundColor: 'rgba(0,0,0,0)',
+        });
 
         getRecipes(params)
             .then(data => {

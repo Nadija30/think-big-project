@@ -16,11 +16,7 @@ export function createCards(cards, container) {
                 description,
                 rating,
                 _id,
-            }) => `<div class="wrap-card-container" style="background: linear-gradient(
-            1deg,
-            rgba(5, 5, 5, 0.6) 0%,
-            rgba(5, 5, 5, 0) 100%
-        ),
+            }) => `<div class="wrap-card-container" style="background: var(--light-theme-background-color-cards-gradient),
         url(${preview});
     background-repeat: no-repeat;
     background-size: cover;"><button class="heart js-btn-heart" data-id="${_id}"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="icon-heart" data-id="${_id}">

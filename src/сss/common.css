@@ -24,8 +24,8 @@
     --light-theme-card-stars-color: #f8f8f8;
     --light-theme-background-color-cards-gradient: linear-gradient(
         1deg,
-        rgba(5, 5, 5, 0.6) 0%,
-        rgba(5, 5, 5, 0) 100%
+        #05050599 0%,
+        #05050500 100%
     );
     --light-theme-scrollbar-color-categories: #0505052e;
     --light-theme-scrollbar-color-select: #0505051a;
@@ -54,8 +54,8 @@
     --light-theme-card-stars: #fff;
     --light-theme-background-color-cards-gradient: linear-gradient(
         1deg,
-        #050505 0%,
-        rgba(5, 5, 5, 0) 100%
+        #05050500 0%,
+        #05050500 100%
     );
     --light-theme-scrollbar-color-categories: #ffffff2e;
     --light-theme-scrollbar-color-select: #ffffff1a;
