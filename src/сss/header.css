@@ -27,7 +27,7 @@
 }
 
 .header-logo:hover {
-    transform: scale(1.3);
+    transform: scale(1.1);
 }
 
 .logo-light {
@@ -71,7 +71,7 @@
 
 .icon-shopping-cart:is(:hover, :focus) {
     stroke: var(--accent-color);
-    transform: scale(1.3);
+    transform: scale(1.1);
 }
 
 /* перемикач тем */
@@ -82,18 +82,16 @@
 
 /*бургер*/
 .menu-open-icon {
-    stroke: var(--dark-color);
-    /* background-color: var(--light-theme-text-color); */
-    transition: var(--animation);
+    stroke: var(--light-theme-text-color);
+    transition: transform var(--animation);
 }
 
 .menu-open-icon:is(:hover, :focus) {
     stroke: var(--accent-color);
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 
 .mob-menu-btn-open {
-    background-color: var(--btn-text-color);
     transform: translateX(0);
 }
 
@@ -137,7 +135,7 @@
 }
 
 .mob-menu-btn-close:hover .mob-menu-close {
-    transform: scale(1.3);
+    transform: scale(1.1);
 }
 
 .mob-menu-close-icon {
