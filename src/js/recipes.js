@@ -200,9 +200,25 @@ function handlerDisplayResetBtn(e) {
     elems.btnResetInput.classList.remove('is-hidden');
 }
 
-elems.btnResetFilters.addEventListener('click', handlerSearchReset);
-function handlerSearchReset(e) {
-    console.log(e.target);
+elems.btnResetInput.addEventListener('click', handlerSearchReset);
+function handlerSearchReset() {
+    elems.inputSearch.value = '';
+
+    params.title = elems.inputSearch.value;
+
+    Loading.dots('Loading data, please wait...');
+
+    getRecipes(params)
+        .then(data => {
+            createCards(data.results, elems.containerCards);
+            createPagination(data);
+        })
+        .catch(error => {
+            Report.failure(`${error.code}`, `${error.message}`, 'Okay');
+        })
+        .finally(Loading.remove());
+
+    elems.btnResetInput.classList.add('is-hidden');
 }
 
 elems.selectTime.addEventListener('change', handlerSearchByTime);
