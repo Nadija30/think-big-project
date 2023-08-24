@@ -96,6 +96,7 @@ function filterCards(event) {
       
       if (event.target.textContent === 'All categories') {
         allCatBtn.classList.add('favorites__all-cat-chose-btn');
+        location.reload();
         return
       }
       category.classList.add('is-hidden');
