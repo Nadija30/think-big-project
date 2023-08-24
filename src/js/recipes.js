@@ -27,6 +27,7 @@ const elems = {
     btnResetFilters: document.querySelector('.js-btn-reset-filters'),
     formFilters: document.querySelector('.js-form-filter'),
     containerPagination: document.querySelector('.js-pages'),
+    btnResetInput: document.querySelector('.js-btn-search-reset'),
 };
 
 const options = {
@@ -173,8 +174,7 @@ function createOptionsTime() {
     });
 }
 
-elems.inputSearch.addEventListener('input', debounce(handlerSearch, 600));
-
+elems.inputSearch.addEventListener('input', debounce(handlerSearch, 300));
 function handlerSearch(e) {
     params.title = `${e.target.value}`;
 
@@ -191,8 +191,21 @@ function handlerSearch(e) {
         .finally(Loading.remove());
 }
 
-elems.selectTime.addEventListener('change', handlerSearchByTime);
+elems.inputSearch.addEventListener('input', handlerDisplayResetBtn);
+function handlerDisplayResetBtn(e) {
+    if (!e.target.value) {
+        elems.btnResetInput.classList.add('is-hidden');
+        return;
+    }
+    elems.btnResetInput.classList.remove('is-hidden');
+}
 
+elems.btnResetFilters.addEventListener('click', handlerSearchReset);
+function handlerSearchReset(e) {
+    console.log(e.target);
+}
+
+elems.selectTime.addEventListener('change', handlerSearchByTime);
 function handlerSearchByTime(e) {
     params.time = `${e.target.value}`;
 
@@ -210,7 +223,6 @@ function handlerSearchByTime(e) {
 }
 
 elems.selectArea.addEventListener('change', handlerSearchByArea);
-
 function handlerSearchByArea(e) {
     params.area = `${e.target.value}`;
 
@@ -229,7 +241,6 @@ function handlerSearchByArea(e) {
 }
 
 elems.selectIngredients.addEventListener('change', handlerSearchByIngredients);
-
 function handlerSearchByIngredients(e) {
     params.ingredient = `${e.target.value}`;
 
@@ -247,7 +258,6 @@ function handlerSearchByIngredients(e) {
 }
 
 elems.containerCategories.addEventListener('click', handlerChooseCategory);
-
 function handlerChooseCategory(e) {
     if (e.target.nodeName !== 'BUTTON') {
         return;
@@ -268,7 +278,6 @@ function handlerChooseCategory(e) {
 }
 
 elems.btnAllCategories.addEventListener('click', handlerClearCategory);
-
 function handlerClearCategory() {
     params.category = '';
 
@@ -284,7 +293,6 @@ function handlerClearCategory() {
         .finally(Loading.remove());
 }
 elems.btnResetFilters.addEventListener('click', hanlerClearFilters);
-
 function hanlerClearFilters() {
     document.querySelector('.js-form-filter').reset();
 

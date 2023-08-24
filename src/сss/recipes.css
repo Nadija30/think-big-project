@@ -130,7 +130,7 @@
     position: relative;
 }
 
-.input-search + svg {
+.icon-searh {
     position: absolute;
     top: 50%;
     left: 18px;
@@ -138,8 +138,23 @@
     fill: var(--light-theme-semi-transparent-color, #05050580);
     transition: var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77));
 }
-.input-search:is(:hover, :focus) + svg {
+.input-search:is(:hover, :focus) + .icon-searh {
     fill: var(--accent-color, #9bb537);
+}
+
+.btn-search-reset {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-200%) translateY(-50%);
+}
+.icon-searh-reset {
+    stroke: var(--light-theme-semi-transparent-color, #05050580);
+    transition: var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77));
+}
+.btn-search-reset:is(:hover, :focus) .icon-searh-reset {
+    stroke: var(--accent-color, #9bb537);
 }
 
 .btn-reset-form {
