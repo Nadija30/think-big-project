@@ -8,8 +8,8 @@
     --btn-text-color: #f8f8f8;
     --light-modal-background-color: #fff;
     --transition: scale 300ms linear;
-   /* --accent-color-dark: #9bb537;
-    --light-color-dark: #fff */
+   --accent-color-dark: #9bb537;
+    /* --light-color-dark: #fff */ 
 
     /* Colors that will change for Dark Theme */
     --light-theme-text-color: #050505;
@@ -58,7 +58,7 @@
     );
     --light-theme-scrollbar-color-categories: #ffffff2e;
     --light-theme-scrollbar-color-select: #ffffff1a;
-    /* --accent-color-dark: #050505; */
+    --accent-color-dark: #050505; 
     /* --accent-color: #9bb537 */
 }
 
