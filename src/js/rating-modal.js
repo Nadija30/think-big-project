@@ -13,15 +13,9 @@ const refs = {
     body: document.body,
 };
 
-if (refs.closeRatingModal) {
-    refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
-}
-if (refs.ratingForm) {
-    refs.ratingForm.addEventListener(`submit`, submitRating);
-}
-if (refs.ratingModal) {
-    refs.ratingModal.addEventListener('click', onBackdropClick);
-}
+refs.closeRatingModal.addEventListener(`click`, closeRatingModal);
+refs.ratingForm.addEventListener(`submit`, submitRating);
+refs.ratingModal.addEventListener('click', onBackdropClick);
 
 function onBackdropClick(event) {
     if (event.target === event.currentTarget) {
