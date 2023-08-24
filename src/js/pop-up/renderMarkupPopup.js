@@ -13,9 +13,6 @@ async function createMarkup(recipe) {
         instructions,
     } = recipe;
 
-    // const link = `${youtube}`;
-    // const id = link.split('=')[1];
-
     const ingredientItems = ingredients
         .map(
             ingredient => `
@@ -60,8 +57,6 @@ async function createMarkup(recipe) {
             refs.recipeContainer.insertAdjacentHTML('beforeend', markup);
             initRatings();
         } else {
-            console.error('Error fetching video data');
-
             const markup = `                
                 <div class="pop-up-main-wrap">
                   <div class="pop-up-iframe"><img class="pop-up-image" src="${thumb}"></div>
@@ -85,4 +80,19 @@ async function createMarkup(recipe) {
     }
 }
 
-export { createMarkup };
+function createMarkupBtn({ _id }) {
+    const isFavorite = localStorage.getItem(`"fav${_id}"`);
+
+    const favoriteText = isFavorite
+        ? 'Remove from favorite'
+        : 'Add to favorite';
+
+    const markupBtn = `
+        <button type="button" class="pop-up-btn-add base-btn" data-id="${_id}">${favoriteText}</button>
+        <button type="button" class="pop-up-btn-rating base-btn" data-id="${_id}">Give a rating</button>
+    `;
+
+    refs.recipeContainerBtn.insertAdjacentHTML('beforeend', markupBtn);
+}
+
+export { createMarkup, createMarkupBtn };

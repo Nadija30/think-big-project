@@ -129,13 +129,13 @@
     overflow-y: scroll;
 }
 
-.pop-up-info::-webkit-scrollbar {
+/* .pop-up-info::-webkit-scrollbar {
     width: 0.5em;
-}
+} */
 
-.pop-up-info::-webkit-scrollbar-thumb {
+/* .pop-up-info::-webkit-scrollbar-thumb {
     background-color: transparent;
-}
+} */
 
 .pop-up-list-ingredient {
     margin-bottom: 40px;
