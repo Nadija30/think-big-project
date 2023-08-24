@@ -3,18 +3,20 @@ import { initRatings } from './rating-modal';
 
 const favorCatBox = document.querySelector('.favorites__categories-list');
 const favorGallBox = document.querySelector('.favorites__gallery-list');
+const categoriesArray = [];
+
+favorCatBox.addEventListener('click', filterCards);
 
 getFromLocalStorage()
 initRatings()
+renderCategoriesBtn()
 
 function getFromLocalStorage() {
     
   for (let key in localStorage) {
-        
 
     if (key.length >= 24 && !key.includes(' ')) {
           
-    
       try {
         const value = localStorage.getItem(key);
         const parsedValue = JSON.parse(value);
@@ -22,7 +24,7 @@ function getFromLocalStorage() {
         const catList = document.querySelector('.favorites__categories-list');
         catList.classList.remove('is-hidden');
         notAtended.classList.add('is-hidden');
-        const favoriteCard = `<li class="favorites__gallery-list-item">
+        const favoriteCard = `<li class="favorites__gallery-list-item" data-categories="${parsedValue.category}">
           <div class="favorites__card">
             <img src="${parsedValue.preview}" alt="${parsedValue.title}" class="favorites__card-image">
             <div class="favorites__card-info">
@@ -40,13 +42,11 @@ function getFromLocalStorage() {
         </button>
           </div>
         </li>`;
+
+        categoriesArray.push(parsedValue.category)
           
-        const category = `<li class="favorites__categories-item">
-          <button type="button" class="favorites__categories-btn">${parsedValue.category}</button>
-          </li>`;
-            
         favorGallBox.insertAdjacentHTML('beforeend', favoriteCard);
-        favorCatBox.insertAdjacentHTML('beforeend', category);
+        
       } catch (error) {
         console.log(`Key: ${key}, Error parsing value: `, error);
       }
@@ -64,6 +64,47 @@ function getFromLocalStorage() {
 
   
 }
+
+
+function renderCategoriesBtn() {
+  const uniqueCategoriesArray = categoriesArray.filter((course, index, array) => array.indexOf(course) === index)
+  
+  const renderArray = uniqueCategoriesArray.map(item => {
+        return  `<li class="favorites__categories-item">
+          <button type="button" class="favorites__categories-btn">${item}</button>
+          </li>`
+  }).join('')
+
+  favorCatBox.insertAdjacentHTML('beforeend', renderArray);
+  
+}
+
+function filterCards(event) {
+  console.log(event.target.textContent) 
+  const categories = document.querySelectorAll('.favorites__gallery-list-item')
+  console.log(categories)
+
+  categories.forEach(category => {
+    category.classList.remove('is-hidden')
+    const allCatBtn = document.querySelector('.favorites__all-categories-btn');
+    allCatBtn.classList.remove('favorites__all-cat-chose-btn')
+    const dataAtrValue = category.getAttribute('data-categories')
+    console.log(dataAtrValue)
+    if (dataAtrValue !== event.target.textContent) {
+        
+      if (event.target.textContent === 'All categories') {
+        allCatBtn.classList.add('favorites__all-cat-chose-btn');
+        return
+      }
+      category.classList.add('is-hidden');
+
+    }
+  })
+}
+
+
+
+
 
 
 // const favHeartBtn = document.querySelector('.favorites__gallery-list');
