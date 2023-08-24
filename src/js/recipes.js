@@ -69,7 +69,9 @@ elems.formFilters.addEventListener('submit', event => {
     event.preventDefault();
 });
 
-Loading.dots('Loading data, please wait...');
+Loading.dots('Loading data, please wait...', {
+    backgroundColor: 'rgba(0,0,0,0)',
+});
 
 getCategories()
     .then(data => {
@@ -178,7 +180,9 @@ elems.inputSearch.addEventListener('input', debounce(handlerSearch, 300));
 function handlerSearch(e) {
     params.title = `${e.target.value}`;
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -206,7 +210,9 @@ function handlerSearchReset() {
 
     params.title = elems.inputSearch.value;
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -225,7 +231,9 @@ elems.selectTime.addEventListener('change', handlerSearchByTime);
 function handlerSearchByTime(e) {
     params.time = `${e.target.value}`;
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -242,7 +250,9 @@ elems.selectArea.addEventListener('change', handlerSearchByArea);
 function handlerSearchByArea(e) {
     params.area = `${e.target.value}`;
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -260,7 +270,9 @@ elems.selectIngredients.addEventListener('change', handlerSearchByIngredients);
 function handlerSearchByIngredients(e) {
     params.ingredient = `${e.target.value}`;
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -281,7 +293,9 @@ function handlerChooseCategory(e) {
 
     params.category = e.target.textContent;
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -297,7 +311,9 @@ elems.btnAllCategories.addEventListener('click', handlerClearCategory);
 function handlerClearCategory() {
     params.category = '';
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -330,7 +346,9 @@ function hanlerClearFilters() {
         .querySelector('[data-placeholder="true"]')
         .setAttribute('Selected', 'true');
 
-    Loading.dots('Loading data, please wait...');
+    Loading.dots('Loading data, please wait...', {
+        backgroundColor: 'rgba(0,0,0,0)',
+    });
 
     getRecipes(params)
         .then(data => {
@@ -361,7 +379,9 @@ function createPagination(data) {
 
         params.page = options.page;
 
-        Loading.dots('Loading data, please wait...');
+        Loading.dots('Loading data, please wait...', {
+            backgroundColor: 'rgba(0,0,0,0)',
+        });
 
         getRecipes(params)
             .then(data => {
