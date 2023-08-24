@@ -26,9 +26,18 @@
 }
 
 .favorites__categories-list {
+    overflow-y: scroll;
     margin-bottom: 24px;
     display: flex;
     gap: 15px;
+}
+
+.categories-wrap {
+    width: 100%;
+}
+
+.favorites__categories-list::-webkit-scrollbar {
+    display: none;
 }
 
 .favorites__image-box {
@@ -74,7 +83,6 @@
     justify-content: start;
     margin: 0 auto;
     margin-bottom: 40px;
-    
 }
 
 .favorites__card {
