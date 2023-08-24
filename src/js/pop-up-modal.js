@@ -48,7 +48,7 @@ function onBtnOpenClick(event) {
     }
 
     // const recipeID = event.target.closest('.js-see-recipe').dataset.id;
-    recipeID = event.target.dataset.id;
+    const recipeID = event.target.dataset.id;
 
     modalRender(recipeID);
 }
