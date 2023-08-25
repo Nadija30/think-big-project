@@ -31,7 +31,10 @@
     display: flex;
     gap: 15px;
     max-width: 100%;
-    overflow: hidden;
+}
+
+.favorites__categories-list::-webkit-scrollbar {
+    display: none;
 }
 
 .favorites__image-box {

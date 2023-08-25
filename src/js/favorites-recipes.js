@@ -1,19 +1,19 @@
-import { all } from 'axios';
 import { initRatings } from './rating-modal';
 import Pagination from 'tui-pagination';
 import { Loading } from 'notiflix';
 
 const favorCatBox = document.querySelector('.favorites__categories-list');
 const favorGallBox = document.querySelector('.favorites__gallery-list');
-const categoriesArray = [];
-
-favorCatBox.addEventListener('click', filterCards);
 const paginationEl = document.querySelector(`.js-pages`);
-const favHeartBtn = document.querySelector('.favorites__gallery-list');
-
 const notAtended = document.querySelector('.favorites__not-atendent');
 const catList = document.querySelector('.favorites__categories-list');
+const allCategoriesBtn = document.querySelector(
+    `.favorites__all-categories-btn`
+);
 
+favorCatBox.addEventListener('click', filterCards);
+
+let categoriesArray = [];
 let favoriteArr = [];
 let pagination = null;
 
@@ -52,10 +52,9 @@ if (window.innerWidth < 728) {
 }
 
 getFromLocalStorage();
+renderCategoriesBtn();
 renderCards();
 initRatings();
-// favHeartBtn.addEventListener('click', removeFromLocalStorageFavorites);
-renderCategoriesBtn();
 
 // Дістаємо з ЛС і кладемо картки в масив і категорії також(тут одразу фільруємо категорії)
 function getFromLocalStorage() {
@@ -77,6 +76,7 @@ function getFromLocalStorage() {
 
 // Рендеримо картки залежно від довжини масиву, передаємо сюди масив відфільтровіаних карток для категорій, при першому рендері дефолт це загальний масив(Треба на "All categories" теж додади рендер без передачі змінної)
 function renderCards(cardsArr = favoriteArr) {
+    console.log(cardsArr);
     // Якщо довжина менше за кіл-ть карток на сторінці то просто рендеримо картки
     if (cardsArr.length > 0 && cardsArr.length <= cardsPerPage) {
         // Для прибирання пагінації нативно перетираємо
@@ -87,7 +87,7 @@ function renderCards(cardsArr = favoriteArr) {
         notAtended.classList.add('is-hidden');
     }
     // Якщо довжина більше за кіл-ть карток на сторінці рахуємо загальну кількість карток і при колбеку пагінації вона вже створюється
-    if (cardsArr.length > cardsPerPage) {
+    else if (cardsArr.length > cardsPerPage) {
         totalPages = cardsArr.length / cardsPerPage;
         pageItems = cardsArr.slice(0, cardsPerPage);
         createFavCards(pageItems);
@@ -96,12 +96,14 @@ function renderCards(cardsArr = favoriteArr) {
         notAtended.classList.add('is-hidden');
     }
     // Це не чіпав здається
-    else {
+    else if (cardsArr.length === 0) {
         if (window.innerWidth < 768) {
             const imageBox = document.querySelector('.favorites__image-box');
             const notAtended = document.querySelector(
                 '.favorites__not-atendent'
             );
+            console.log(cardsArr);
+            console.log(`yes`);
             imageBox.classList.add('is-hidden');
             notAtended.classList.add('favorites__not-atendent-empty');
         }
@@ -177,12 +179,17 @@ function renderCategoriesBtn() {
 
     favorCatBox.insertAdjacentHTML('beforeend', renderArray);
 }
+
 // Фільтруємо масив за категорією і знову рендеримо картки
 function filterCards(event) {
-    pageItems = favoriteArr.filter(
-        card => card.category === event.target.textContent
-    );
-    renderCards(pageItems);
+    if (event.target == allCategoriesBtn) {
+        renderCards();
+    } else {
+        pageItems = favoriteArr.filter(
+            card => card.category === event.target.textContent
+        );
+        renderCards(pageItems);
+    }
 }
 
 favorGallBox.addEventListener('click', removeFromLocalStorageFavorites);
