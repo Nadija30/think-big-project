@@ -89,13 +89,13 @@ function onBtnCloseClick() {
     refs.scrollOnModal.classList.remove('scroll-blocked');
     refs.backdrop.classList.add('is-hidden');
 
-    if (location.pathname === '/Favorites.html') {
-        location.reload();
-    }
-
     videoIframe = document.querySelector('.pop-up-iframe iframe');
     if (videoIframe) {
         stopVideoOnCloseModal();
+    }
+
+    if (location.pathname.includes('Favorites.html')) {
+        location.reload();
     }
 }
 

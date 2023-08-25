@@ -191,8 +191,10 @@
 }
 
 .pop-up-btn-add {
+    width: 150px;
     padding: 12px 24px;
 }
+
 .pop-up-btn-rating {
     background-color: transparent;
     color: var(--light-theme-text-color);
@@ -244,8 +246,10 @@
     }
 
     .pop-up-btn-add {
+        width: auto;
         padding: 14px 28px;
     }
+
     .pop-up-btn-rating {
         padding: 14px 28px;
     }
