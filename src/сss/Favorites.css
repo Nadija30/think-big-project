@@ -259,9 +259,8 @@
         padding-bottom: 2px;
     }
 
-    .favorites__categories-list::-webkit-scrollbar {
+    .favorites__categories-list::-webkit-scrollbar:horizontal {
         display: block;
-        position: absolute;
         height: 2px;
     }
 
