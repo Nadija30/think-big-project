@@ -126,7 +126,7 @@ function createFavCards(cards) {
                       <div class="rating card__rating"><p class="rating__value">${card.rating.toFixed(
                           1
                       )}</p></div>
-                      <button class="favorites__card-btn js-see-recipe" data-id="${
+                      <button class="favorites__card-btn" data-id="${
                           card._id
                       }">See recipe</button>
                    </div>
