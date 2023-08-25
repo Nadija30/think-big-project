@@ -27,9 +27,8 @@
 
 .favorites__categories-list {
     overflow-y: scroll;
-    margin-bottom: 24px;
     display: flex;
-    gap: 15px;
+    gap: 12px;
     max-width: 100%;
 }
 
@@ -48,29 +47,35 @@
     display: block;
 }
 
+.favorites__categories__wrap {
+    display: flex;
+    gap: 12px;
+    justify-content: start;
+    margin-bottom: 24px;
+    position: relative;
+}
+
 .favorites__categories-btn,
 .favorites__all-categories-btn {
     padding: 14px 18px;
-    color: var(--light-theme-semi-transparent-color);
+    color: var(--light-theme-almost-transparent-color);
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 18px;
-
-    background-color: --light-theme-almost-transparent-color;
+    height: 46px;
     border-radius: 15px;
     border: 1px solid var(--light-theme-semi-transparent-color);
     cursor: pointer;
 
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
     transition: color var(--animation), background-color var(--animation);
 }
 
-.favorites__all-categories-btn:hover,
-.favorites__all-categories-btn:focus {
+.favorites__categories-btn:hover,
+.favorites__categories-btn:focus {
     background-color: var(--accent-color);
     border-color: transparent;
     color: var(--light-color);
@@ -80,18 +85,6 @@
     background-color: var(--accent-color);
     color: var(--light-color);
     border: none;
-}
-
-.favorites__all-cat-chose-btn {
-    background-color: var(--accent-color);
-    color: var(--light-color);
-    border: none;
-}
-
-.favorites__categories-btn:hover {
-    color: white;
-    background-color: #9bb537;
-    border-color: #9bb537;
 }
 
 .favorites__gallery-list {
@@ -218,13 +211,18 @@
         max-width: 768px;
     }
 
-    .favorites__categories-list {
-        margin: 0 auto;
+    .favorites__categories__wrap {
         display: flex;
+        gap: 15px;
         justify-content: start;
         margin-bottom: 32px;
     }
-
+    .favorites__categories-list {
+        gap: 15px;
+    }
+    .favorites__categories-btn {
+        height: 48px;
+    }
     .favorites__card {
         width: 224px;
         height: 244px;
@@ -251,6 +249,20 @@
     .favorites__card {
         width: 258px;
         height: 287px;
+    }
+
+    .favorites__categories__wrap {
+        margin-bottom: 28px;
+    }
+
+    .favorites__categories-list {
+        padding-bottom: 2px;
+    }
+
+    .favorites__categories-list::-webkit-scrollbar {
+        display: block;
+        position: absolute;
+        height: 2px;
     }
 
     .favorites__image-box {

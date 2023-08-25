@@ -6,12 +6,15 @@ const favorCatBox = document.querySelector('.favorites__categories-list');
 const favorGallBox = document.querySelector('.favorites__gallery-list');
 const paginationEl = document.querySelector(`.js-pages`);
 const notAtended = document.querySelector('.favorites__not-atendent');
-const catList = document.querySelector('.favorites__categories-list');
+const favorCarWrap = document.querySelector(`.favorites__categories__wrap`);
 const allCategoriesBtn = document.querySelector(
     `.favorites__all-categories-btn`
 );
 
 favorCatBox.addEventListener('click', filterCards);
+allCategoriesBtn.addEventListener(`click`, () => {
+    renderCards();
+});
 
 let categoriesArray = [];
 let favoriteArr = [];
@@ -76,14 +79,13 @@ function getFromLocalStorage() {
 
 // Рендеримо картки залежно від довжини масиву, передаємо сюди масив відфільтровіаних карток для категорій, при першому рендері дефолт це загальний масив(Треба на "All categories" теж додади рендер без передачі змінної)
 function renderCards(cardsArr = favoriteArr) {
-    console.log(cardsArr);
     // Якщо довжина менше за кіл-ть карток на сторінці то просто рендеримо картки
     if (cardsArr.length > 0 && cardsArr.length <= cardsPerPage) {
         // Для прибирання пагінації нативно перетираємо
         totalPages = 1;
         createFavCards(cardsArr);
         createPagination();
-        catList.classList.remove('is-hidden');
+        favorCarWrap.classList.remove('is-hidden');
         notAtended.classList.add('is-hidden');
     }
     // Якщо довжина більше за кіл-ть карток на сторінці рахуємо загальну кількість карток і при колбеку пагінації вона вже створюється
@@ -92,7 +94,7 @@ function renderCards(cardsArr = favoriteArr) {
         pageItems = cardsArr.slice(0, cardsPerPage);
         createFavCards(pageItems);
         createPagination();
-        catList.classList.remove('is-hidden');
+        favorCarWrap.classList.remove('is-hidden');
         notAtended.classList.add('is-hidden');
     }
     // Це не чіпав здається
@@ -102,8 +104,6 @@ function renderCards(cardsArr = favoriteArr) {
             const notAtended = document.querySelector(
                 '.favorites__not-atendent'
             );
-            console.log(cardsArr);
-            console.log(`yes`);
             imageBox.classList.add('is-hidden');
             notAtended.classList.add('favorites__not-atendent-empty');
         }
@@ -194,14 +194,10 @@ function renderCategoriesBtn() {
 
 // Фільтруємо масив за категорією і знову рендеримо картки
 function filterCards(event) {
-    if (event.target == allCategoriesBtn) {
-        renderCards();
-    } else {
-        pageItems = favoriteArr.filter(
-            card => card.category === event.target.textContent
-        );
-        renderCards(pageItems);
-    }
+    pageItems = favoriteArr.filter(
+        card => card.category === event.target.textContent
+    );
+    renderCards(pageItems);
 }
 
 favorGallBox.addEventListener('click', removeFromLocalStorageFavorites);
