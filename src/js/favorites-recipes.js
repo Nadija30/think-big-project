@@ -1,3 +1,4 @@
+import { all } from 'axios';
 import { initRatings } from './rating-modal';
 import Pagination from 'tui-pagination';
 import { Loading } from 'notiflix';
@@ -184,12 +185,12 @@ function filterCards(event) {
     renderCards(pageItems);
 }
 
-// const favHeartBtn = document.querySelector('.favorites__gallery-list');
-// favHeartBtn.addEventListener('click', removeFromLocalStorageFavorites);
+favorGallBox.addEventListener('click', removeFromLocalStorageFavorites);
 
-// function removeFromLocalStorageFavorites(event) {
-//     if (event.target.tagName !== 'path') { return };
-//     event.target.classList.toggle('heart-svg-bg');
-//     const currentHeartId = event.target.dataset.id;
-//     console.log(currentHeartId);
-// }
+function removeFromLocalStorageFavorites(event) {
+    if (event.target.tagName !== 'path') return;
+    event.target.classList.toggle('heart-svg-bg');
+    const currentHeartId = event.target.dataset.id;
+    localStorage.removeItem(`"fav${currentHeartId}"`);
+    location.reload();
+}

@@ -21,8 +21,13 @@
     border: 1px solid var(--light-theme-transparent-color, #05050533) !important;
     color: var(--light-theme-semi-transparent-color, #05050580) !important;
 }
-.ss-arrow path {
+.ss-main path {
     stroke: var(--light-theme-semi-transparent-color, #05050580) !important;
+    transition: stroke
+        var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77)) !important;
+}
+.ss-main:is(:hover, :focus) path {
+    stroke: var(--accent-color, #9bb537) !important;
 }
 .ss-content {
     background-color: var(--light-modal-background-color, #fff) !important;
@@ -107,7 +112,7 @@
     border-radius: 15px;
     border: 1px solid var(--light-theme-transparent-color, #05050533);
     height: 46px;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77));
     background-color: transparent;
     color: var(--light-theme-text-color, #050505);
     outline: none;
@@ -125,16 +130,31 @@
     position: relative;
 }
 
-.input-search + svg {
+.icon-searh {
     position: absolute;
     top: 50%;
     left: 18px;
     transform: translateY(-50%);
     fill: var(--light-theme-semi-transparent-color, #05050580);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77));
 }
-.input-search:is(:hover, :focus) + svg {
+.input-search:is(:hover, :focus) + .icon-searh {
     fill: var(--accent-color, #9bb537);
+}
+
+.btn-search-reset {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-200%) translateY(-50%);
+}
+.icon-searh-reset {
+    stroke: var(--light-theme-semi-transparent-color, #05050580);
+    transition: var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77));
+}
+.btn-search-reset:is(:hover, :focus) .icon-searh-reset {
+    stroke: var(--accent-color, #9bb537);
 }
 
 .btn-reset-form {
@@ -142,9 +162,6 @@
     display: flex;
     gap: 4px;
 }
-/* #0505051A -white
-#FFFFFF1A -dark 
-*/
 
 .span-reset-form {
     color: var(--light-theme-semi-transparent-color, #05050580);
@@ -153,7 +170,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 1.33;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77));
 }
 
 .btn-reset-form:is(:hover, :focus) .span-reset-form {
@@ -184,8 +201,9 @@
     stroke: #f8f8f8;
     fill: transparent;
     opacity: 0.5;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity
+            var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77)),
+        fill var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77));
 }
 
 .icon-heart:is(:hover, :focus) {
@@ -268,7 +286,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77));
 }
 
 .btn-see-recipe:is(:hover, :focus) {
@@ -283,25 +301,21 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    border: 1px solid rgba(5, 5, 5, 0.2);
-    color: rgba(5, 5, 5, 0.5);
+    border: 1px solid var(--light-theme-transparent-color, #05050533);
+    color: var(--light-theme-semi-transparent-color, #05050580);
     font-family: Inter;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     margin-bottom: 24px;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77));
 }
 
 .btn-all-cat:is(:hover, :focus) {
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.4);
-}
-
-.btn-all-cat.bnt-all-cat-is-active {
-    background: #9bb537;
+    background-color: #9bb537;
     color: #f8f8f8;
-    border: none;
+    border-color: transparent;
 }
 
 .list-btn-categories {
@@ -320,7 +334,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 1.28;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--animation, 250ms cubic-bezier(0.23, 0.86, 0.79, 0.77));
 }
 
 .btn-categories:is(:hover, :focus) {
