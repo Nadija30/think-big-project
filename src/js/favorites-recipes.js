@@ -194,7 +194,7 @@ function renderCategoriesBtn() {
 
 // Фільтруємо масив за категорією і знову рендеримо картки
 function filterCards(event) {
-    pageItems = favoriteArr.filter(
+    const pageItems = favoriteArr.filter(
         card => card.category === event.target.textContent
     );
     renderCards(pageItems);
