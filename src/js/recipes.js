@@ -16,7 +16,7 @@ let widthOfViewport = window.innerWidth;
 let pagination = null;
 let params = {};
 
-const elems = {
+export const elems = {
     inputSearch: document.querySelector('[name="search"]'),
     selectTime: document.querySelector('[name="time"]'),
     selectArea: document.querySelector('[name="area"]'),
