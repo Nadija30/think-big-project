@@ -91,7 +91,7 @@ function renderCards(cardsArr = favoriteArr) {
     // Якщо довжина більше за кіл-ть карток на сторінці рахуємо загальну кількість карток і при колбеку пагінації вона вже створюється
     else if (cardsArr.length > cardsPerPage) {
         totalPages = cardsArr.length / cardsPerPage;
-        pageItems = cardsArr.slice(0, cardsPerPage);
+        const pageItems = cardsArr.slice(0, cardsPerPage);
         createFavCards(pageItems);
         createPagination();
         favorCarWrap.classList.remove('is-hidden');
@@ -171,7 +171,7 @@ function createPagination(cardsArr = favoriteArr) {
         Loading.dots('Loading data, please wait...');
         const lastItemIndex = page * cardsPerPage;
         const firstItemIndex = lastItemIndex - cardsPerPage;
-        pageItems = favoriteArr.slice(firstItemIndex, lastItemIndex);
+        const pageItems = favoriteArr.slice(firstItemIndex, lastItemIndex);
         createFavCards(pageItems, favorGallBox);
         options.totalItems = cardsArr.length + 1;
         options.itemsPerPage = cardsPerPage;
