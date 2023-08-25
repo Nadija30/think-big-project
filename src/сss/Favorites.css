@@ -67,6 +67,19 @@
     transition: color var(--animation), background-color var(--animation);
 }
 
+.favorites__all-categories-btn:hover,
+.favorites__all-categories-btn:focus {
+    background-color: var(--accent-color);
+    border-color: transparent;
+    color: var(--light-color);
+}
+
+.favorites__categories-btn:focus {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    border: none;
+}
+
 .favorites__all-cat-chose-btn {
     background-color: var(--accent-color);
     color: var(--light-color);
@@ -197,6 +210,8 @@
     bottom: 0;
     color: white;
 }
+
+
 
 @media screen and (min-width: 768px) {
     .favorites__container {
