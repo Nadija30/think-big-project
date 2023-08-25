@@ -56,7 +56,7 @@
     font-weight: 500;
     line-height: 18px;
 
-    background-color:--light-theme-almost-transparent-color;
+    /* background-color:var(--light-theme-almost-transparent-color); */
     border-radius: 15px;
     border: 1px solid var(--light-theme-semi-transparent-color);
     cursor: pointer;
