@@ -1,4 +1,5 @@
 import { getCardByID } from '../search-api';
+import { recipeID } from '../pop-up-modal';
 
 // Функція яка додає в локальне сховище дані з модалки
 export function addToLocalStorageFromModal(event) {
@@ -28,10 +29,29 @@ export function addToLocalStorageFromModal(event) {
 
     event.target.innerText = 'Remove from favorite';
 
+    const containerCards = document.querySelector('.js-cards');
+    const heartIcon = containerCards.querySelector(
+        `.heart [data-id="${recipeID}"]`
+    );
+
+    if (!heartIcon) return;
+    if (!heartIcon.classList.contains('icon-heart-active')) {
+        heartIcon.classList.add('icon-heart-active');
+    }
+
     // Функція яка видаляє з локального сховища дані з модалки
     function removeFromLocalStorage(event) {
         const key = JSON.stringify('fav' + event.target.dataset.id);
         localStorage.removeItem(key);
         event.target.innerText = 'Add to favorite';
+
+        const containerCards = document.querySelector('.js-cards');
+        const heartIcon = containerCards.querySelector(
+            `.heart [data-id="${recipeID}"]`
+        );
+        if (!heartIcon) return;
+        if (heartIcon.classList.contains('icon-heart-active')) {
+            heartIcon.classList.remove('icon-heart-active');
+        }
     }
 }
