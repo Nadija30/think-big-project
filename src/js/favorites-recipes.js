@@ -1,3 +1,4 @@
+import { all } from 'axios';
 import { initRatings } from './rating-modal';
 
 
@@ -31,7 +32,7 @@ function getFromLocalStorage() {
               <h2 class="favorites__card-tittle">${parsedValue.title}</h2>
               <p class="favorites__card-description">${parsedValue.description}</p>
               <div class="rating card__rating"><p class="rating__value">${parsedValue.rating}</p></div>
-              <button class="favorites__card-btn">card test</button>
+              <button class="favorites__card-btn">See recipe</button>
             </div>
             <button class="favorites__card-heart" type="button">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="favorites__svg-heart" data-id="${parsedValue._id}">
@@ -56,7 +57,6 @@ function getFromLocalStorage() {
         const notAtended = document.querySelector('.favorites__not-atendent')
         imageBox.classList.add('is-hidden');
         notAtended.classList.add('favorites__not-atendent-empty');
-        console.log(window.innerWidth < 768)
       }
       
     }
@@ -82,45 +82,51 @@ function renderCategoriesBtn() {
 function filterCards(event) {
   
   const categories = document.querySelectorAll('.favorites__gallery-list-item') // массив лишек
-  
+  const allCatBtn = document.querySelector('.favorites__all-categories-btn'); //кнопка все категории
+  allCatBtn.classList.remove('favorites__all-cat-chose-btn')
 
   
-
-
-  categories.forEach(category => {  //category в цикле это лишка
+  categories.forEach((category,) => {  //category в цикле это лишка
+    category.classList.remove('favorites__all-cat-chose-btn');
     category.classList.remove('is-hidden')
-    const allCatBtn = document.querySelector('.favorites__all-categories-btn'); //кнопка все категории
-    allCatBtn.classList.remove('favorites__all-cat-chose-btn')
+    
+    
     const dataAtrValue = category.getAttribute('data-categories')
     if (dataAtrValue !== event.target.textContent) {
       
-      if (event.target.textContent === 'All categories') {
+      
+      if (event.target.textContent.trim().toLowerCase() === 'all categories') {
         allCatBtn.classList.add('favorites__all-cat-chose-btn');
-        location.reload();
+        
         return
       }
       category.classList.add('is-hidden');
-      // event.target.classList.add('favorites__all-cat-chose-btn')
       
     }
   })
 }
 
 
-
-
-
-
-// const favHeartBtn = document.querySelector('.favorites__gallery-list');
-// favHeartBtn.addEventListener('click', removeFromLocalStorageFavorites);
+favorGallBox .addEventListener('click', removeFromLocalStorageFavorites);
 
 function removeFromLocalStorageFavorites(event) {
+  
   if (event.target.tagName !== 'path') return
-  console.log(event.target.dataset.id)
   event.target.classList.toggle('heart-svg-bg');
   const currentHeartId = event.target.dataset.id;
-  console.log(currentHeartId)
+  localStorage.removeItem(`"fav${currentHeartId}"`)
+  location.reload();
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
