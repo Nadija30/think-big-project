@@ -36,3 +36,18 @@ document.addEventListener("DOMContentLoaded", function() {
             setActiveLink(headerLinkHome);
         }
 });
+
+// "mobile active"
+document.addEventListener('DOMContentLoaded', function () {
+    const currentPath = window.location.pathname;
+    const mobMenuItems = document.querySelectorAll('.header-list-item')
+ 
+    mobMenuItems.forEach(item => {
+      item.classList.remove('active-header-list-item');
+    });
+     mobMenuItems.forEach(item => {
+      if (item.getAttribute('href') === currentPath) {
+        item.classList.add('active-header-list-item');
+      }
+    });
+});

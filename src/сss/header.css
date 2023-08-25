@@ -44,6 +44,7 @@
     align-items: center;
     /* gap: 14px; */
     margin-left: auto;
+    gap: 14px;
 }
 
 /* картка покупця */
@@ -92,7 +93,6 @@
 }
 
 .mob-menu-btn-open {
-    margin-left: 14px;
     transform: translateX(0);
 }
 
@@ -125,21 +125,9 @@
     /* opacity: 1; */
     visibility: visible;
     pointer-events: auto;
-    background: var(--accent-color);
+    background: var(--accent-color-dark);
 }
 
-/* .mobile-modal {
-    position: fixed;
-    top: 0;
-    left: 23%;
-    width: 53.33%;
-    height: 100%;
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    background: var(--accent-color);
-} */
 
 .mob-menu-btn-close {
     position: absolute;
@@ -149,6 +137,11 @@
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
+
+    width: 32px;
+    height: 32px;
+    /* padding-top: 20px;*/
+    padding-right: 20px; 
 }
 
 .mob-menu-btn-close .mob-menu-close {
@@ -168,9 +161,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
     padding-top: 200px;
     padding-bottom: 566px;
+
 }
 
 .item-home {
@@ -183,11 +176,20 @@
     /* color: var(--btn-text-color); */
     font-size: 12px;
     font-weight: 400;
+    padding-top: 16px;
 }
 
-/* .item-home .item-favorites {
+.header-list-item {
+    color: var(--accent-color-dark);
+}
+
+.active-header-list-item {
+    color: var(--light-color);
+}
+
+.header-list-item .main-page {
     color: var(--light-theme-text-color);
-} */
+}
 
 .switch {
     position: absolute;
@@ -268,19 +270,19 @@ input:checked+.slider:before {
     .header-nav {
         display: inline;
         position: relative;
-        gap: 16px;
+        /* gap: 16px; */
     }
 
-    .header-link-home {
+     .header-link-home {
         font-size: 12px;
         font-weight: 500;
-        /* margin-right: 16px; */
     }
 
     .header-link-favorites {
         position: relative;
         font-size: 12px;
         font-weight: 400;
+        margin-left: 16px
     }
 
     .header-link {
@@ -306,6 +308,7 @@ input:checked+.slider:before {
         margin-left: 0;
     }
 
+   
     .mobile-menu {
         display: none;
     }
@@ -367,7 +370,7 @@ input:checked+.slider:before {
 @media screen and (min-width:1280px) {
     .container {
         max-width: 1280px;
-        padding: 0 100px;
+        padding: 40px 100px 0;
     }
 
     .header-items {
