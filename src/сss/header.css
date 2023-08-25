@@ -103,7 +103,7 @@
 .mobile-menu {
     position: fixed;
     top: 0;
-    left: 23%;
+    right: 0;
     z-index: 999;
     width: 53.33%;
     height: 100%;
