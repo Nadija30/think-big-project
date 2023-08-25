@@ -251,19 +251,6 @@
         height: 287px;
     }
 
-    .favorites__categories__wrap {
-        margin-bottom: 28px;
-    }
-
-    .favorites__categories-list {
-        padding-bottom: 2px;
-    }
-
-    .favorites__categories-list::-webkit-scrollbar:horizontal {
-        display: block;
-        height: 2px;
-    }
-
     .favorites__image-box {
         margin-top: 40px;
     }
