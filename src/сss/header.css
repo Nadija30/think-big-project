@@ -76,6 +76,10 @@
     transform: scale(1.1);
 }
 
+.icon-shopping-cart:is(:hover, :focus) {
+    stroke: var(--accent-color);
+}
+
 /* перемикач тем */
 
 .header-switch {
