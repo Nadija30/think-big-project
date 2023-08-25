@@ -107,7 +107,8 @@
     border-radius: 15px;
     overflow: hidden;
     position: relative;
-    max-width: 335px;
+    height: 335px;
+    width: 335px;
 }
 
 .favorites__card-info {
@@ -117,11 +118,11 @@
     max-width: 303px;
     width: 100%;
 }
-
+/* 
 .favorites__card-image {
     width: 100%;
     display: block;
-}
+} */
 
 .favorites__card-tittle {
     color: #f8f8f8;
@@ -225,7 +226,9 @@
     }
 
     .favorites__card {
-        max-width: 224px;
+        width: 224px;
+        height: 244px;
+        padding: 16px;
     }
     .favorites__gallery-list {
         margin-bottom: 64px;
@@ -239,11 +242,15 @@
         max-width: 192px;
         width: 100%;
     }
+    .favorites__card-btn {
+        padding: 8px 14px;
+    }
 }
 
 @media screen and (min-width: 1280px) {
     .favorites__card {
-        max-width: 258px;
+        width: 258px;
+        height: 287px;
     }
 
     .favorites__image-box {
