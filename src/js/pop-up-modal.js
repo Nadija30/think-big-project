@@ -14,6 +14,9 @@ export const refs = {
 if (refs.recipes) {
     refs.recipes.addEventListener('click', onBtnOpenClick);
 }
+if (refs.recipes) {
+    refs.recipes.addEventListener('click', onBtnOpenFavoriteClick);
+}
 if (refs.popular) {
     refs.popular.addEventListener('click', onPopularClick);
 }
@@ -55,6 +58,18 @@ function onBtnOpenClick(event) {
     modalRender(recipeID);
 }
 
+// Функція яка відкриває модалку з кнопки See recipe на Favorite
+function onBtnOpenFavoriteClick(event) {
+    if (!event.target.closest('.favorites__card-btn')) {
+        return;
+    }
+
+    // const recipeID = event.target.closest('.js-see-recipe').dataset.id;
+    recipeID = event.target.dataset.id;
+
+    modalRender(recipeID);
+}
+
 // Функція яка рендерить модалку
 function modalRender(ID) {
     getDataRecipeByID(ID);
@@ -76,6 +91,9 @@ function onBtnCloseClick() {
     videoIframe = document.querySelector('.pop-up-iframe iframe');
     if (videoIframe) {
         stopVideoOnCloseModal();
+    }
+    if (location.pathname === '/Favorites.html') {
+        location.reload();
     }
 }
 
