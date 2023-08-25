@@ -14,6 +14,9 @@ export const refs = {
 if (refs.recipes) {
     refs.recipes.addEventListener('click', onBtnOpenClick);
 }
+if (refs.recipes) {
+    refs.recipes.addEventListener('click', onBtnOpenFavoriteClick);
+}
 if (refs.popular) {
     refs.popular.addEventListener('click', onPopularClick);
 }
@@ -31,6 +34,7 @@ if (refs.recipeContainerBtn) {
     );
 }
 let recipeID = '';
+let videoIframe = '';
 
 // Функція яка відкриває модалку з Popular
 function onPopularClick(event) {
@@ -46,6 +50,18 @@ function onPopularClick(event) {
 // Функція яка відкриває модалку з кнопки See recipe
 function onBtnOpenClick(event) {
     if (!event.target.closest('.js-see-recipe')) {
+        return;
+    }
+
+    // const recipeID = event.target.closest('.js-see-recipe').dataset.id;
+    recipeID = event.target.dataset.id;
+
+    modalRender(recipeID);
+}
+
+// Функція яка відкриває модалку з кнопки See recipe на Favorite
+function onBtnOpenFavoriteClick(event) {
+    if (!event.target.closest('.favorites__card-btn')) {
         return;
     }
 
@@ -76,6 +92,10 @@ function onBtnCloseClick() {
     videoIframe = document.querySelector('.pop-up-iframe iframe');
     if (videoIframe) {
         stopVideoOnCloseModal();
+    }
+
+    if (location.pathname.includes('Favorites.html')) {
+        location.reload();
     }
 }
 

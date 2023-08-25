@@ -9,6 +9,7 @@
     --light-modal-background-color: #fff;
     --transition: scale 300ms linear;
     --accent-color-dark: #9bb537;
+    --mobile-active-link-color: #fff;
     /* --light-color-dark: #fff */
 
     /* Colors that will change for Dark Theme */
@@ -59,7 +60,7 @@
     --light-theme-scrollbar-color-categories: #ffffff2e;
     --light-theme-scrollbar-color-select: #ffffff1a;
     --accent-color-dark: #050505;
-    /* --accent-color: #9bb537 */
+    --mobile-active-link-color: #9bb537;
 }
 
 .base-btn {
