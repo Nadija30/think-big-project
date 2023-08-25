@@ -103,6 +103,13 @@
     gap: 4;
 }
 
+.card__star__wrap {
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
 .card__rating .rating__icon {
     fill: var(--light-theme-card-stars-color);
     fill-opacity: 0.1;
@@ -115,8 +122,8 @@
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
     .card__rating .rating__icon {
-        width: 16px;
-        height: 16px;
+        width: 12px;
+        height: 12px;
     }
 }
 

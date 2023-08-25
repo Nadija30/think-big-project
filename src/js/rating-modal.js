@@ -103,9 +103,8 @@ export function initRatings() {
             starWrap.classList.add(`card__star__wrap`);
 
             starSvg.setAttribute('viewBox', '0 0 32 32');
-            starSvg.setAttribute('width', '18');
-            starSvg.setAttribute('height', '18');
-            starSvg.setAttribute('alt', 'rating star');
+            starSvg.setAttribute('width', '14');
+            starSvg.setAttribute('height', '14');
 
             starSvg.classList.add('rating__icon');
 

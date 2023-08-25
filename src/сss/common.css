@@ -8,11 +8,10 @@
     --btn-text-color: #f8f8f8;
     --light-modal-background-color: #fff;
     --transition: scale 300ms linear;
-   --accent-color-dark: #9bb537;
+    --accent-color-dark: #9bb537;
     --mobile-active-link-color: #fff;
-    /* --light-color-dark: #fff */ 
-  
-  
+    /* --light-color-dark: #fff */
+
     /* Colors that will change for Dark Theme */
     --light-theme-text-color: #050505;
     /* transparent 50% */
@@ -25,8 +24,8 @@
     --light-theme-card-stars-color: #f8f8f8;
     --light-theme-background-color-cards-gradient: linear-gradient(
         1deg,
-        #05050599 0%,
-        #05050500 100%
+        #05050599,
+        #05050500
     );
     --light-theme-scrollbar-color-categories: #0505052e;
     --light-theme-scrollbar-color-select: #0505051a;
@@ -55,12 +54,12 @@
     --light-theme-card-stars: #fff;
     --light-theme-background-color-cards-gradient: linear-gradient(
         1deg,
-        #05050500 0%,
-        #05050500 100%
+        #05050500,
+        #05050500
     );
     --light-theme-scrollbar-color-categories: #ffffff2e;
     --light-theme-scrollbar-color-select: #ffffff1a;
-    --accent-color-dark: #050505; 
+    --accent-color-dark: #050505;
     --mobile-active-link-color: #9bb537;
 }
 
